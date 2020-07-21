@@ -9,7 +9,7 @@ namespace XLocalizer.Translate
     /// It is provided just to avoid the exceptions where having 
     /// a registered translation service is a must.
     /// </summary>
-    public class DummyTranslator : IStringTranslator
+    public class DummyTranslator : ITranslator
     {
         private readonly ILogger _logger;
 

@@ -15,15 +15,15 @@ namespace XLocalizer.Translate
         /// <typeparam name="TTranslator">IStringTranslator</typeparam>
         /// <returns></returns>
         public static IMvcBuilder WithTranslationService<TTranslator>(this IMvcBuilder builder)
-            where TTranslator : IStringTranslator
+            where TTranslator : ITranslator
         {
             // Register string translator factory to create StringTranslator on demand
-            builder.Services.AddSingleton<IStringTranslatorFactory, StringTranslatorFactory<TTranslator>>();
+            builder.Services.AddSingleton<ITranslatorFactory, TranslatorFactory<TTranslator>>();
 
             // Try register a dummy translation service if no other service is registered
             // This dummy service will throw an exception to direct the developer to register
             // the necessary translation service
-            builder.Services.TryAddSingleton<IStringTranslator, DummyTranslator>();
+            builder.Services.TryAddSingleton<ITranslator, DummyTranslator>();
 
             return builder;
         }

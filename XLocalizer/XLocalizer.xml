@@ -1164,72 +1164,6 @@
             <param name="translation"></param>
             <returns></returns>
         </member>
-        <member name="T:XLocalizer.Translate.IXTranslator`1">
-            <summary>
-            Generic interface to implement XTranslator service
-            that will connext to external translation services
-            </summary>
-            <typeparam name="TTranslator"></typeparam>
-        </member>
-        <member name="T:XLocalizer.Translate.IXTranslator">
-            <summary>
-            Interface to implement ExpressTranslator service
-            that will connext to external translation services
-            </summary>
-        </member>
-        <member name="M:XLocalizer.Translate.IXTranslator.TryTranslate(System.String,System.String,System.String@)">
-            <summary>
-            Try get translation
-            </summary>
-            <param name="text"></param>
-            <param name="format">text ot html</param>
-            <param name="translation"></param>
-            <returns></returns>
-        </member>
-        <member name="M:XLocalizer.Translate.IXTranslator.TryTranslate(System.String,System.String,System.String,System.String,System.String@)">
-            <summary>
-            Try get translation
-            </summary>
-            <param name="text"></param>
-            <param name="from"></param>
-            <param name="to"></param>
-            <param name="format">text or html</param>
-            <param name="translation"></param>
-            <returns></returns>
-        </member>
-        <member name="T:XLocalizer.Translate.XTranslator`1">
-            <summary>
-            XTranslator to get a translated text from the default translation service
-            </summary>
-        </member>
-        <member name="M:XLocalizer.Translate.XTranslator`1.#ctor(System.Collections.Generic.IEnumerable{XLocalizer.Translate.IStringTranslator},Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Builder.RequestLocalizationOptions},Microsoft.Extensions.Logging.ILogger{XLocalizer.Translate.XTranslator{`0}})">
-            <summary>
-            Initialize a new instance of ExpressTranslator
-            </summary>
-            <param name="translationServices"></param>
-            <param name="options"></param>
-            <param name="logger"></param>
-        </member>
-        <member name="M:XLocalizer.Translate.XTranslator`1.TryTranslate(System.String,System.String,System.String,System.String,System.String@)">
-            <summary>
-            Try translate a text
-            </summary>
-            <param name="text"></param>
-            <param name="from"></param>
-            <param name="to"></param>
-            <param name="format">text ot html</param>
-            <param name="translation"></param>
-            <returns></returns>
-        </member>
-        <member name="M:XLocalizer.Translate.XTranslator`1.TryTranslate(System.String,System.String,System.String@)">
-            <summary>
-            Try translate a text
-            </summary>
-            <param name="text"></param>
-            <param name="format">text ot html</param>
-            <param name="translation"></param>
-            <returns></returns>
-        </member>
         <member name="T:XLocalizer.XHtmlLocalizer`1">
             <summary>
             Html localizer
@@ -1474,7 +1408,7 @@
             </summary>
             <typeparam name="TResource"></typeparam>
         </member>
-        <member name="M:XLocalizer.XStringLocalizer`1.#ctor(XLocalizer.Common.ExpressMemoryCache,XLocalizer.Translate.IStringTranslatorFactory,XLocalizer.IXResourceProvider,Microsoft.Extensions.Options.IOptions{XLocalizer.XLocalizerOptions},Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Builder.RequestLocalizationOptions},Microsoft.Extensions.Logging.ILoggerFactory)">
+        <member name="M:XLocalizer.XStringLocalizer`1.#ctor(XLocalizer.Common.ExpressMemoryCache,XLocalizer.Translate.ITranslatorFactory,XLocalizer.IXResourceProvider,Microsoft.Extensions.Options.IOptions{XLocalizer.XLocalizerOptions},Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Builder.RequestLocalizationOptions},Microsoft.Extensions.Logging.ILoggerFactory)">
             <summary>
             Initialize a new instance of <see cref="T:XLocalizer.XStringLocalizer`1"/>
             </summary>
@@ -1519,7 +1453,7 @@
             Factory to create <see cref="T:XLocalizer.XStringLocalizer`1"/>
             </summary>
         </member>
-        <member name="M:XLocalizer.XStringLocalizerFactory`1.#ctor(XLocalizer.Common.ExpressMemoryCache,XLocalizer.Translate.IStringTranslatorFactory,XLocalizer.IXResourceProvider,Microsoft.Extensions.Options.IOptions{XLocalizer.XLocalizerOptions},Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Builder.RequestLocalizationOptions},Microsoft.Extensions.Logging.ILoggerFactory)">
+        <member name="M:XLocalizer.XStringLocalizerFactory`1.#ctor(XLocalizer.Common.ExpressMemoryCache,XLocalizer.Translate.ITranslatorFactory,XLocalizer.IXResourceProvider,Microsoft.Extensions.Options.IOptions{XLocalizer.XLocalizerOptions},Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Builder.RequestLocalizationOptions},Microsoft.Extensions.Logging.ILoggerFactory)">
             <summary>
             Initialize a new instance of <see cref="T:XLocalizer.XStringLocalizerFactory`1"/>
             </summary>

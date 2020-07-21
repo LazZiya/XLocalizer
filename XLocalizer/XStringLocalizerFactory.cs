@@ -17,7 +17,7 @@ namespace XLocalizer
         where TResource : class
     {
         private readonly ExpressMemoryCache _cache;
-        private readonly IStringTranslatorFactory _translatorFactory;
+        private readonly ITranslatorFactory _translatorFactory;
         private readonly IXResourceProvider _provider;
         private readonly IOptions<XLocalizerOptions> _options;
         private readonly IOptions<RequestLocalizationOptions> _localizationOptions;
@@ -36,7 +36,7 @@ namespace XLocalizer
         /// <param name="loggerFactory"></param>
         /// <param name="localizationOptions"></param>
         public XStringLocalizerFactory(ExpressMemoryCache cache,
-                                       IStringTranslatorFactory translatorFactory,
+                                       ITranslatorFactory translatorFactory,
                                        IXResourceProvider provider,
                                        IOptions<XLocalizerOptions> options,
                                        IOptions<RequestLocalizationOptions> localizationOptions,

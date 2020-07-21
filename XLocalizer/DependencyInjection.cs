@@ -39,7 +39,7 @@ namespace XLocalizer
         /// <returns></returns>
         public static IMvcBuilder AddXLocalizer<TResource, TTranslator>(this IMvcBuilder builder)
             where TResource : class
-            where TTranslator : IStringTranslator
+            where TTranslator : ITranslator
         {
             return builder.AddXLocalizer<TResource, TTranslator>(o => o = new XLocalizerOptions());
         }
@@ -67,7 +67,7 @@ namespace XLocalizer
         /// <returns></returns>
         public static IMvcBuilder AddXLocalizer<TResource, TTranslator>(this IMvcBuilder builder, Action<XLocalizerOptions> options)
             where TResource : class
-            where TTranslator : IStringTranslator
+            where TTranslator : ITranslator
         {
             builder.Services.Configure<XLocalizerOptions>(options);
 
