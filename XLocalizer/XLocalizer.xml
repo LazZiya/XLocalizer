@@ -1,0 +1,1564 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>XLocalizer</name>
+    </assembly>
+    <members>
+        <member name="T:XLocalizer.Common.CultureSwitcher">
+            <summary>
+            Switches the current culture to a specific culture then return to the original culture and dispose.
+            Since Localizer.WithCultre has became obsolete, 
+            this is a solution to retrive a string from specific culture resource file
+            <see ref="https://github.com/aspnet/AspNetCore/issues/7756"/>
+            <see ref="https://github.com/jcemoller/culture-switcher/blob/master/src/CultureSwitcher.cs"/>
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Common.CultureSwitcher.#ctor(System.String)">
+            <summary>
+            Since Localizer.WithCultre has became obsolete, 
+            this is a solution to retrive a string from specific culture resource file
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Common.CultureSwitcher.Dispose">
+            <summary>
+            dispose...
+            </summary>
+        </member>
+        <member name="T:XLocalizer.Common.ExpressMemoryCache">
+            <summary>
+            Provides an IMemoryCache service to save localized values in a memory cache
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Common.ExpressMemoryCache.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.Extensions.Options.IOptions{Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions},Microsoft.Extensions.Options.IOptions{XLocalizer.XLocalizerOptions})">
+            <summary>
+            Create a new instance of ExpressMemoryCache
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Common.ExpressMemoryCache.Set(System.String,System.String)">
+            <summary>
+            Add new entry to the cache
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:XLocalizer.Common.ExpressMemoryCache.Remove(System.String)">
+            <summary>
+            Remove entry from cache
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:XLocalizer.Common.ExpressMemoryCache.TryGetValue(System.String,System.String@)">
+            <summary>
+            Get a cached item from the memory cache
+            </summary>
+            <param name="key"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.Common.IExpressHtmlLocalizerFactory">
+            <summary>
+            Interface to create IHtmlLocalizer with the default (shared) resource type
+            using .Create() method that takes no parameters
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Common.IExpressHtmlLocalizerFactory.Create">
+            <summary>
+            Create new HtmlLocalizer based on default type and default translation service
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.Common.IExpressStringLocalizerFactory">
+            <summary>
+            Interface to create IStringLocalizer with the default (shared) resource type
+            using .Create() method that takes no parameters
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Common.IExpressStringLocalizerFactory.Create">
+            <summary>
+            Create new StringLocalizer based on default type
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.Common.ResourceTypeHelper">
+             <summary>
+             Generate fully qualified resource name
+             ResourceManager looks for .resources files in the project output directory.
+             So if our resource file is .\LocalizationResources\LocSource.tr.resx
+             Then ResourceManager will look for: SampleProject.LocalizationResources.LocSource.tr.resources
+            
+             The resource name must be in the following format:
+             {assembly-name}.{resources-folder}.{resource-namespace}.{resource-name}
+             e.g. SampleProject.LocalizationResources.LocSource
+             e.g. SampleProject.LocalizationResources.Pages.Products.IndexModel
+            
+             The challenge is when we have a type name for a PageModel out of resources-folder,
+             such type has no class inside the resources folder, so we have to reconstruct the
+             type full name to fulfill above format.
+             </summary>
+        </member>
+        <member name="M:XLocalizer.Common.ResourceTypeHelper.CreateCompiledResourceName(System.Type,System.String)">
+            <summary>
+            Create the compiled reource name from type and location
+            </summary>
+            <param name="type"></param>
+            <param name="location">Resources folder path</param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Common.ResourceTypeHelper.CreateResourceName(System.Type,System.String)">
+            <summary>
+            Create a reource name from type and location
+            </summary>
+            <param name="type"></param>
+            <param name="location">Resources folder path</param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Common.ResourceTypeHelper.GetResourceType(System.String,System.String)">
+            <summary>
+            Create a type name from basename and location
+            </summary>
+            <param name="baseName">Type full name</param>
+            <param name="location">Assembly name</param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.Common.TextTrimmer">
+            <summary>
+            Trim all whitespaces in a string (start, end and between)
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExCompareAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExCompareAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
+            <summary>
+            
+            </summary>
+            <param name="attribute"></param>
+            <param name="stringLocalizer"></param>
+        </member>
+        <member name="T:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages">
+            <summary>
+            Original messages obtained from <a href="https://github.com/dotnet/corefx/blob/master/src/System.ComponentModel.Annotations/src/Resources/Strings.resx"/>
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.ArgumentIsNullOrWhitespace">
+            <summary>
+            The argument '{0}' cannot be null, empty or contain only whitespace.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.AssociatedMetadataTypeTypeDescriptor_MetadataTypeContainsUnknownProperties">
+            <summary>
+            The associated metadata type for type '{0}' contains the following unknown properties or fields: {1}. Please make sure that the names of these members match the names of the properties on the main type.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.AttributeStore_Unknown_Property">
+            <summary>
+            The type '{0}' does not contain a public property named '{1}'.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.Common_PropertyNotFound">
+            <summary>
+            The property {0}.{1} could not be found.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.CompareAttribute_MustMatch">
+            <summary>
+            '{0}' and '{1}' do not match.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.CompareAttribute_UnknownProperty">
+            <summary>
+            Could not find a property named {0}.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.CreditCardAttribute_Invalid">
+            <summary>
+            The {0} field is not a valid credit card number.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.CustomValidationAttribute_Method_Must_Return_ValidationResult">
+            <summary>
+            The CustomValidationAttribute method '{0}' in type '{1}' must return System.ComponentModel.DataAnnotations.ValidationResult.  Use System.ComponentModel.DataAnnotations.ValidationResult.Success to represent success.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.CustomValidationAttribute_Method_Not_Found">
+            <summary>
+            The CustomValidationAttribute method '{0}' does not exist in type '{1}' or is not public and static.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.CustomValidationAttribute_Method_Required">
+            <summary>
+            The CustomValidationAttribute.Method was not specified.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.CustomValidationAttribute_Method_Signature">
+            <summary>
+            The CustomValidationAttribute method '{0}' in type '{1}' must match the expected signature: public static ValidationResult {0}(object value, ValidationContext context).  The value can be strongly typed.  The ValidationContext parameter is optional.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.CustomValidationAttribute_Type_Conversion_Failed">
+            <summary>
+            Could not convert the value of type '{0}' to '{1}' as expected by method {2}.{3}.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.CustomValidationAttribute_Type_Must_Be_Public">
+            <summary>
+            The custom validation type '{0}' must be public.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.CustomValidationAttribute_ValidationError">
+            <summary>
+            {0} is not valid.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.CustomValidationAttribute_ValidatorType_Required">
+            <summary>
+            The CustomValidationAttribute.ValidatorType was not specified.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.DataTypeAttribute_EmptyDataTypeString">
+            <summary>
+            The custom DataType string cannot be null or empty.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.DisplayAttribute_PropertyNotSet">
+            <summary>
+            The {0} property has not been set.  Use the {1} method to get the value.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.EmailAddressAttribute_Invalid">
+            <summary>
+            The {0} field is not a valid e-mail address.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.EnumDataTypeAttribute_TypeCannotBeNull">
+            <summary>
+            The type provided for EnumDataTypeAttribute cannot be null.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.EnumDataTypeAttribute_TypeNeedsToBeAnEnum">
+            <summary>
+            The type '{0}' needs to represent an enumeration type.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.FileExtensionsAttribute_Invalid">
+            <summary>
+            The {0} field only accepts files with the following extensions: {1}
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.LengthAttribute_InvalidValueType">
+            <summary>
+            The field of type {0} must be a string, array or ICollection type.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.LocalizableString_LocalizationFailed">
+            <summary>
+            Cannot retrieve property '{0}' because localization failed.  Type '{1}' is not public or does not contain a public static string property with the name '{2}'.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.MaxLengthAttribute_InvalidMaxLength">
+            <summary>
+            MaxLengthAttribute must have a Length value that is greater than zero. Use MaxLength() without parameters to indicate that the string or array can have the maximum allowable length.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.MaxLengthAttribute_ValidationError">
+            <summary>
+            The field {0} must be a string or array type with a maximum length of '{1}'.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.MetadataTypeAttribute_TypeCannotBeNull">
+            <summary>
+            MetadataClassType cannot be null.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.MinLengthAttribute_InvalidMinLength">
+            <summary>
+            MinLengthAttribute must have a Length value that is zero or greater.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.MinLengthAttribute_ValidationError">
+            <summary>
+            The field {0} must be a string or array type with a minimum length of '{1}'.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.PhoneAttribute_Invalid">
+            <summary>
+            The {0} field is not a valid phone number.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.RangeAttribute_ArbitraryTypeNotIComparable">
+            <summary>
+            The type {0} must implement {1}.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.RangeAttribute_MinGreaterThanMax">
+            <summary>
+            The maximum value '{0}' must be greater than or equal to the minimum value '{1}'.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.RangeAttribute_Must_Set_Min_And_Max">
+            <summary>
+            The minimum and maximum values must be set.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.RangeAttribute_Must_Set_Operand_Type">
+            <summary>
+            The OperandType must be set when strings are used for minimum and maximum values.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.RangeAttribute_ValidationError">
+            <summary>
+            The field {0} must be between {1} and {2}.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.RegexAttribute_ValidationError">
+            <summary>
+            The field {0} must match the regular expression '{1}'.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.RegularExpressionAttribute_Empty_Pattern">
+            <summary>
+            The pattern must be set to a valid regular expression.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.RequiredAttribute_ValidationError">
+            <summary>
+            The {0} field is required.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.StringLengthAttribute_InvalidMaxLength">
+            <summary>
+            The maximum length must be a nonnegative integer.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.StringLengthAttribute_ValidationError">
+            <summary>
+            The field {0} must be a string with a maximum length of {1}.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.StringLengthAttribute_ValidationErrorIncludingMinimum">
+            <summary>
+            The field {0} must be a string with a minimum length of {2} and a maximum length of {1}.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.UIHintImplementation_ControlParameterKeyIsNotAString">
+            <summary>
+            The key parameter at position {0} with value '{1}' is not a string. Every key control parameter must be a string.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.UIHintImplementation_ControlParameterKeyIsNull">
+            <summary>
+            The key parameter at position {0} is null. Every key control parameter must be a string.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.UIHintImplementation_ControlParameterKeyOccursMoreThanOnce">
+            <summary>
+            The key parameter at position {0} with value '{1}' occurs more than once.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.UIHintImplementation_NeedEvenNumberOfControlParameters">
+            <summary>
+            The number of control parameters must be even.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.UrlAttribute_Invalid">
+            <summary>
+            The {0} field is not a valid fully-qualified http, https, or ftp URL.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.ValidationAttribute_Cannot_Set_ErrorMessage_And_Resource">
+            <summary>
+            Either ErrorMessageString or ErrorMessageResourceName must be set, but not both.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.ValidationAttribute_IsValid_NotImplemented">
+            <summary>
+            IsValid(object value) has not been implemented by this class.  The preferred entry point is GetValidationResult() and classes should override IsValid(object value, ValidationContext context).
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.ValidationAttribute_NeedBothResourceTypeAndResourceName">
+            <summary>
+            Both ErrorMessageResourceType and ErrorMessageResourceName need to be set on this attribute.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.ValidationAttribute_ResourcePropertyNotStringType">
+            <summary>
+            The property '{0}' on resource type '{1}' is not a string type.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.ValidationAttribute_ResourceTypeDoesNotHaveProperty">
+            <summary>
+            The resource type '{0}' does not have an accessible static property named '{1}'.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.ValidationAttribute_ValidationError">
+            <summary>
+            The field {0} is invalid.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.Validator_InstanceMustMatchValidationContextInstance">
+            <summary>
+            The instance provided must match the ObjectInstance on the ValidationContext supplied.
+            </summary>
+        </member>
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.Validator_Property_Value_Wrong_Type">
+            <summary>
+            The value for property '{0}' must be of type '{1}'.
+            </summary>
+        </member>
+        <member name="T:XLocalizer.DataAnnotations.DependencyInjection">
+            <summary>
+            Extesnions for adding DataAnnotation Localization
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.DependencyInjection.AddDataAnnotationsLocalization``1(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            Add DataAnnotations localization with specified resource type.
+            </summary>
+            <typeparam name="TResource">Type of DataAnnotations localization resource</typeparam>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.DataAnnotations.ExCompareAttribute">
+            <summary>
+            Provides an attribute that compares two properties, and produces localized error message.
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.ExCompareAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the XLocalizer.DataAnnotations.ExCompareAttribute class.
+            <paramref name="otherProperty">The property to compare with the current property.</paramref>
+            </summary>
+        </member>
+        <member name="T:XLocalizer.DataAnnotations.ExMaxLengthAttribute">
+            <summary>
+            Specifies the maximum length of array or string data allowed in a property. And produces localized error message.
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.ExMaxLengthAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the XLocalizer.DataAnnotations.ExMaxLengthAttribute class
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.ExMaxLengthAttribute.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the XLocalizer.DataAnnotations.ExMaxLengthAttribute class based on the length parameter.
+            </summary>
+            <param name="length">The maximum allowable length of array or string data.</param>
+        </member>
+        <member name="T:XLocalizer.DataAnnotations.ExMinLengthAttribute">
+            <summary>
+            Specifies the minimum length of array or string data allowed in a property. And produces loclaized error message.
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.ExMinLengthAttribute.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the System.ComponentModel.DataAnnotations.MinLengthAttribute
+            </summary>
+            <param name="length"></param>
+        </member>
+        <member name="T:XLocalizer.DataAnnotations.ExpressValidationAttributeAdapterProvider">
+            <summary>
+            Registeres express valdiation attributes
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.ExpressValidationAttributeAdapterProvider.#ctor">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.DataAnnotations.ExpressValidationAttributeAdapterProvider"/>
+            </summary>
+        </member>
+        <member name="T:XLocalizer.DataAnnotations.ExRangeAttribute">
+            <summary>
+            Specifies the numeric range constraints for the value of a data field. And produces localized error message.
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.ExRangeAttribute.#ctor(System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the LazZiya.ExpressLocalizatin.DataAnnotations.ExRangeAttribute class 
+            by using the specified minimum and maximum values.
+            </summary>
+            <param name="minimum">Specifies the minimum value allowed for the data field value.</param>
+            <param name="maximum">Specifies the maximum value allowed for the data field value.</param>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.ExRangeAttribute.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the LazZiya.ExpressLocalizatin.DataAnnotations.ExRangeAttribute class 
+            by using the specified minimum and maximum values.
+            </summary>
+            <param name="minimum">Specifies the minimum value allowed for the data field value.</param>
+            <param name="maximum">Specifies the maximum value allowed for the data field value.</param>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.ExRangeAttribute.#ctor(System.Type,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the XLocalizer.DataAnnotations.ExRangeAttribute
+                class by using the specified minimum and maximum values and the specific type.
+            </summary>
+            <param name="type">Specifies the type of the object to test.</param>
+            <param name="minimum">Specifies the minimum value allowed for the data field value.</param>
+            <param name="maximum">Specifies the maximum value allowed for the data field value.</param>
+            <exception cref="T:System.ArgumentNullException">
+            Type is null
+            </exception>
+        </member>
+        <member name="T:XLocalizer.DataAnnotations.ExRegularExpressionAttribute">
+            <summary>
+            Specifies that a data field value in ASP.NET Dynamic Data must match the specified regular expression.
+            And proivdes locaized error message.
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.ExRegularExpressionAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the XLocalizer.DataAnnotations.ExRegularExpressionAttribute class
+            </summary>
+            <param name="pattern">The regular expression that is used to validate the data field value.</param>
+            <exception cref="T:System.ArgumentNullException">
+            pattern is null.
+            </exception>
+        </member>
+        <member name="T:XLocalizer.DataAnnotations.ExRequiredAttribute">
+            <summary>
+            Specifies that a data field is required, and provides a localized error message
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.ExRequiredAttribute.#ctor">
+            <summary>
+            Initializes a new instance of the XLocalizer.DataAnnotations.ExRequiredAttribute class.
+            </summary>
+        </member>
+        <member name="T:XLocalizer.DataAnnotations.ExStringLengthAttribute">
+            <summary>
+            Specifies the minimum and maximum length of characters that are allowed in a data field. 
+            And provides a localized error message
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.ExStringLengthAttribute.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the XLocalizer.DataAnnotations.ExStringLengthAttribute 
+            class by using a specified maximum length.
+            </summary>
+            <param name="maximumLength">The maximum length of a string.</param>
+        </member>
+        <member name="T:XLocalizer.DependencyInjection">
+            <summary>
+            DI
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DependencyInjection.AddXLocalizer``1(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            Register all XLocalization services...
+            </summary>
+            <typeparam name="TResource">Resource file type</typeparam>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.DependencyInjection.AddXLocalizer``2(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            Register all XLocalization services...
+            </summary>
+            <typeparam name="TResource">Resource file type</typeparam>
+            <typeparam name="TTranslator">Translation service type</typeparam>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.DependencyInjection.AddXLocalizer``1(Microsoft.Extensions.DependencyInjection.IMvcBuilder,System.Action{XLocalizer.XLocalizerOptions})">
+            <summary>
+            Register all XLocalization services...
+            </summary>
+            <typeparam name="TResource">Resource file type</typeparam>
+            <param name="builder"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.DependencyInjection.AddXLocalizer``2(Microsoft.Extensions.DependencyInjection.IMvcBuilder,System.Action{XLocalizer.XLocalizerOptions})">
+            <summary>
+            Register all XLocalization services...
+            </summary>
+            <typeparam name="TResource">Resource file type</typeparam>
+            <typeparam name="TTranslator">Translation service type</typeparam>
+            <param name="builder"></param>
+            <param name="options"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.Identity.DependencyInjection">
+            <summary>
+            Extesnions for adding Identity errors localization
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Identity.DependencyInjection.AddIdentityErrorsLocalization(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            Add DataAnnotations, ModelBinding and IdentityErrors localization to the project.
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.Identity.IdentityErrorsLocalizer">
+            <summary>
+            Identity describer errors localizer.
+            Original mesages obtained from: https://github.com/aspnet/AspNetCore/blob/master/src/Identity/Extensions.Core/src/Resources.resx
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.#ctor(Microsoft.Extensions.Localization.IStringLocalizer)">
+            <summary>
+            Initialize identity erroors localization based on DB locailzer
+            </summary>
+            <param name="localizer"></param>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.DuplicateEmail(System.String)">
+            <summary>
+            "Email '{0}' is already taken."
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.DuplicateUserName(System.String)">
+            <summary>
+            "User name '{0}' is already taken."
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.InvalidEmail(System.String)">
+            <summary>
+            "Email '{0}' is invalid."
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.DuplicateRoleName(System.String)">
+            <summary>
+            "Role name '{0}' is already taken."
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.InvalidRoleName(System.String)">
+            <summary>
+            "Role name '{0}' is invalid."
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.InvalidToken">
+            <summary>
+            "Invalid token."
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.InvalidUserName(System.String)">
+            <summary>
+            "User name '{0}' is invalid, can only contain letters or digits."
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.LoginAlreadyAssociated">
+            <summary>
+            "A user with this login already exists."
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.PasswordMismatch">
+            <summary>
+            "Incorrect password."
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.PasswordRequiresDigit">
+            <summary>
+            "Passwords must have at least one digit ('0'-'9')."
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.PasswordRequiresLower">
+            <summary>
+            "Passwords must have at least one lowercase ('a'-'z')."
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.PasswordRequiresNonAlphanumeric">
+            <summary>
+            "Passwords must have at least one non alphanumeric character."
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.PasswordRequiresUniqueChars(System.Int32)">
+            <summary>
+            "Passwords must use at least {0} different characters."
+            </summary>
+            <param name="uniqueChars"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.PasswordRequiresUpper">
+            <summary>
+            "Passwords must have at least one uppercase ('A'-'Z')."
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.PasswordTooShort(System.Int32)">
+            <summary>
+            "Passwords must be at least {0} characters."
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.UserAlreadyHasPassword">
+            <summary>
+            "User already has a password set."
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.UserAlreadyInRole(System.String)">
+            <summary>
+            "User already in role '{0}'."
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.UserNotInRole(System.String)">
+            <summary>
+            "User is not in role '{0}'."
+            </summary>
+            <param name="role"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.UserLockoutNotEnabled">
+            <summary>
+            "Lockout is not enabled for this user."
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.RecoveryCodeRedemptionFailed">
+            <summary>
+            "Recovery code redemption failed."
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.ConcurrencyFailure">
+            <summary>
+            "Optimistic concurrency failure, object has been modified."
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.DefaultError">
+            <summary>
+            "An unknown failure has occurred."
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.IXResourceExporter">
+            <summary>
+            Interface to implement resource exporters to .resx file
+            </summary>
+        </member>
+        <member name="M:XLocalizer.IXResourceExporter.ExportToResxAsync``1(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Export resources of specified type and culture to resx
+            </summary>
+            <typeparam name="TResource"></typeparam>
+            <param name="culture"></param>
+            <param name="approvedOnly"></param>
+            <param name="overwriteExistingKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.IXResourceExporter.ExportToResxAsync(System.Type,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Export xml data to resx
+            </summary>
+            <param name="type"></param>
+            <param name="culture"></param>
+            <param name="approvedOnly"></param>
+            <param name="overwriteExistingKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.IXResourceProvider">
+            <summary>
+            Interface to create custom localization providers depending on any file type.
+            </summary>
+        </member>
+        <member name="M:XLocalizer.IXResourceProvider.TryGetValue``1(System.String,System.String@)">
+            <summary>
+            Get a localized value from the resource.
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.IXResourceProvider.TrySetValue``1(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Set localized value into the resource.
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <param name="comment"></param>
+            <param name="isApproved">boolean value for automatically created resource keys. False by default.</param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.ModelBinding.DependencyInjection">
+            <summary>
+            Extesnions for adding DataAnnotation Localization
+            </summary>
+        </member>
+        <member name="M:XLocalizer.ModelBinding.DependencyInjection.AddModelBindingLocalization(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            Add ModelBinding localization to the project.
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.ModelBinding.ModelBindingErrorsExtensions">
+            <summary>
+            Original messages obtained from <a href="https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/Resources.resx"/>
+            </summary>
+        </member>
+        <member name="M:XLocalizer.ModelBinding.ModelBindingErrorsExtensions.SetLocalizedModelBindingErrorMessages(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelBindingMessageProvider,XLocalizer.Common.IExpressStringLocalizerFactory)">
+            <summary>
+            Use DB for localization
+            </summary>
+            <param name="provider"></param>
+            <param name="factory">localizer factory</param>
+        </member>
+        <member name="T:XLocalizer.Resx.ResxElement">
+            <summary>
+            Model for exporting DB entities to Resx file
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Resx.ResxElement.#ctor">
+            <summary>
+            Initialize a new instance of ResxElement
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Resx.ResxElement.#ctor(System.Xml.Linq.XElement)">
+            <summary>
+            Initializes a new instance of ResxElement from XElement
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="P:XLocalizer.Resx.ResxElement.Key">
+            <summary>
+            Resource key
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Resx.ResxElement.Value">
+            <summary>
+            Resource value
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Resx.ResxElement.Comment">
+            <summary>
+            Comment...
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Resx.ResxElement.Approved">
+            <summary>
+            A boolean value to indicate if the translation is approved
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Resx.ResxElement.ToXElement">
+            <summary>
+            Converts current ResxElement to XElement (resource file element)
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Resx.ResxElement.Equals(XLocalizer.Resx.ResxElement)">
+            <summary>
+            Determine if two elements are equal
+            </summary>
+            <param name="other"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.Resx.ResxResourceProvider">
+            <summary>
+            Localization provider to read localized values from resx files
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Resx.ResxResourceProvider.#ctor(Microsoft.Extensions.Options.IOptions{XLocalizer.XLocalizerOptions},Microsoft.Extensions.Logging.ILogger{XLocalizer.Resx.ResxResourceProvider})">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.Resx.ResxResourceProvider"/>
+            </summary>
+            <param name="options"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:XLocalizer.Resx.ResxResourceProvider.TryGetValue``1(System.String,System.String@)">
+            <summary>
+            Get value from resource
+            </summary>
+            <typeparam name="TResource"></typeparam>
+            <param name="name"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Resx.ResxResourceProvider.TrySetValue``1(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            NOT IMPLEMENTED
+            </summary>
+            <typeparam name="TResource"></typeparam>
+            <param name="name"></param>
+            <param name="value"></param>
+            <param name="comment"></param>
+            <param name="isApproved"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.Resx.ResxTemplate">
+            <summary>
+            Dummy class to create new resource files
+            </summary>
+        </member>
+        <member name="T:XLocalizer.Resx.ResxWriter">
+            <summary>
+            Create and write to resx resource files
+            </summary>
+        </member>
+        <member name="F:XLocalizer.Resx.ResxWriter.ResourceFilePath">
+            <summary>
+            Expose resource file path to external methods...
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Resx.ResxWriter.#ctor(System.Type,System.String,System.String,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Create a new instance of <see cref="T:XLocalizer.Resx.ResxWriter"/>
+            </summary>
+            <param name="type"></param>
+            <param name="location"></param>
+            <param name="culture"></param>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:XLocalizer.Resx.ResxWriter.#ctor(System.String,Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Create a new instance of <see cref="T:XLocalizer.Resx.ResxWriter"/> using the full resource path 
+            </summary>
+            <param name="resourceFullPath">Full path and name including culture and extension</param>
+            <param name="loggerFactory"></param>
+        </member>
+        <member name="M:XLocalizer.Resx.ResxWriter.AddRangeAsync(System.Collections.Generic.IEnumerable{XLocalizer.Resx.ResxElement},System.Boolean)">
+            <summary>
+            Add array of elements to the resource file
+            </summary>
+            <param name="elements"></param>
+            <param name="overWriteExistingKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Resx.ResxWriter.AddAsync(XLocalizer.Resx.ResxElement,System.Boolean)">
+            <summary>
+            Add an element to the resource file
+            </summary>
+            <param name="element"></param>
+            <param name="overWriteExistingKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Resx.ResxWriter.FindAsync(System.String)">
+            <summary>
+            Find resource by its key value
+            </summary>
+            <param name="key"></param>
+            <returns>XElement</returns>
+        </member>
+        <member name="M:XLocalizer.Resx.ResxWriter.SaveAsync">
+            <summary>
+            save the resource file
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.Routing.ConfigureApplicationCookieExtension">
+            <summary>
+            Extension to configure application cookie paths
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Routing.ConfigureApplicationCookieExtension.ConfigureApplicationCookie(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            Configure application cookie and add culture value to redirect path
+            so unauthorized users will be redirected to login page and the culture will not be lost
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Routing.ConfigureApplicationCookieExtension.DetectCurrentCulture(System.Collections.Generic.IList{Microsoft.AspNetCore.Localization.IRequestCultureProvider},Microsoft.AspNetCore.Http.HttpContext,System.Collections.Generic.IList{System.Globalization.CultureInfo},System.String)">
+            <summary>
+            Detect the culture for the current request according to the available cultures and their availability in the registered culture providers, 
+            if no culture is detected it will return default culture.
+            Use to detect the current culture for cookie authentication events.
+            </summary>
+            <param name="providers">List of currently registered culture providers</param>
+            <param name="httpContext">requests HttpContext</param>
+            <param name="cultures">List of supported cultures</param>
+            <param name="defCulture">default culture name</param>
+            <returns>ProviderCultureResult</returns>
+        </member>
+        <member name="T:XLocalizer.Routing.RouteSegmentRequestCultureProvider">
+            <summary>
+            Route segment request culture provider
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Routing.RouteSegmentRequestCultureProvider.#ctor(System.Collections.Generic.IList{System.Globalization.CultureInfo})">
+            <summary>
+            Initialize new intance of RouteSegmentRequestCultureProvider
+            </summary>
+            <param name="supportedCultures">list of supported cultures</param>
+        </member>
+        <member name="M:XLocalizer.Routing.RouteSegmentRequestCultureProvider.DetermineProviderCultureResult(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            Determine the culture resut according to the {culture} route paramter value
+            </summary>
+            <param name="httpContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.Routing.RouteTemplateModelConventionMvc">
+            <summary>
+            Configure global template for page route, so culture parameter will be placed at the beginning of the URL
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Routing.RouteTemplateModelConventionMvc.#ctor">
+            <summary>
+            Initialize a new instance of RouteTemplateModelConventionMvc to configure a global {culture?} route
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Routing.RouteTemplateModelConventionMvc.#ctor(System.String)">
+            <summary>
+            Initialize a new instance of RouteTemplateModelConventionMvc to configure a global {culture?} route
+            </summary>
+            <param name="cultureSegment"></param>
+        </member>
+        <member name="M:XLocalizer.Routing.RouteTemplateModelConventionMvc.Apply(Microsoft.AspNetCore.Mvc.ApplicationModels.ApplicationModel)">
+            <summary>
+            Add {culture?} route segment
+            </summary>
+            <param name="application"></param>
+        </member>
+        <member name="T:XLocalizer.Routing.RouteTemplateModelConventionRazorPages">
+            <summary>
+            Configure global template for page route, so culture parameter will be placed at the beginning of the URL
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Routing.RouteTemplateModelConventionRazorPages.Apply(Microsoft.AspNetCore.Mvc.ApplicationModels.PageRouteModel)">
+            <summary>
+            automatically invoked
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="T:XLocalizer.TagHelpers.LocalizationTagHelperBase">
+            <summary>
+            base class for localize tag helpers
+            </summary>
+        </member>
+        <member name="P:XLocalizer.TagHelpers.LocalizationTagHelperBase.Args">
+            <summary>
+            pass array of objects for arguments
+            </summary>
+        </member>
+        <member name="P:XLocalizer.TagHelpers.LocalizationTagHelperBase.Culture">
+            <summary>
+            Localize or translate contents to the specified target culture. Default is current culture.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.TagHelpers.LocalizationTagHelperBase.ResourceSource">
+            <summary>
+            Type of the localized resource
+            </summary>
+        </member>
+        <member name="M:XLocalizer.TagHelpers.LocalizationTagHelperBase.#ctor(XLocalizer.Common.IExpressHtmlLocalizerFactory)">
+            <summary>
+            Initialize a new instance of LocaizationTagHelperBase
+            </summary>
+            <param name="localizerFactory"></param>
+        </member>
+        <member name="M:XLocalizer.TagHelpers.LocalizationTagHelperBase.ProcessAsync(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext,Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)">
+            <summary>
+            process localize tag helper
+            </summary>
+            <param name="context"></param>
+            <param name="output"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.TagHelpers.LocalizeAttributesTagHelper">
+            <summary>
+            Localization tag helper, localize text inside <![CDATA[<localize>Hellow</localize>]]>
+            </summary>
+            
+        </member>
+        <member name="P:XLocalizer.TagHelpers.LocalizeAttributesTagHelper.Localize">
+            <summary>
+            Bool value, true to localize content
+            </summary>
+        </member>
+        <member name="P:XLocalizer.TagHelpers.LocalizeAttributesTagHelper.LocalizeAttribute">
+            <summary>
+            localize custom attribute fields
+            </summary>
+        </member>
+        <member name="M:XLocalizer.TagHelpers.LocalizeAttributesTagHelper.#ctor(XLocalizer.Common.IExpressHtmlLocalizerFactory,XLocalizer.Common.IExpressStringLocalizerFactory)">
+            <summary>
+            Initialize a new instance of LocaizatAttributesTagHelper
+            </summary>
+            <param name="htmlFactory"></param>
+            <param name="stringFactory"></param>
+        </member>
+        <member name="M:XLocalizer.TagHelpers.LocalizeAttributesTagHelper.ProcessAsync(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext,Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)">
+            <summary>
+            process localize tag helper
+            </summary>
+            <param name="context"></param>
+            <param name="output"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.TagHelpers.LocalizeTagHelper">
+            <summary>
+            Localization tag helper, localize text inside <![CDATA[<localize>Hellow</localize>]]>
+            </summary>
+        </member>
+        <member name="M:XLocalizer.TagHelpers.LocalizeTagHelper.#ctor(XLocalizer.Common.IExpressHtmlLocalizerFactory)">
+            <summary>
+            Initialize a new instance of LocalizeTagHelper
+            </summary>
+            <param name="localizerFactory"></param>
+        </member>
+        <member name="M:XLocalizer.TagHelpers.LocalizeTagHelper.ProcessAsync(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext,Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)">
+            <summary>
+            process localize tag helper
+            </summary>
+            <param name="context"></param>
+            <param name="output"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.Translate.DependencyInjection">
+            <summary>
+            Extensions to use translation services with XLocalizer
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Translate.DependencyInjection.WithTranslationService``1(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+            <summary>
+            Add XLocalizer with Xml based resources.
+            </summary>
+            <param name="builder"></param>
+            <typeparam name="TTranslator">IStringTranslator</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.Translate.DummyTranslator">
+            <summary>
+            This class has no any trnaslation functionality.
+            It is provided just to avoid the exceptions where having 
+            a registered translation service is a must.
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Translate.DummyTranslator.#ctor(Microsoft.Extensions.Logging.ILogger{XLocalizer.Translate.DummyTranslator})">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.Translate.DummyTranslator"/>
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="P:XLocalizer.Translate.DummyTranslator.ServiceName">
+            <summary>
+            Translation service name
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Translate.DummyTranslator.TranslateAsync(System.String,System.String,System.String,System.String)">
+            <summary>
+            This will return the same string with status code 306 (Unused).
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+            <param name="text"></param>
+            <param name="format"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Translate.DummyTranslator.TryTranslate(System.String,System.String,System.String,System.String@)">
+            <summary>
+            Try translate a text value, 
+            </summary>
+            <param name="source"></param>
+            <param name="target"></param>
+            <param name="text"></param>
+            <param name="translation"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.Translate.IXTranslator`1">
+            <summary>
+            Generic interface to implement XTranslator service
+            that will connext to external translation services
+            </summary>
+            <typeparam name="TTranslator"></typeparam>
+        </member>
+        <member name="T:XLocalizer.Translate.IXTranslator">
+            <summary>
+            Interface to implement ExpressTranslator service
+            that will connext to external translation services
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Translate.IXTranslator.TryTranslate(System.String,System.String,System.String@)">
+            <summary>
+            Try get translation
+            </summary>
+            <param name="text"></param>
+            <param name="format">text ot html</param>
+            <param name="translation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Translate.IXTranslator.TryTranslate(System.String,System.String,System.String,System.String,System.String@)">
+            <summary>
+            Try get translation
+            </summary>
+            <param name="text"></param>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="format">text or html</param>
+            <param name="translation"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.Translate.XTranslator`1">
+            <summary>
+            XTranslator to get a translated text from the default translation service
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Translate.XTranslator`1.#ctor(System.Collections.Generic.IEnumerable{XLocalizer.Translate.IStringTranslator},Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Builder.RequestLocalizationOptions},Microsoft.Extensions.Logging.ILogger{XLocalizer.Translate.XTranslator{`0}})">
+            <summary>
+            Initialize a new instance of ExpressTranslator
+            </summary>
+            <param name="translationServices"></param>
+            <param name="options"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:XLocalizer.Translate.XTranslator`1.TryTranslate(System.String,System.String,System.String,System.String,System.String@)">
+            <summary>
+            Try translate a text
+            </summary>
+            <param name="text"></param>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="format">text ot html</param>
+            <param name="translation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Translate.XTranslator`1.TryTranslate(System.String,System.String,System.String@)">
+            <summary>
+            Try translate a text
+            </summary>
+            <param name="text"></param>
+            <param name="format">text ot html</param>
+            <param name="translation"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.XHtmlLocalizer`1">
+            <summary>
+            Html localizer
+            </summary>
+            <typeparam name="TResource"></typeparam>
+        </member>
+        <member name="M:XLocalizer.XHtmlLocalizer`1.#ctor(Microsoft.Extensions.Localization.IStringLocalizerFactory)">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.XHtmlLocalizer"/> based on the default resource type
+            </summary>
+            <param name="stringLocalizerFactory"></param>
+        </member>
+        <member name="T:XLocalizer.XHtmlLocalizer">
+            <summary>
+            XHtml localizer
+            </summary>
+        </member>
+        <member name="M:XLocalizer.XHtmlLocalizer.#ctor(Microsoft.Extensions.Localization.IStringLocalizer)">
+            <summary>
+            Create a new instance of <see cref="T:XLocalizer.XHtmlLocalizer`1"/>
+            </summary>
+            <param name="strLocalizer"></param>
+        </member>
+        <member name="P:XLocalizer.XHtmlLocalizer.Item(System.String)">
+            <summary>
+            Get localized html string
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="P:XLocalizer.XHtmlLocalizer.Item(System.String,System.Object[])">
+            <summary>
+            Get localized html string with arguments
+            </summary>
+            <param name="name"></param>
+            <param name="arguments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.XHtmlLocalizer.GetAllStrings(System.Boolean)">
+            <summary>
+            TODO...
+            </summary>
+            <param name="includeParentCultures"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.XHtmlLocalizer.GetString(System.String)">
+            <summary>
+            Get localizes string
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.XHtmlLocalizer.GetString(System.String,System.Object[])">
+            <summary>
+            Get localized string
+            </summary>
+            <param name="name"></param>
+            <param name="arguments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.XHtmlLocalizer.GetHtmlString(System.String,System.Object[])">
+            <summary>
+            Get localized html string
+            </summary>
+            <param name="name"></param>
+            <param name="arguments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.XHtmlLocalizer.WithCulture(System.Globalization.CultureInfo)">
+            <summary>
+            NOT IMPLEMENTED! use <see cref="T:XLocalizer.Common.CultureSwitcher"/> instead.
+            </summary>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.XHtmlLocalizerFactory`1">
+            <summary>
+            Factory to create <see cref="T:XLocalizer.XHtmlLocalizer`1"/>
+            </summary>
+            <typeparam name="TResource"></typeparam>
+        </member>
+        <member name="M:XLocalizer.XHtmlLocalizerFactory`1.#ctor(XLocalizer.Common.IExpressStringLocalizerFactory)">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.XHtmlLocalizer`1"/>
+            </summary>
+            <param name="stringLocalizerFactory"></param>
+        </member>
+        <member name="M:XLocalizer.XHtmlLocalizerFactory`1.Create">
+            <summary>
+            Create a new <see cref="T:Microsoft.AspNetCore.Mvc.Localization.IHtmlLocalizer"/> based on the default reource type
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.XHtmlLocalizerFactory`1.Create(System.Type)">
+            <summary>
+            Create a new <see cref="T:Microsoft.AspNetCore.Mvc.Localization.IHtmlLocalizer"/> based on provided resource type
+            </summary>
+            <param name="resourceSource"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.XLocalizerOptions">
+            <summary>
+            Express localization options
+            </summary>
+        </member>
+        <member name="P:XLocalizer.XLocalizerOptions.ResourcesPath">
+            <summary>
+            The path to the resources folder e.g. "LocalizationResources"
+            </summary>
+        </member>
+        <member name="P:XLocalizer.XLocalizerOptions.ConfigureRedirectPaths">
+            <summary>
+            Optional : Add culture parameter to login, logout and access denied paths.
+            <para>default value = true</para>
+            <para>set to false if you need to configure the application cookie options manually</para>
+            </summary>
+        </member>
+        <member name="P:XLocalizer.XLocalizerOptions.RedirectToLoginPath">
+            <summary>
+            The default login path
+            <para>default value = "/Identity/Account/Login/"</para>
+            </summary>
+        </member>
+        <member name="P:XLocalizer.XLocalizerOptions.RedirectToLogoutPath">
+            <summary>
+            The default logout path
+            <para>default value = "/Identity/Account/Logout/"</para>
+            </summary>
+        </member>
+        <member name="P:XLocalizer.XLocalizerOptions.RedirectToAccessDeniedPath">
+            <summary>
+            The default access denied path
+            <para>default value = "/Identity/Account/AccessDenied/"</para>
+            </summary>
+        </member>
+        <member name="P:XLocalizer.XLocalizerOptions.UseExpressValidationAttributes">
+            <summary>
+            Express valdiation attributes provides already localized error messages.
+            Set to true by default. 
+            Set to false if you don't want to use express validation attributes.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.XLocalizerOptions.AutoAddKeys">
+            <summary>
+            If the key string is not found in the DB, it will be inserted autoamtically to the DB.
+            default: false
+            </summary>
+        </member>
+        <member name="P:XLocalizer.XLocalizerOptions.AutoTranslate">
+            <summary>
+            If the translation string is not found, it will be translated via registered translation servies.
+            default: false
+            Requires registering of one translation service at least. see <a href="...">Registering Translation Services for Localization</a>
+            </summary>
+        </member>
+        <member name="P:XLocalizer.XLocalizerOptions.UseExpressMemoryCache">
+            <summary>
+            ExpressMemory cache helps speeding up getting localized values from data stores.
+            It is helpful to set to false during development mode and to true in production.
+            Default value: true.
+            </summary>
+        </member>
+        <member name="T:XLocalizer.Xml.XmlResourceExporter">
+            <summary>
+            Export Xml resources to resx
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Xml.XmlResourceExporter.#ctor(Microsoft.Extensions.Options.IOptions{XLocalizer.XLocalizerOptions},Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.Xml.XmlResourceExporter"/>
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Xml.XmlResourceExporter.ExportToResxAsync``1(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Export xml data to resx
+            </summary>
+            <typeparam name="TResource"></typeparam>
+            <param name="culture"></param>
+            <param name="approvedOnly"></param>
+            <param name="overwriteExistingKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Xml.XmlResourceExporter.ExportToResxAsync(System.Type,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Export xml data to resx
+            </summary>
+            <param name="type"></param>
+            <param name="culture"></param>
+            <param name="approvedOnly"></param>
+            <param name="overwriteExistingKeys"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.Xml.XmlResourceProvider">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.Xml.XmlResourceProvider"/>
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Xml.XmlResourceProvider.#ctor(Microsoft.Extensions.Options.IOptions{XLocalizer.XLocalizerOptions},Microsoft.Extensions.Logging.ILogger{XLocalizer.Xml.XmlResourceProvider})">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.Xml.XmlResourceProvider"/>
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Xml.XmlResourceProvider.TryGetValue``1(System.String,System.String@)">
+            <summary>
+            Get a localized value from Xml source
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Xml.XmlResourceProvider.TrySetValue``1(System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Set a localized value into Xml source
+            </summary>
+            <param name="name"></param>
+            <param name="value"></param>
+            <param name="comment"></param>
+            <param name="isApproved">boolean value for automatically created resource keys. False by default.</param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Xml.XmlResourceProvider.GetXmlDocument(System.String)">
+            <summary>
+            Helper method to create Xml resource file
+            </summary>
+            <param name="fPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.Xml.XmlResourceProvider.Finalize">
+            <summary>
+            Dispose _lock;
+            </summary>
+        </member>
+        <member name="T:XLocalizer.Xml.XmlTemplate">
+            <summary>
+            Dummy class for accessing path of the XmlTemplate.xml file
+            </summary>
+        </member>
+        <member name="T:XLocalizer.XStringLocalizer`1">
+            <summary>
+            This is the place where we get/set localized values
+            from localization providers.
+            </summary>
+            <typeparam name="TResource"></typeparam>
+        </member>
+        <member name="M:XLocalizer.XStringLocalizer`1.#ctor(XLocalizer.Common.ExpressMemoryCache,XLocalizer.Translate.IStringTranslatorFactory,XLocalizer.IXResourceProvider,Microsoft.Extensions.Options.IOptions{XLocalizer.XLocalizerOptions},Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Builder.RequestLocalizationOptions},Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.XStringLocalizer`1"/>
+            </summary>
+            <param name="cache"></param>
+            <param name="translatorFactory"></param>
+            <param name="provider"></param>
+            <param name="loggerFactory"></param>
+            <param name="localizationOptions"></param>
+            <param name="options"></param>
+        </member>
+        <member name="P:XLocalizer.XStringLocalizer`1.Item(System.String)">
+            <summary>
+            Get LocalizedString
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="P:XLocalizer.XStringLocalizer`1.Item(System.String,System.Object[])">
+            <summary>
+            Get LocalizedString with arguments
+            </summary>
+            <param name="name"></param>
+            <param name="arguments"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.XStringLocalizer`1.GetAllStrings(System.Boolean)">
+            <summary>
+            TODO...
+            </summary>
+            <param name="includeParentCultures"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.XStringLocalizer`1.WithCulture(System.Globalization.CultureInfo)">
+            <summary>
+            NOT IMPLEMENTED! use <see cref="T:XLocalizer.Common.CultureSwitcher"/> instead.
+            </summary>
+            <param name="culture"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.XStringLocalizerFactory`1">
+            <summary>
+            Factory to create <see cref="T:XLocalizer.XStringLocalizer`1"/>
+            </summary>
+        </member>
+        <member name="M:XLocalizer.XStringLocalizerFactory`1.#ctor(XLocalizer.Common.ExpressMemoryCache,XLocalizer.Translate.IStringTranslatorFactory,XLocalizer.IXResourceProvider,Microsoft.Extensions.Options.IOptions{XLocalizer.XLocalizerOptions},Microsoft.Extensions.Options.IOptions{Microsoft.AspNetCore.Builder.RequestLocalizationOptions},Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.XStringLocalizerFactory`1"/>
+            </summary>
+            <param name="cache"></param>
+            <param name="translatorFactory"></param>
+            <param name="provider"></param>
+            <param name="options"></param>
+            <param name="loggerFactory"></param>
+            <param name="localizationOptions"></param>
+        </member>
+        <member name="M:XLocalizer.XStringLocalizerFactory`1.Create">
+            <summary>
+            Create a new <see cref="T:XLocalizer.XStringLocalizer`1"/> 
+            based on the default resource type
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.XStringLocalizerFactory`1.Create(System.Type)">
+            <summary>
+            Create a new instance of <see cref="T:XLocalizer.XStringLocalizer`1"/> based on provided resource type
+            </summary>
+            <param name="resourceSource"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.XStringLocalizerFactory`1.Create(System.String,System.String)">
+            <summary>
+            Create a new instance of <see cref="T:XLocalizer.XStringLocalizer`1"/>
+            based on the provided baseName and localiztion
+            </summary>
+            <param name="baseName"></param>
+            <param name="location"></param>
+            <returns></returns>
+        </member>
+        <member name="M:XLocalizer.XStringLocalizerFactory`1.CreateStringLocalizer(System.Type)">
+            <summary>
+            Create new instance of <see cref="T:XLocalizer.XStringLocalizer`1"/>
+            </summary>
+            <param name="resourceSource"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

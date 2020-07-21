@@ -1,0 +1,47 @@
+﻿using Microsoft.AspNetCore.Mvc.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.Extensions.Localization;
+using System;
+
+namespace XLocalizer.DataAnnotations.Adapters
+{
+    internal class ExRegularExpressionAttributeAdapter : AttributeAdapterBase<ExRegularExpressionAttribute>
+    {
+        private readonly string RegexPattern;
+        private readonly IStringLocalizer Localizer;
+        public ExRegularExpressionAttributeAdapter(ExRegularExpressionAttribute attribute, IStringLocalizer stringLocalizer) : base(attribute, stringLocalizer)
+        {
+            RegexPattern = attribute.Pattern;
+            Localizer = stringLocalizer;
+        }
+
+        public override void AddValidation(ClientModelValidationContext context)
+        {
+            if (context == null)
+                throw new NullReferenceException(nameof(context));
+
+            MergeAttribute(context.Attributes, "data-val", "true");
+            MergeAttribute(context.Attributes, "data-val-regex", GetErrorMessage(context));
+            MergeAttribute(context.Attributes, "data-val-regex-pattern", RegexPattern);
+            MergeAttribute(context.Attributes, "data-val-required", GetRequiredErrorMessage(context));
+        }
+
+        public override string GetErrorMessage(ModelValidationContextBase validationContext)
+        {
+            if (validationContext == null)
+                throw new NullReferenceException(nameof(validationContext));
+
+            return GetErrorMessage(validationContext.ModelMetadata, validationContext.ModelMetadata.GetDisplayName(), RegexPattern);
+        }
+
+        private string GetRequiredErrorMessage(ModelValidationContextBase validationContext)
+        {
+            if (validationContext == null)
+                throw new NullReferenceException(nameof(validationContext));
+
+            var msg = Localizer[DataAnnotationsErrorMessages.RequiredAttribute_ValidationError, validationContext.ModelMetadata.GetDisplayName()].Value;
+
+            return msg;
+        }
+    }
+}

@@ -1,0 +1,106 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp2.0;netcoreapp2.1;netcoreapp2.2;netcoreapp3.0;netcoreapp3.1;net5</TargetFrameworks>
+		<PackageId>XLocalizer</PackageId>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<ApplicationIcon>files\icon.ico</ApplicationIcon>
+		<Authors>Ziya Mollamahmut</Authors>
+		<Company>Ziyad.info</Company>
+		<Description>
+			Save ~99% of development on localization of Asp.Net Core web applications.
+		</Description>
+		<Copyright>Ziyad.info</Copyright>
+		<PackageProjectUrl>https://github.com/LazZiya/XLocalizer/wiki</PackageProjectUrl>
+		<PackageIcon>icon.png</PackageIcon>
+		<PackageTags>asp.net,core,razor,mvc,localization,globalization,client side,validation,translation,autokeyadding</PackageTags>
+		<PackageReleaseNotes>
+			- Supports .net core 2.0, 2.1, 3.0, 3.1, 5.0
+			- Built-in support for localization based on .resx, .xml
+			- DB based localization (required XLocalizer.DB)
+			- Auto online translation support
+			- Auto add missing keys to XML or DB
+			- Export resources from XML to .resx easily with built-in resource exporter
+			- IXResourceProvider interface to implement localizaton based on custom file types
+			- IXResourceExporter interface to implement custom exporters to export from custom file types to .resx
+			Release notes: https://github.com/LazZiya/XLocalizer/releases
+		</PackageReleaseNotes>
+		<Version>1.0.0-prv4</Version>
+		<AssemblyVersion>1.0.0.0</AssemblyVersion>
+		<FileVersion>1.0.0.0</FileVersion>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageIconUrl>https://raw.githubusercontent.com/LazZiya/XLocalizer/master/src/XLocalizer/XLocalizer/files/icon.png</PackageIconUrl>
+		<RepositoryUrl>https://github.com/LazZiya/XLocalizer</RepositoryUrl>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='Debug' OR '$(Configuration)'=='Release'">
+		<DocumentationFile>XLocalizer.xml</DocumentationFile>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<UseReference>Nugets</UseReference>
+	</PropertyGroup>
+	
+	<ItemGroup Condition="'$(UseReference)' == 'Projects'">
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(UseReference)' == 'Nugets'">
+		<PackageReference Include="XLocalizer.Translate" Version="1.0.0-prv3" Exclude="Build,Analyzers" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" Version="2.0.0" Exclude="Build,Analyzers" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Localization" Version="2.0.0" Exclude="Build,Analyzers" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.0.4" Exclude="Build,Analyzers" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.1'">
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" Version="2.1.0" Exclude="Build,Analyzers" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Localization" Version="2.1.0" Exclude="Build,Analyzers" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.0" Exclude="Build,Analyzers" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.2'">
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" Version="2.2.0" Exclude="Build,Analyzers" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Localization" Version="2.2.0" Exclude="Build,Analyzers" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" Exclude="Build,Analyzers" />
+		<PackageReference Include="Microsoft.AspNetCore.Routing" Version="2.2.0" Exclude="Build,Analyzers" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
+		<FrameworkReference Include="Microsoft.AspNetCore.App" Version="3.0.0" Exclude="Build,Analyzers" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+		<FrameworkReference Include="Microsoft.AspNetCore.App" Version="3.1.0" Exclude="Build,Analyzers" />
+	</ItemGroup>
+	
+	<ItemGroup Condition="'$(TargetFramework)' == 'net5'">
+		<FrameworkReference Include="Microsoft.AspNetCore.App" Version="5.0.0" Exclude="Build,Analyzers" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <Content Include="Resx\ResxTemplate.resx">
+	    <Generator></Generator>
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="Xml\XmlTemplate.xml">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="files\icon.ico">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="files\icon.png" Pack="true" PackagePath="">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="files\license.txt" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<Target Name="CopyPackage" AfterTargets="Pack">
+		<Copy SourceFiles="$(OutputPath)\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="$(MyNugetsOutput)\$(PackageId).$(PackageVersion).nupkg" />
+	</Target>
+
+</Project>
