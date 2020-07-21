@@ -88,8 +88,8 @@ namespace XLocalizer
             builder.Services.AddSingleton<IStringLocalizerFactory, XStringLocalizerFactory<TResource>>();
             builder.Services.AddSingleton<IHtmlLocalizerFactory, XHtmlLocalizerFactory<TResource>>();
 
-            builder.Services.AddSingleton<IExpressStringLocalizerFactory, XStringLocalizerFactory<TResource>>();
-            builder.Services.AddSingleton<IExpressHtmlLocalizerFactory, XHtmlLocalizerFactory<TResource>>();
+            builder.Services.AddSingleton<IXStringLocalizerFactory, XStringLocalizerFactory<TResource>>();
+            builder.Services.AddSingleton<IXHtmlLocalizerFactory, XHtmlLocalizerFactory<TResource>>();
 
             return builder.AddDataAnnotationsLocalization<TResource>()
                           .AddModelBindingLocalization()

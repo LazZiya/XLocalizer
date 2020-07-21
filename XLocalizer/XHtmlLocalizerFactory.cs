@@ -1,5 +1,4 @@
-﻿using XLocalizer.Common;
-using Microsoft.AspNetCore.Mvc.Localization;
+﻿using Microsoft.AspNetCore.Mvc.Localization;
 using System;
 
 namespace XLocalizer
@@ -8,16 +7,16 @@ namespace XLocalizer
     /// Factory to create <see cref="XHtmlLocalizer{TResource}"/>
     /// </summary>
     /// <typeparam name="TResource"></typeparam>
-    public class XHtmlLocalizerFactory<TResource> : IExpressHtmlLocalizerFactory
+    public class XHtmlLocalizerFactory<TResource> : IXHtmlLocalizerFactory
         where TResource : class
     {
-        private readonly IExpressStringLocalizerFactory _strFactory;
+        private readonly IXStringLocalizerFactory _strFactory;
 
         /// <summary>
         /// Initialize a new instance of <see cref="XHtmlLocalizer{TResource}"/>
         /// </summary>
         /// <param name="stringLocalizerFactory"></param>
-        public XHtmlLocalizerFactory(IExpressStringLocalizerFactory stringLocalizerFactory)
+        public XHtmlLocalizerFactory(IXStringLocalizerFactory stringLocalizerFactory)
         {
             _strFactory = stringLocalizerFactory;
         }

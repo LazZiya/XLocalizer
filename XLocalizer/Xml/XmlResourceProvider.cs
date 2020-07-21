@@ -152,9 +152,10 @@ namespace XLocalizer.Xml
                 try
                 {
                     // Create a copy of the template xml resource
-                    var assemblyPath = typeof(XmlTemplate).Assembly.Location;
-                    var path = assemblyPath.Substring(0, assemblyPath.LastIndexOf('\\'));
-                    File.Copy($"{path}\\Xml\\XmlTemplate.xml", fPath);
+                    var xmlTemplate = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("XLocalizer.Templates.XmlTemplate.xml");
+
+                    using (Stream file = File.Create(fPath))
+                        xmlTemplate.CopyTo(file);
                 }
                 catch (Exception e)
                 {

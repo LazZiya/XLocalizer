@@ -18,7 +18,7 @@ namespace XLocalizer.ModelBinding
             // Add ModelBinding errors localization
             builder.AddMvcOptions(ops =>
             {
-                var factory = builder.Services.BuildServiceProvider().GetService(typeof(IExpressStringLocalizerFactory)) as IExpressStringLocalizerFactory;
+                var factory = builder.Services.BuildServiceProvider().GetService(typeof(IXStringLocalizerFactory)) as IXStringLocalizerFactory;
                 ops.ModelBindingMessageProvider.SetLocalizedModelBindingErrorMessages(factory);
             });
 

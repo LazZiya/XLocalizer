@@ -13,7 +13,7 @@ namespace XLocalizer.ModelBinding
         /// </summary>
         /// <param name="provider"></param>
         /// <param name="factory">localizer factory</param>
-        public static void SetLocalizedModelBindingErrorMessages(this DefaultModelBindingMessageProvider provider, IExpressStringLocalizerFactory factory)
+        public static void SetLocalizedModelBindingErrorMessages(this DefaultModelBindingMessageProvider provider, IXStringLocalizerFactory factory)
         {
             provider.SetAttemptedValueIsInvalidAccessor((x, y)
                 => GetLoclizedModelBindingError(factory, "The value '{0}' is not valid for {1}.", x, y));
@@ -49,7 +49,7 @@ namespace XLocalizer.ModelBinding
                 => GetLoclizedModelBindingError(factory, "The value '{0}' is invalid.", x));
         }
 
-        private static string GetLoclizedModelBindingError(IExpressStringLocalizerFactory factory, string code, params object[] args)
+        private static string GetLoclizedModelBindingError(IXStringLocalizerFactory factory, string code, params object[] args)
         {
             var localizer = factory.Create();
             return localizer[code, args].Value;

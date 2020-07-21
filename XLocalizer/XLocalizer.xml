@@ -55,30 +55,6 @@
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="T:XLocalizer.Common.IExpressHtmlLocalizerFactory">
-            <summary>
-            Interface to create IHtmlLocalizer with the default (shared) resource type
-            using .Create() method that takes no parameters
-            </summary>
-        </member>
-        <member name="M:XLocalizer.Common.IExpressHtmlLocalizerFactory.Create">
-            <summary>
-            Create new HtmlLocalizer based on default type and default translation service
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="T:XLocalizer.Common.IExpressStringLocalizerFactory">
-            <summary>
-            Interface to create IStringLocalizer with the default (shared) resource type
-            using .Create() method that takes no parameters
-            </summary>
-        </member>
-        <member name="M:XLocalizer.Common.IExpressStringLocalizerFactory.Create">
-            <summary>
-            Create new StringLocalizer based on default type
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:XLocalizer.Common.ResourceTypeHelper">
              <summary>
              Generate fully qualified resource name
@@ -123,6 +99,11 @@
         <member name="T:XLocalizer.Common.TextTrimmer">
             <summary>
             Trim all whitespaces in a string (start, end and between)
+            </summary>
+        </member>
+        <member name="M:XLocalizer.Common.TextTrimmer.ReplaceWhitespace(System.String,System.String)">
+            <summary>
+            Remove all extra whitespaces (more than one) in a string
             </summary>
         </member>
         <member name="M:XLocalizer.DataAnnotations.Adapters.ExCompareAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExCompareAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
@@ -741,6 +722,18 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:XLocalizer.IXHtmlLocalizerFactory">
+            <summary>
+            Interface to create IHtmlLocalizer with the default (shared) resource type
+            using .Create() method that takes no parameters
+            </summary>
+        </member>
+        <member name="M:XLocalizer.IXHtmlLocalizerFactory.Create">
+            <summary>
+            Create new HtmlLocalizer based on default type and default translation service
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:XLocalizer.IXResourceExporter">
             <summary>
             Interface to implement resource exporters to .resx file
@@ -789,6 +782,18 @@
             <param name="isApproved">boolean value for automatically created resource keys. False by default.</param>
             <returns></returns>
         </member>
+        <member name="T:XLocalizer.IXStringLocalizerFactory">
+            <summary>
+            Interface to create IStringLocalizer with the default (shared) resource type
+            using .Create() method that takes no parameters
+            </summary>
+        </member>
+        <member name="M:XLocalizer.IXStringLocalizerFactory.Create">
+            <summary>
+            Create new StringLocalizer based on default type
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:XLocalizer.ModelBinding.DependencyInjection">
             <summary>
             Extesnions for adding DataAnnotation Localization
@@ -806,7 +811,7 @@
             Original messages obtained from <a href="https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/Resources.resx"/>
             </summary>
         </member>
-        <member name="M:XLocalizer.ModelBinding.ModelBindingErrorsExtensions.SetLocalizedModelBindingErrorMessages(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelBindingMessageProvider,XLocalizer.Common.IExpressStringLocalizerFactory)">
+        <member name="M:XLocalizer.ModelBinding.ModelBindingErrorsExtensions.SetLocalizedModelBindingErrorMessages(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelBindingMessageProvider,XLocalizer.IXStringLocalizerFactory)">
             <summary>
             Use DB for localization
             </summary>
@@ -892,11 +897,6 @@
             <param name="comment"></param>
             <param name="isApproved"></param>
             <returns></returns>
-        </member>
-        <member name="T:XLocalizer.Resx.ResxTemplate">
-            <summary>
-            Dummy class to create new resource files
-            </summary>
         </member>
         <member name="T:XLocalizer.Resx.ResxWriter">
             <summary>
@@ -1028,90 +1028,6 @@
             automatically invoked
             </summary>
             <param name="model"></param>
-        </member>
-        <member name="T:XLocalizer.TagHelpers.LocalizationTagHelperBase">
-            <summary>
-            base class for localize tag helpers
-            </summary>
-        </member>
-        <member name="P:XLocalizer.TagHelpers.LocalizationTagHelperBase.Args">
-            <summary>
-            pass array of objects for arguments
-            </summary>
-        </member>
-        <member name="P:XLocalizer.TagHelpers.LocalizationTagHelperBase.Culture">
-            <summary>
-            Localize or translate contents to the specified target culture. Default is current culture.
-            </summary>
-        </member>
-        <member name="P:XLocalizer.TagHelpers.LocalizationTagHelperBase.ResourceSource">
-            <summary>
-            Type of the localized resource
-            </summary>
-        </member>
-        <member name="M:XLocalizer.TagHelpers.LocalizationTagHelperBase.#ctor(XLocalizer.Common.IExpressHtmlLocalizerFactory)">
-            <summary>
-            Initialize a new instance of LocaizationTagHelperBase
-            </summary>
-            <param name="localizerFactory"></param>
-        </member>
-        <member name="M:XLocalizer.TagHelpers.LocalizationTagHelperBase.ProcessAsync(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext,Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)">
-            <summary>
-            process localize tag helper
-            </summary>
-            <param name="context"></param>
-            <param name="output"></param>
-            <returns></returns>
-        </member>
-        <member name="T:XLocalizer.TagHelpers.LocalizeAttributesTagHelper">
-            <summary>
-            Localization tag helper, localize text inside <![CDATA[<localize>Hellow</localize>]]>
-            </summary>
-            
-        </member>
-        <member name="P:XLocalizer.TagHelpers.LocalizeAttributesTagHelper.Localize">
-            <summary>
-            Bool value, true to localize content
-            </summary>
-        </member>
-        <member name="P:XLocalizer.TagHelpers.LocalizeAttributesTagHelper.LocalizeAttribute">
-            <summary>
-            localize custom attribute fields
-            </summary>
-        </member>
-        <member name="M:XLocalizer.TagHelpers.LocalizeAttributesTagHelper.#ctor(XLocalizer.Common.IExpressHtmlLocalizerFactory,XLocalizer.Common.IExpressStringLocalizerFactory)">
-            <summary>
-            Initialize a new instance of LocaizatAttributesTagHelper
-            </summary>
-            <param name="htmlFactory"></param>
-            <param name="stringFactory"></param>
-        </member>
-        <member name="M:XLocalizer.TagHelpers.LocalizeAttributesTagHelper.ProcessAsync(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext,Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)">
-            <summary>
-            process localize tag helper
-            </summary>
-            <param name="context"></param>
-            <param name="output"></param>
-            <returns></returns>
-        </member>
-        <member name="T:XLocalizer.TagHelpers.LocalizeTagHelper">
-            <summary>
-            Localization tag helper, localize text inside <![CDATA[<localize>Hellow</localize>]]>
-            </summary>
-        </member>
-        <member name="M:XLocalizer.TagHelpers.LocalizeTagHelper.#ctor(XLocalizer.Common.IExpressHtmlLocalizerFactory)">
-            <summary>
-            Initialize a new instance of LocalizeTagHelper
-            </summary>
-            <param name="localizerFactory"></param>
-        </member>
-        <member name="M:XLocalizer.TagHelpers.LocalizeTagHelper.ProcessAsync(Microsoft.AspNetCore.Razor.TagHelpers.TagHelperContext,Microsoft.AspNetCore.Razor.TagHelpers.TagHelperOutput)">
-            <summary>
-            process localize tag helper
-            </summary>
-            <param name="context"></param>
-            <param name="output"></param>
-            <returns></returns>
         </member>
         <member name="T:XLocalizer.Translate.DependencyInjection">
             <summary>
@@ -1245,7 +1161,7 @@
             </summary>
             <typeparam name="TResource"></typeparam>
         </member>
-        <member name="M:XLocalizer.XHtmlLocalizerFactory`1.#ctor(XLocalizer.Common.IExpressStringLocalizerFactory)">
+        <member name="M:XLocalizer.XHtmlLocalizerFactory`1.#ctor(XLocalizer.IXStringLocalizerFactory)">
             <summary>
             Initialize a new instance of <see cref="T:XLocalizer.XHtmlLocalizer`1"/>
             </summary>
@@ -1394,11 +1310,6 @@
         <member name="M:XLocalizer.Xml.XmlResourceProvider.Finalize">
             <summary>
             Dispose _lock;
-            </summary>
-        </member>
-        <member name="T:XLocalizer.Xml.XmlTemplate">
-            <summary>
-            Dummy class for accessing path of the XmlTemplate.xml file
             </summary>
         </member>
         <member name="T:XLocalizer.XStringLocalizer`1">

@@ -13,7 +13,7 @@ namespace XLocalizer
     /// <summary>
     /// Factory to create <see cref="XStringLocalizer{TResource}"/>
     /// </summary>
-    public class XStringLocalizerFactory<TResource> : IExpressStringLocalizerFactory
+    public class XStringLocalizerFactory<TResource> : IXStringLocalizerFactory
         where TResource : class
     {
         private readonly ExpressMemoryCache _cache;

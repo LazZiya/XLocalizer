@@ -66,9 +66,12 @@ namespace XLocalizer.Resx
 
             try
             {
-                var dummyFileLoc = typeof(ResxTemplate).Assembly.Location;
-                var dummyFile = $"{dummyFileLoc.Substring(0, dummyFileLoc.LastIndexOf('\\'))}\\Resx\\{nameof(ResxTemplate)}.resx";
-                File.Copy(dummyFile, ResourceFilePath);
+                // Create a copy of the template resx resource
+                var resxTemplate = System.Reflection.Assembly.GetExecutingAssembly().GetManifestResourceStream("XLocalizer.Templates.ResxTemplate.xml");
+                _logger.LogInformation($"ResxTemplate: {resxTemplate == null}");
+                using (Stream file = File.Create(ResourceFilePath))
+                    resxTemplate.CopyTo(file);
+
                 _logger.LogInformation($"Resx file created: '{ResourceFilePath}'");
                 success = true;
             }

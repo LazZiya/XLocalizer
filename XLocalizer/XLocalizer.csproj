@@ -24,7 +24,7 @@
 			- IXResourceExporter interface to implement custom exporters to export from custom file types to .resx
 			Release notes: https://github.com/LazZiya/XLocalizer/releases
 		</PackageReleaseNotes>
-		<Version>1.0.0-prv5</Version>
+		<Version>1.0.0-prv9a</Version>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<FileVersion>1.0.0.0</FileVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -80,13 +80,17 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <Content Include="Resx\ResxTemplate.resx">
+	  <None Remove="Resx\ResxTemplate.xml" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <EmbeddedResource Include="Templates\ResxTemplate.xml">
 	    <Generator></Generator>
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
-	  <Content Include="Xml\XmlTemplate.xml">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="Templates\XmlTemplate.xml">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -97,6 +101,10 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 		<None Include="files\license.txt" Pack="true" PackagePath="" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Properties\" />
 	</ItemGroup>
 
 	<Target Name="CopyPackage" AfterTargets="Pack">
