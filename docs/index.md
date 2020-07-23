@@ -1,0 +1,12 @@
+# Index
+- [What is XLocalizer](what-is-xlocalizer.md)
+- [Common Setup](setup.md)
+  - [Localization setup based on XML](setup-xml.md)
+  - [Localization setup based on DB](setup-db.md)
+  - [Localization setup based on RESX](setup-resx.md)
+- [Translation Services](translate-services.md)
+  - [Google Translate](translate-services-google.md)
+  - [Yandex Translate](translate-services-yandex.md)
+  - [MyMemory Translate](translate-services-mymemory.md)
+  - [SYSTRAN.io Translate](translate-services-systran.md)
+  - [IBM Watson Language Translator](translate-services-ibm.md)

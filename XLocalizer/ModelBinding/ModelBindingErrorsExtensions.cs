@@ -1,5 +1,5 @@
-﻿using XLocalizer.Common;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
+using Microsoft.Extensions.Localization;
 
 namespace XLocalizer.ModelBinding
 {
@@ -12,46 +12,45 @@ namespace XLocalizer.ModelBinding
         /// Use DB for localization
         /// </summary>
         /// <param name="provider"></param>
-        /// <param name="factory">localizer factory</param>
-        public static void SetLocalizedModelBindingErrorMessages(this DefaultModelBindingMessageProvider provider, IXStringLocalizerFactory factory)
+        /// <param name="localizer">localizer factory</param>
+        public static void SetLocalizedModelBindingErrorMessages(this DefaultModelBindingMessageProvider provider, IStringLocalizer localizer)
         {
             provider.SetAttemptedValueIsInvalidAccessor((x, y)
-                => GetLoclizedModelBindingError(factory, "The value '{0}' is not valid for {1}.", x, y));
+                => GetLoclizedModelBindingError(localizer, "The value '{0}' is not valid for {1}.", x, y));
 
             provider.SetMissingBindRequiredValueAccessor((x)
-                => GetLoclizedModelBindingError(factory, "A value for the '{0}' parameter or property was not provided.", x));
+                => GetLoclizedModelBindingError(localizer, "A value for the '{0}' parameter or property was not provided.", x));
 
             provider.SetMissingKeyOrValueAccessor(()
-                => GetLoclizedModelBindingError(factory, "A value is required."));
+                => GetLoclizedModelBindingError(localizer, "A value is required."));
 
             provider.SetMissingRequestBodyRequiredValueAccessor(()
-                => GetLoclizedModelBindingError(factory, "A non-empty request body is required."));
+                => GetLoclizedModelBindingError(localizer, "A non-empty request body is required."));
 
             provider.SetNonPropertyAttemptedValueIsInvalidAccessor((x)
-                => GetLoclizedModelBindingError(factory, "The value '{0}' is not valid.", x));
+                => GetLoclizedModelBindingError(localizer, "The value '{0}' is not valid.", x));
 
             provider.SetNonPropertyUnknownValueIsInvalidAccessor(()
-                => GetLoclizedModelBindingError(factory, "The supplied value is invalid."));
+                => GetLoclizedModelBindingError(localizer, "The supplied value is invalid."));
 
             provider.SetNonPropertyValueMustBeANumberAccessor(()
-                => GetLoclizedModelBindingError(factory, "The field must be a number."));
+                => GetLoclizedModelBindingError(localizer, "The field must be a number."));
 
             provider.SetUnknownValueIsInvalidAccessor((x)
-                => GetLoclizedModelBindingError(factory, "The supplied value is invalid for {0}.", x));
+                => GetLoclizedModelBindingError(localizer, "The supplied value is invalid for {0}.", x));
 
             provider.SetValueIsInvalidAccessor((x)
-                => GetLoclizedModelBindingError(factory, "The value '{0}' is invalid.", x));
+                => GetLoclizedModelBindingError(localizer, "The value '{0}' is invalid.", x));
 
             provider.SetValueMustBeANumberAccessor((x)
-                => GetLoclizedModelBindingError(factory, "The field {0} must be a number.", x));
+                => GetLoclizedModelBindingError(localizer, "The field {0} must be a number.", x));
 
             provider.SetValueMustNotBeNullAccessor((x)
-                => GetLoclizedModelBindingError(factory, "The value '{0}' is invalid.", x));
+                => GetLoclizedModelBindingError(localizer, "The value '{0}' is invalid.", x));
         }
 
-        private static string GetLoclizedModelBindingError(IXStringLocalizerFactory factory, string code, params object[] args)
+        private static string GetLoclizedModelBindingError(IStringLocalizer localizer, string code, params object[] args)
         {
-            var localizer = factory.Create();
             return localizer[code, args].Value;
         }
     }

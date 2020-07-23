@@ -1,5 +1,6 @@
 ﻿using XLocalizer.Common;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Localization;
 
 namespace XLocalizer.ModelBinding
 {
@@ -18,8 +19,8 @@ namespace XLocalizer.ModelBinding
             // Add ModelBinding errors localization
             builder.AddMvcOptions(ops =>
             {
-                var factory = builder.Services.BuildServiceProvider().GetService(typeof(IXStringLocalizerFactory)) as IXStringLocalizerFactory;
-                ops.ModelBindingMessageProvider.SetLocalizedModelBindingErrorMessages(factory);
+                var localizer = builder.Services.BuildServiceProvider().GetService(typeof(IStringLocalizer)) as IStringLocalizer;
+                ops.ModelBindingMessageProvider.SetLocalizedModelBindingErrorMessages(localizer);
             });
 
             return builder;

@@ -811,12 +811,12 @@
             Original messages obtained from <a href="https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/Resources.resx"/>
             </summary>
         </member>
-        <member name="M:XLocalizer.ModelBinding.ModelBindingErrorsExtensions.SetLocalizedModelBindingErrorMessages(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelBindingMessageProvider,XLocalizer.IXStringLocalizerFactory)">
+        <member name="M:XLocalizer.ModelBinding.ModelBindingErrorsExtensions.SetLocalizedModelBindingErrorMessages(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelBindingMessageProvider,Microsoft.Extensions.Localization.IStringLocalizer)">
             <summary>
             Use DB for localization
             </summary>
             <param name="provider"></param>
-            <param name="factory">localizer factory</param>
+            <param name="localizer">localizer factory</param>
         </member>
         <member name="T:XLocalizer.Resx.ResxElement">
             <summary>
