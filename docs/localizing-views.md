@@ -1,13 +1,19 @@
-## Option A - Localize TagHelper
-XLocalizer nuget includes a powerful taghelper for localizing views using a simple html tag.
+## XLocalizer.TagHelpers
+XLocalizer has a handy extension pack for localizing views using a simple html tag.
 
-### Setup
-Localize views using `LocalizeTagHelper`, first it must be added to `_ViewImports.cshtml_
-````razor
-@addTagHelper *, XLocalizer
+#### Install
+Install from nuget
+````
+PM > Install-Package XLocalizer.TagHelpers
 ````
 
-### Localize views
+#### Setup
+Localize views using `LocalizeTagHelper`, first it must be added to `_ViewImports.cshtml_
+````razor
+@addTagHelper *, XLocalizer.TagHelpers
+````
+
+#### Localize views
 Localize texts/html contents using `localize-content` attribute with any html tag
 ````html
 <h1 localize-content>Sample header</h1>
@@ -17,7 +23,7 @@ Localize texts/html contents using `localize-content` attribute with any html ta
 </p>
 ````
 
-### Localize Html Tag
+#### Localize Html
 Use `<localize>` html tag or to localize all its contents
 ````html
 <localize>
@@ -26,13 +32,13 @@ Use `<localize>` html tag or to localize all its contents
 <localize>
 ````
 
-### Localize attributes
+#### Localize attributes
 Localize attributes like `title` inside `<img` tag using `localize-att-*`
 ````html
 <img src="/images/picture.jpg" localize-att-title="Picture title"/>
 ````
 
-### Specify culture
+#### Specify culture
 Force specific culture regardless the request culture
 ````html
 <p localize-culture="tr">
@@ -40,20 +46,20 @@ Force specific culture regardless the request culture
 </p>
 ````
 
-### Provide arguments for localized contents
+#### Provide arguments for localized contents
 Localize a string that contains arguments by providing the arguments using `localize-args`
 ````html
 @{
-    var args = new[] { "http://demo.ziyad.info", 8, "Asp.Net Core" }
+    var args = new object[] { "http://demo.ziyad.info/en/localize", 8, "Asp.Net Core" }
 }
 
 <p localize-args="args">
     Visit <a href="{0}">demos website</a> to see a collection of {1} demos about "{2}".
 </p>
 ````
-> Localized output sample: Visit [demos website](http://demo.ziyad.info) to see a collection of 8 demos about "Asp.Net Core".
+> Localized output sample: Visit [demos website][1] to see a collection of 8 demos about "Asp.Net Core".
 
-### Localization resource
+#### Specify resource source
 Specify localization resource type using `localize-source`
 ````html
 <p localize-source="typeof(MyResourceType)">
@@ -63,7 +69,7 @@ Specify localization resource type using `localize-source`
 
 See [demo page][1].
 
-## Option B - Default localization setup
+## Traditional localization for views
 Default localization interfaces can be used to localize view contents:
 
 ````html

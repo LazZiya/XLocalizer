@@ -6,7 +6,6 @@ Provides translation support to web applications. Can be used with `XLocalizer` 
 - [Use with XLocalizer](#use-with-xlocalizer)
 - [Use as standalone service](#use-as-standalone-service)
 - [Register multiple translation services](#register-multiple-translation-services)
-- [Custom translation services](#custom-translation-services)
 
 #### Available translation services
 Below services are already available as nugets and ready to install. 
@@ -106,9 +105,6 @@ using XLocalizer.Translate.MyMemoryTranslate;
 
 services.AddSingleton<ITranslatorFactory, TranslatorFactory<MyMemoryTranslateService>();
 ````
-
-#### Custom translation services
-Any custom translation service that implements [`ITranslator`][1] interface can be used with `XLocalizer`.
 
 [1]:https://github.com/LazZiya/XLocalizer.Translate/blob/master/XLocalizer.Translate/ITranslator.cs
 [2]:https://github.com/LazZiya/XLocalizer.Translate/blob/master/XLocalizer.Translate/ITranslatorFactory.cs

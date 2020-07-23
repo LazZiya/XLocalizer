@@ -1,1 +1,1 @@
-### Export localized resources from XML to RESX
+### Export localized resources from DB to RESX

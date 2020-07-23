@@ -1,4 +1,6 @@
-# Table of contents
+# XLocalizer
+
+#### Table of contents
 - [What is XLocalizer](what-is-xlocalizer.md)
 - [Quick start](setup-quick-start.md)
 - [Common Setup](setup.md)
@@ -12,11 +14,23 @@
   - [Yandex Translate](translate-services-yandex.md)
   - [IBM Watson Language Translator](translate-services-ibm.md)
 - [Localizing views](localizing-views.md)
-- [Localizing backend](localizing-backend.md)
-- [Language navigation](localizing-backend.md)
-- [Validating localized input](localizing-backend.md)
-- [Export XML to RESX](#export-xml-to-resx.md)
-- [Export DB to RESX](#export-db-to-resx.md)
+- [Localizing custom backend messages](localizing-custom-backend-messages.md)
+- [Localizing validation attributes errors](localizing-validation-attributes-errors.md)
+- [Model binding errors](model-binding-errors.md)
+- [Identity errors](identity-errors.md)
+- [Export XML to RESX](export-xml-to-resx.md)
+- [Export DB to RESX](export-db-to-resx.md)
+
+##### Customizing XLocalizer
+- [Using custom translator](using-custom-translator.md)
+- [Using custom resource provider](using-custom-resource-provider.md)
+- [Using custom resource exporter](using-custom-resource-exporter.md)
+
+##### Miscellaneous
+  - [Culture fallback behaviour](culture-fallback-behavior.md)
+  - [Language navigation](language-navigation.md)
+  - [Client side validation](client-side-validation.md)
+  - [Validating localized input](validating-localized-input.md)
 
 
 ## Disclaimer Third Parties
