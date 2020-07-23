@@ -1,4 +1,3 @@
-
 # XLocalizer Setup
 
 Install main package from nuget:

@@ -1,5 +1,21 @@
 # Setup localization based on RESX
-Let's start by creating a folder and a dummy class for our localized resources.
+_RESX_ resource files are the default file type for localization. But, _RESX_ files do not support editing at runtime! So if you do not want to fill them manually, start localization setup based on XML or DB, then export the resources to _RESX_ files.
+
+### Table of contents
+- [Install](#install)
+- [Create resources folder](#create-resources-folder)
+- [Startup settings](#startup-settings)
+- [Full startup code for RESX](#full-startup-code-for-resx)
+
+
+#### Install
+Install nuget package:
+````
+PM > Install-Package XLocalizer
+````
+
+#### Create resources folder
+Create a folder and a dummy class for our localized resources.
 
 - Create a new folder under the root of the project and name it **`LocalizationResources`** or anything else...
 - Create a new class inside **`LocalizationResources`** folder and name it **`LocSource`** or anything else...
@@ -34,18 +50,8 @@ Then we can create our localized resources files under **`LocalizationResources`
  - LocSource.ar.resx
  - ...
 
-> **RECOMMENDATION:**
-> 
-> _RESX_ files do not support editing at runtime! So if you do not want to fill them manually, start localization setup based on XML or DB, then export the resources to _RESX_ files.
 
-See:
-- [Localization setup based on XML](setup-xml.md)
-- [Localization setup based on DB](setup-db.md)
-- [Export XML to RESX](export-xml-to-resx.md)
-- [Export DB to RESX](export-db-to-resx.md)
-
-
-Full startup file code for _resx_ setup:
+#### Full startup code for RESX:
 ````csharp
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

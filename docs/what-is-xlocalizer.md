@@ -4,8 +4,16 @@ Fastest localization process for Asp.Net Core web applications, powered by onlin
 ## What is XLocalizer 
 A nuget package that offers localization based on _.resx_, _.xml_, _db_ or any other custom _file/db_ type. XLocalizer has many powerful features and can be extended with custom tools.
 
-#### Simple install & setup
-The minimum required code in `startup.cs` do not exceed 5 code lines! See [Install](install.md) & [setup](setup.md)
+#### Install & setup
+Easy setup and customizable services, See [Quick start](setup-quick-start.md) & [Detailed setup](setup.md) for more details.
+````csharp
+services.AddRazorPages()
+        .AddXLocalizer<LocSource>(ops => 
+        {
+            ops.AutoTranslate = true;
+            ops.AutoAddKeys = true;
+        });
+````
 
 #### Online translation
 Translate missing resource values using the already [available online translation services](translate-services.md) or using custom service that implements [`ITranslator`](https://github.com/LazZiya/XLocalizer.Translate/blob/master/XLocalizer.Translate/ITranslator.cs) interface.
