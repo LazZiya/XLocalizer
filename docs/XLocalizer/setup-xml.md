@@ -72,7 +72,7 @@ Our translation service is based on RapidAPI, so we need to add the relevant API
   }
 }
 ````
-Read more about translation services in [Translation services](translate-services.md).
+Read more about translation services in [Translation services][1].
 
 
 ##### Caching
@@ -174,3 +174,5 @@ namespace XmlLocalizationSample
 }
 
 ````
+
+[1]:../XLocalizer/translate-services.md

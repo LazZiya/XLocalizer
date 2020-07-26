@@ -53,7 +53,7 @@ Our translation service is based on RapidAPI, so we need to add the relevant API
   }
 }
 ````
-Read more about translation services in [Translation services](translate-services.md).
+Read more about translation services in [Translation services][1].
 
 ##### Caching
 `XLocalizer` has built-in caching enabled by default. Caching helps to speedup the retriving of localized resources. But, it is recommended to switch caching off during development to avoid caching values that are subject to change frequently.
@@ -237,5 +237,6 @@ namespace DbLocalizationSample
 }
 
 ````
+[1]:../XLocalizer/translate-services.md
 [2]:https://github.com/LazZiya/XLocalizer/blob/master/XLocalizer.DB/Models/IXDbResource.cs
 [3]:https://github.com/LazZiya/XLocalizer/blob/master/XLocalizer.DB/Models/XDbResource.cs

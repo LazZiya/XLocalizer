@@ -10,11 +10,11 @@ Provides translation support to web applications. Can be used with `XLocalizer` 
 #### Available translation services
 Below services are already available as nugets and ready to install. 
 
-- [XLocalizer.Translate.GoogleTranslate](translate-services-google.md)
-- [XLocalizer.Translate.YandexTranslate](translate-services-yandex.md)
-- [XLocalizer.Translate.MyMemoryTranslate](translate-services-mymemory.md)
-- [XLocalizer.Translate.SystranTranslate](translate-services-systran.md)
-- [XLocalizer.Translate.IBMWatsonTranslate](translate-services-ibm.md)
+- [XLocalizer.Translate.GoogleTranslate][3]
+- [XLocalizer.Translate.YandexTranslate][4]
+- [XLocalizer.Translate.MyMemoryTranslate][5]
+- [XLocalizer.Translate.SystranTranslate][6]
+- [XLocalizer.Translate.IBMWatsonTranslate][7]
 
 > Click on each service for more details about how to install.
 
@@ -108,3 +108,8 @@ services.AddSingleton<ITranslatorFactory, TranslatorFactory<MyMemoryTranslateSer
 
 [1]:https://github.com/LazZiya/XLocalizer.Translate/blob/master/XLocalizer.Translate/ITranslator.cs
 [2]:https://github.com/LazZiya/XLocalizer.Translate/blob/master/XLocalizer.Translate/ITranslatorFactory.cs
+[3]:../XLocalizer/translate-services-google.md
+[4]:../XLocalizer/translate-services-yandex.md
+[5]:../XLocalizer/translate-services-mymemory.md
+[6]:../XLocalizer/translate-services-systran.md
+[7]:../XLocalizer/translate-services-ibm.md

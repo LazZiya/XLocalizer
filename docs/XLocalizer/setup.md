@@ -8,9 +8,9 @@ PM > Install-Package XLocalizer
 Because XLocalizer supports multiple source types, you can use any of the below setups:
 
 - [Common localization settings](#common-localization-settings)
-- [Localization setup based on XML](setup-xml.md)
-- [Localization setup based on DB](setup-db.md)
-- [Localization setup based on RESX](setup-resx.md)
+- [Localization setup based on XML][1]
+- [Localization setup based on DB][2]
+- [Localization setup based on RESX][3]
 
 #### Common localization settings
 This is the common configuration for all localization setup types. After finishing this step you can choose the setup mode to use.
@@ -48,3 +48,7 @@ services.AddRazorPages()
 services.AddMvc()
         .AddMvcOptions(ops => { ops.Conventions.Insert(0, new RouteTemplateModelConventionMvc()); });
 ````
+
+[1]:../XLocalizer/setup-xml.md
+[2]:../XLocalizer/setup-db.md
+[3]:../XLocalizer/setup-resx.md
