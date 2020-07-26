@@ -1,26 +1,17 @@
 ## XLocalizer for Asp.Net Core 
-Save ~99% of Asp.Net Core localization development time by:
+Say bye-bye to manually creating localization resources...! 
 
-#### - Online Translation
-Any missed locailzed value can  be translated automatically by turning on `AutoTranslate` option (requires [LazZiya.TranslationServices][1] nuget).
+**- Online Translation :** Auto translation of missed localized values.
 
-#### - Auto Key Adding
-Autoamtically create resource files and insert missed key with their translations to the target resource file by turning on `AutoAddKeys` option. All texts in views, data annotations, model binding error, identity errors and any custom backend messages will be insterted to the resource file automatically.
+**- Auto Key Adding :** Auto adding missing keys to the resources files.
 
-#### - Multiple Resource Type Support
-XLocalizer has built in support for localizing via _.RESX_ files and _.XML_ files. Additionally it can use any custom file type for storing localized values by implementing `IXResourceProvider` interface, so you can develop your custom resource provider to use any file type (e.g. json, csv, ...etc).
+**- Multiple Resource Type Support :** Built-in localization support based on _.RESX_, _.XML_, _DB_. Extendable localization support based on any custom file/db type.
 
-#### - Database Support
-In addition to storing localized values in files, XLocalizer supports database localization as well. Simply use the built-in database localization provider or extend the `IDbResourceProvider` interface to use your custom database localization provider (requires [XLocalizer.DB][2] nuget).
+**- Export to Resx :** Resources from any source type can be exported to _.RESX_ files via built-in exporters.
 
-#### - Export to Resx
-Wether you have used _XML_, _DB_ or any other custom localization provider, all localized values can be exported to _.RESX_ using the built-in resource exporters or any custom exporter that implements `IXResourceExporter` for file based localization or `IDbResourceExporter` for DB based localization.
+**- Do it Fast :** Custom cache support for speeding up the process of getting localized values from sources.
 
-#### - Do it Fast
-Custom cache support for speeding up the process of getting localized values from localization stores. Cache support can be turned on/off so during development mode you can turn it off to temporarily avoid caching localized keys.
-
-#### - All With Standard Localization Interfaces
-All above features developed with the standard localizing interfaces in the center. So, you will keep using `IStringLocalizer`, `IHtmlLocalizer`, `IStringLocalizerFactory` and `IHtmlLocalizerFactory` as usual localization interfaces in the application. This makes it so easy and effortless to switch from the default localization system to XLocalizer or vice versa without the need to change any code except localization setup in the startup.
+**- Standard interfaces :** Easy to use due to using the standard localization interfaces: `IStringLocalizer`, `IHtmlLocalizer`, `IStringLocalizerFactory` and `IHtmlLocalizerFactory`.
 
 ### Setup
 Install from nuget :
@@ -33,13 +24,13 @@ Add localization settings in `startup.cs`:
 using XLocalizer;
 using XLocalizer.Xml;
 using XLocalizer.Routing;
-using LazZiya.TranslationServices;
-using LazZiya.TranslationServices.GoogleTranslate;
+using LazZiya.Translate;
+using LazZiya.Translate.GoogleTranslate;
 
 public void ConfigureServices(IServiceCollection services)
 {
     // Register a translation service
-    services.AddHttpClient<ITranslationService, GoogleTranslateService>();
+    services.AddHttpClient<ITranslator, GoogleTranslateService>();
     
     // Define supported cultures
     var cultures = new CultureInfo[]
@@ -89,13 +80,13 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ````
 
-#### For more details goto [wiki pages](https://github.com/LazZiya/XLocalizer/wiki)
+### For more details goto [docs website](http://docs.ziyad.info/XLocalizer)
 
 ### Step by step tutorial 
  * coming soon...
 
 ### Sample projects
- * coming soon...
+ * [XML based localization sample](https://github.com/LazZiya/XLocalizer.Samples/tree/master/XmlLocalizationSample)
 
 ### License
 MIT
