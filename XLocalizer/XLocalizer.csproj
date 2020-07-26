@@ -10,7 +10,7 @@
 			Save ~99% of development on localization of Asp.Net Core web applications.
 		</Description>
 		<Copyright>Ziyad.info</Copyright>
-		<PackageProjectUrl>https://github.com/LazZiya/XLocalizer</PackageProjectUrl>
+		<PackageProjectUrl>http://docs.ziyad.info/XLocalizer</PackageProjectUrl>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageTags>asp.net,core,razor,mvc,localization,globalization,client side,validation,translation,autokeyadding</PackageTags>
 		<PackageReleaseNotes>
