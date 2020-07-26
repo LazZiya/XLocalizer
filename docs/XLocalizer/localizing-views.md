@@ -9,7 +9,7 @@ PM > Install-Package XLocalizer.TagHelpers
 
 #### Setup
 Localize views using `LocalizeTagHelper`, first it must be added to `_ViewImports.cshtml_
-````razor
+````
 @addTagHelper *, XLocalizer.TagHelpers
 ````
 
