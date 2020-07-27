@@ -7,21 +7,14 @@
 		<Authors>Ziya Mollamahmut</Authors>
 		<Company>Ziyad.info</Company>
 		<Description>
-			Save ~99% of development on localization of Asp.Net Core web applications.
+			XLocalizer package for localization of Asp.Net Core web applications, powered by online translation and auto resource creating.
 		</Description>
 		<Copyright>Ziyad.info</Copyright>
 		<PackageProjectUrl>http://docs.ziyad.info/XLocalizer</PackageProjectUrl>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageTags>asp.net,core,razor,mvc,localization,globalization,client side,validation,translation,autokeyadding</PackageTags>
 		<PackageReleaseNotes>
-			- Supports .net core 2.0, 2.1, 3.0, 3.1, 5.0
-			- Built-in support for localization based on .resx, .xml
-			- DB based localization (required XLocalizer.DB)
-			- Auto online translation support
-			- Auto add missing keys to XML or DB
-			- Export resources from XML to .resx easily with built-in resource exporter
-			- IXResourceProvider interface to implement localizaton based on custom file types
-			- IXResourceExporter interface to implement custom exporters to export from custom file types to .resx
+			- Fix for translation issues with default culture
 			Release notes: https://github.com/LazZiya/XLocalizer/releases
 		</PackageReleaseNotes>
 		<Version>1.0.0-preview2</Version>

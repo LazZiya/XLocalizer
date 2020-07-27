@@ -94,20 +94,21 @@ namespace XLocalizer
 
             if (!availableInCache)
             {
+                var culture = CultureInfo.CurrentCulture.Name;
+
                 // Option 2: Look in resource
                 bool availableInSource = _provider.TryGetValue<TResource>(name, out value);
 
                 if (!availableInSource && _options.AutoTranslate)
                 {
-                    var culture = CultureInfo.CurrentCulture.Name;
 
-                    if(_defaultCulture != culture)
+                    if (_defaultCulture != culture)
                         // Option 3: Online translate
                         availableInTranslate = _translator.TryTranslate(_defaultCulture, culture, name, out value);
                 }
 
                 // add a resource if it is not available in source and auto add is enabled
-                if (!availableInSource && _options.AutoAddKeys)
+                if (!availableInSource && _options.AutoAddKeys && _defaultCulture != culture)
                 {
                     // Add a resource only if auto translate is off or if available in translation
                     if (!_options.AutoTranslate || availableInTranslate)
