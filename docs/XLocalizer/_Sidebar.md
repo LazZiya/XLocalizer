@@ -12,7 +12,7 @@
 - [Yandex Translate][12]
 - [IBM Watson Language Translator][13]
 
-##### Localziation
+##### Localization
 - [Localizing views][14]
 - [Localizing custom backend messages][15]
 - [Localizing validation attributes errors][16]
