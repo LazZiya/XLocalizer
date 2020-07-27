@@ -8,6 +8,7 @@ Localization based on _XML_ files works very similar to _RESX_ process, we only 
 - [User secrets](#user-secrets)
 - [Caching](#caching)
 - [Full startup code for XML](#full-startup-code-for-xml)
+- [Next: Localizing views][2]
 
 
 #### Install
@@ -20,8 +21,9 @@ PM > Install-Package XLocalizer.Translate.MyMemoryTranslate
 #### Create resources folder
 Let's start by creating a folder and a dummy class for our localized resources.
 
-- Create a new folder under the root of the project and name it **`LocalizationResources`** or anything else...
-- Create a new class inside **`LocalizationResources`** folder and name it **`LocSource`** or anything else...
+- Create a new folder under the root of the project and name it **`LocalizationResources`** _or anything else..._
+- Create a new class inside **`LocalizationResources`** folder and name it **`LocSource`** _or anything else..._
+- Do not create resource files manually! they will be created automatically by `XLocalizer`.
 
 The folder structure will be like below:
 > - ProjectRoot/
@@ -36,20 +38,57 @@ public class LocSource
 ````
 
 #### Startup settings
-Add `XLocalizer` setup and enable `AutoAddKeys` and `AutoTranslate` options:
+
+- Configure request localization options and optionally add `RouteSegmentRequestCultureProvider` :
 ````csharp
-using XLocalizer;
-using XLocalizer.Xml;
-using XLocalizer.Translate;
-using XLocalizer.Translate.MyMemoryTranslate;
+// Add namespace for optional routing setup
+using XLocalizer.Routing;
 
-// Register xml resource provider
+// Configure request localization options
+services.Configure<RequestLocalizationOptions>(ops => 
+{
+    // Define supported cultures
+    var cultures = new CultureInfo[] { new CultureInfo("en"), new CultureInfo("tr"), new CultureInfo("ar") };
+    ops.SupportedCultures = cultures;
+    ops.SupportedUICultures = cultures;
+    ops.DefaultRequestCulture = new RequestCulture("en");
+
+    // Optional: add custom provider to support localization based on {culture} route value
+    ops.RequestCultureProviders.Insert(0, new RouteSegmentRequestCultureProvider(cultures));
+});        
+````
+
+- Register xml resource provider: By default `XLocalizer` works with _.resx_ resource files. But to enable auto key adding we need to register `XmlResourceProvider` :
+````csharp
 services.AddSingleton<IXResourceProvider, XmlResourceProvider>();
+````
 
-// Register translation service
+> You can provide localization support based on any custom file type by implementing `IXResourceProvider` interface.
+
+
+- Register a translation service to enable auto translation option:
+````csharp
 services.AddHttpClient<ITranslator, MyMemoryTranslateService>();
+````
 
+> You can provide translation support based on any custom provider type by implementing `ITranslator` interface.
+
+- Add route based localization for razor pages:
+````csharp
 services.AddRazorPages()
+        .AddRazorPagesOptions(ops => { ops.Conventions.Insert(0, new RouteTemplateModelConventionRazorPages()); });
+````
+
+Or if you are using MVC use;
+````csharp
+services.AddMvc()
+        .AddMvcOptions(ops => { ops.Conventions.Insert(0, new RouteTemplateModelConventionMvc()); });
+````
+
+- Add `XLocalizer` setup and enable `AutoAddKeys` and `AutoTranslate` options:
+````csharp
+services.AddRazorPages()
+        .AddRazorPagesOptions(ops => { ops.Conventions.Insert(0, new RouteTemplateModelConventionRazorPages()); });
         .AddXLocalizer<LocSource, MyMemoryTranslateService>(ops => 
         {
             ops.ResourcesPath = "LocalizationResources";
@@ -58,8 +97,10 @@ services.AddRazorPages()
         });
 ````
 
-> No need to create _XML_ resource files manually, they will be created at runtime by `XLocalizer`. 
-
+- Configure the app to use request localization middleware:
+````csharp
+app.UseRequestLocalization();
+````
 
 #### User secrets
 Our translation service is based on RapidAPI, so we need to add the relevant API key to the user secrets file.
@@ -175,4 +216,8 @@ namespace XmlLocalizationSample
 
 ````
 
+#
+#### NEXT > [Localizing views][2]
+#
 [1]:../XLocalizer/translate-services.md
+[2]:../XLocalizer/localizing-views.md

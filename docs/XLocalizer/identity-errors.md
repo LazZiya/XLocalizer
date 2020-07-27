@@ -1,3 +1,4 @@
+## Identity Errors
 No additional setup required for identity error messages, it will be localized automatically by XLocalizer, you don't even need to add them manually if you have enabled auto translation and auto adding keys.
 
 Just in case you want to manually add the model binding messages see them below:
@@ -26,3 +27,9 @@ User is not in role '{0}'.
 User name '{0}' is already taken.
 User name '{0}' is invalid, can only contain letters or digits.
 ````
+
+#
+### Next: [Localizing custom backend messages][1]
+#
+
+[1]:../XLocalizer/localizing-custom-backend-messages.md

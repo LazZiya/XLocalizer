@@ -1,5 +1,18 @@
-## XLocalizer.TagHelpers
-XLocalizer has a handy extension pack for localizing views using a simple html tag.
+## Localizing Views
+XLocalizer has a handy extension pack; [XLocalizer.TagHelpers][3] for localizing views using a simple html tag.
+
+### Table of contents
+- [Install](#install)
+- [Setup](#setup)
+- [Localize texts](#localize-texts)
+- [Loalize HTML](#localize-html)
+- [Localize attributes](#localize-attributes)
+- [Specify culture](#specify-culture)
+- [Provide arguments for localized contents](#provide-arguments-for-localized-contents)
+- [Specify resource source](#specify-resource-source)
+- [Traditional localization for views](#traditional-localization-for-views)
+- [Demo][1]
+- [Next: Localizing data annotations][2]
 
 #### Install
 Install from nuget
@@ -13,7 +26,7 @@ Localize views using `LocalizeTagHelper`, first it must be added to `_ViewImport
 @addTagHelper *, XLocalizer.TagHelpers
 ````
 
-#### Localize views
+#### Localize texts
 Localize texts/html contents using `localize-content` attribute with any html tag
 ````html
 <h1 localize-content>Sample header</h1>
@@ -38,14 +51,6 @@ Localize attributes like `title` inside `<img` tag using `localize-att-*`
 <img src="/images/picture.jpg" localize-att-title="Picture title"/>
 ````
 
-#### Specify culture
-Force specific culture regardless the request culture
-````html
-<p localize-culture="tr">
-    This content will always be localized with TR culture
-</p>
-````
-
 #### Provide arguments for localized contents
 Localize a string that contains arguments by providing the arguments using `localize-args`
 ````html
@@ -58,6 +63,14 @@ Localize a string that contains arguments by providing the arguments using `loca
 </p>
 ````
 > Localized output sample: Visit [demos website][1] to see a collection of 8 demos about "Asp.Net Core".
+
+#### Specify culture
+Force specific culture regardless the request culture
+````html
+<p localize-culture="tr">
+    This content will always be localized with TR culture
+</p>
+````
 
 #### Specify resource source
 Specify localization resource type using `localize-source`
@@ -78,4 +91,10 @@ Default localization interfaces can be used to localize view contents:
 <h1>@_localizer["Welcome"]</h1>
 ````
 
+#
+### Next: [Localizing DataAnnotations][2]
+#
+
 [1]:http://demo.ziyad.info/en/localize
+[2]:../XLocalizer/localizing-validation-attributes-errors.md
+[3]:https://github.com/LazZiya/XLocalizer.TagHelpers

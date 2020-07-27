@@ -1,7 +1,8 @@
+## Localizing Data Annotations
 Another handful feature of XLocalizer is Express attributes; Some of the data attributes do not produce localized error messages if not specified manually in the attributes `ErrorMessage="..."`. Expess data attributes eliminates the need to manually provide error message for each attribute and it produces localized error messages automatically.
 
-Sample required attribute usage:
-````cs
+- Sample required attribute usage:
+````csharp
 using XLocalizer.DataAnnotations;
 
 [ExRequired]
@@ -10,7 +11,7 @@ public string Name { get; set; }
 ````
 
 Below is a list of all express data attributes and their default error messages: 
-````cs
+````csharp
 // "The {0} field is required."
 [ExRequired]
 
@@ -57,3 +58,9 @@ The rest of the frameworks data attributes are already providing a default error
 // "The {0} field is not a valid fully-qualified http, https, or ftp URL."
 [Url]
 ```` 
+
+#
+### Next: [Model binding errors][1]
+#
+
+[1]:../XLocalizer/model-binding-errors.md

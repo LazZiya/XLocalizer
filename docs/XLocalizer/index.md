@@ -1,8 +1,9 @@
 # XLocalizer
-Fastest localization process for Asp.Net Core web applications, powered by online translation and auto resource creating.
+Localizer package for Asp.Net Core web applications, powered by online translation and auto resource creating.
 
+#
+#### Disclaimer Third Parties
 
-## Disclaimer Third Parties
 All product and company names of translation services are trademarks™ or registered® trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them.
 
 During the development of `XLocalizer` I've used many online translation services with the freemium plan, but it is up to you to use a priced plan from the respective service.

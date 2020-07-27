@@ -7,7 +7,9 @@ This pacakge adds database support for `XLocalizer`.
 - [User secrets](#user-secrets)
 - [Caching](#caching)
 - [Localization stores setup](#localization-stores-setup)
+- [ApplicationDbContext Lifetime](#applicationdbcontext-lifetime)
 - [Full startup code for DB setup](#full-startup-code-for-db-setup)
+- [Next: Localizing Views][4]
 
 #### Install
 Install nuget package:
@@ -18,15 +20,46 @@ PM > Install-Package XLocalizer.Translate.MymemoryTranslate
 ````
 
 #### Startup settings
-First we need to change the `ApplicationDbContext` life time, by default it is scoped, but all localization interfaces are singleton or transient, so we have to change the `ApplciationDbContext` to avoid scoped and singleton conflicts.
+
+- Configure request localization options and optionally add `RouteSegmentRequestCultureProvider` :
 ````csharp
-services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")), 
-                ServiceLifetime.Transient, 
-                ServiceLifetime.Transient);
+// Add namespace for optional routing setup
+using XLocalizer.Routing;
+
+// Configure request localization options
+services.Configure<RequestLocalizationOptions>(ops => 
+{
+    // Define supported cultures
+    var cultures = new CultureInfo[] { new CultureInfo("en"), new CultureInfo("tr"), new CultureInfo("ar") };
+    ops.SupportedCultures = cultures;
+    ops.SupportedUICultures = cultures;
+    ops.DefaultRequestCulture = new RequestCulture("en");
+
+    // Optional: add custom provider to support localization based on {culture} route value
+    ops.RequestCultureProviders.Insert(0, new RouteSegmentRequestCultureProvider(cultures));
+});        
 ````
 
-Then we can add DB localization setup:
+- Register a translation service to enable auto translation option:
+````csharp
+services.AddHttpClient<ITranslator, MyMemoryTranslateService>();
+````
+
+> You can provide translation support based on any custom provider type by implementing `ITranslator` interface.
+
+- Add route based localization for razor pages:
+````csharp
+services.AddRazorPages()
+        .AddRazorPagesOptions(ops => { ops.Conventions.Insert(0, new RouteTemplateModelConventionRazorPages()); });
+````
+
+Or if you are using MVC use;
+````csharp
+services.AddMvc()
+        .AddMvcOptions(ops => { ops.Conventions.Insert(0, new RouteTemplateModelConventionMvc()); });
+````
+
+- Add DB localization setup:
 ````csharp
 using XLocalizer.DB;
 
@@ -34,7 +67,7 @@ using XLocalizer.DB;
 services.AddHttpClient<ITranslator, MyMemoryTranslateService>();
 
 services.AddRazorPages()
-        .AddXDbLocalizer<ApplicationDbContext>(ops =>
+        .AddXDbLocalizer<ApplicationDbContext, MyMemoryTranslate>(ops =>
         {
             ops.AutoAddKeys = true;
             ops.AutoTranslate = true;
@@ -129,10 +162,20 @@ public static class SeedXLocalizerValues
 }
 ````
 
+#### ApplicationDbContext LifeTime
+Asp.Net Core expects localization services to be added as singleton, so we have to change the `ApplciationDbContext` lifetime to avoid scoped and singleton conflicts.
+````csharp
+services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")), 
+                ServiceLifetime.Transient, 
+                ServiceLifetime.Transient);
+````
+
+
 Finally, create a migration and update the database:
 ````
 PM > add-migration XLocalizerStores
-PM > update-databse
+PM > update-database
 ````
 
 #### Full startup code for DB setup
@@ -237,6 +280,12 @@ namespace DbLocalizationSample
 }
 
 ````
+
+#
+### Next: [Localizing views][4]
+#
+
 [1]:../XLocalizer/translate-services.md
 [2]:https://github.com/LazZiya/XLocalizer/blob/master/XLocalizer.DB/Models/IXDbResource.cs
 [3]:https://github.com/LazZiya/XLocalizer/blob/master/XLocalizer.DB/Models/XDbResource.cs
+[4]:../XLocalizer/localizing-views.md

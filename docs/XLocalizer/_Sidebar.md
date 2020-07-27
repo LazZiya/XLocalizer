@@ -1,20 +1,25 @@
+##### Quick start
 - [What is XLocalizer][2]
-- [Quick start][3]
-- [Common Setup][4]
 - [Localization setup based on XML][5]
 - [Localization setup based on DB][6]
 - [Localization setup based on RESX][7]
+
+##### Translation
 - [Translation services][8]
 - [MyMemory Translate][9]
 - [SYSTRAN.io Translate][10]
 - [Google Translate][11]
 - [Yandex Translate][12]
 - [IBM Watson Language Translator][13]
+
+##### Localziation
 - [Localizing views][14]
 - [Localizing custom backend messages][15]
 - [Localizing validation attributes errors][16]
 - [Model binding errors][17]
 - [Identity errors][18]
+
+##### Export to RESX
 - [Export XML to RESX][19]
 - [Export DB to RESX][20]
 
@@ -29,9 +34,10 @@
   - [Client side validation][26]
   - [Validating localized input][27]
 
+[1]: .
 [2]:../XLocalizer/what-is-xlocalizer.md
-[3]:../XLocalizer/setup-quick-start.md
-[4]:../XLocalizer/setup.md
+[3]: .
+[4]: .
 [5]:../XLocalizer/setup-xml.md
 [6]:../XLocalizer/setup-db.md
 [7]:../XLocalizer/setup-resx.md
