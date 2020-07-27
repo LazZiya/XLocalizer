@@ -99,8 +99,11 @@ namespace XLocalizer
 
                 if (!availableInSource && _options.AutoTranslate)
                 {
-                    // Option 3: Online translate
-                    availableInTranslate = _translator.TryTranslate(_defaultCulture, CultureInfo.CurrentCulture.Name, name, out value);
+                    var culture = CultureInfo.CurrentCulture.Name;
+
+                    if(_defaultCulture != culture)
+                        // Option 3: Online translate
+                        availableInTranslate = _translator.TryTranslate(_defaultCulture, culture, name, out value);
                 }
 
                 // add a resource if it is not available in source and auto add is enabled
