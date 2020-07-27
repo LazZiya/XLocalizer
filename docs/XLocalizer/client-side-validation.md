@@ -1,3 +1,5 @@
+## Client Side Validation
+
 Client side validation is done during filling the form before the submit button is clicked. It requires adding validation span as below:
 
 ````html
@@ -24,3 +26,9 @@ You can add the relevant scripts manually as well:
 <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
 <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
 ````
+
+#
+### Next: [Validating localized input][1]
+#
+
+[1]:../XLocalizer/validating-localized-input.md
