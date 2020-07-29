@@ -24,8 +24,8 @@ Add localization settings in `startup.cs`:
 using XLocalizer;
 using XLocalizer.Xml;
 using XLocalizer.Routing;
-using LazZiya.Translate;
-using LazZiya.Translate.GoogleTranslate;
+using XLocalizer.Translate;
+using XLocalizer.Translate.GoogleTranslate;
 
 public void ConfigureServices(IServiceCollection services)
 {
