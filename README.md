@@ -87,8 +87,9 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 ### Sample projects
  * [XML based localization sample](https://github.com/LazZiya/XLocalizer.Samples/tree/master/XmlLocalizationSample)
+ * [DB based localization sample](https://github.com/LazZiya/XLocalizer.Samples/tree/master/DbLocalizationSample)
 
 ### License
 MIT
 
-[1]:https://github.com/LazZiya/TranslationServices
+[1]:https://github.com/LazZiya/XLocalizer.Translate
