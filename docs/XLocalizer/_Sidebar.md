@@ -1,4 +1,5 @@
 ##### Quick start
+- [XLocalizer][1]
 - [What is XLocalizer][2]
 - [Localization setup based on XML][5]
 - [Localization setup based on DB][6]
@@ -34,7 +35,7 @@
   - [Client side validation][26]
   - [Validating localized input][27]
 
-[1]: .
+[1]:../XLocalizer/index.md
 [2]:../XLocalizer/what-is-xlocalizer.md
 [3]: .
 [4]: .
