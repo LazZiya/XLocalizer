@@ -1,1 +1,1 @@
-### For a better docs browsing experience please visit [DOCS.Ziyad.info](http://docs.ziyad.info)
+### For a better docs browsing experience please visit [DOCS.Ziyad.info](https://docs.ziyad.info)
