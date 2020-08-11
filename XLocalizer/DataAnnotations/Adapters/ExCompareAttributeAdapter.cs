@@ -5,14 +5,17 @@ using System;
 
 namespace XLocalizer.DataAnnotations.Adapters
 {
-    internal class ExCompareAttributeAdapter : AttributeAdapterBase<ExCompareAttribute>
+    /// <summary>
+    /// Adapter for providing a localized error message for <see cref="ExCompareAttribute"/>
+    /// </summary>
+    public class ExCompareAttributeAdapter : AttributeAdapterBase<ExCompareAttribute>
     {
         // name of the other attribute
         private string _att { get; set; }
         private readonly IStringLocalizer Localizer;
 
         /// <summary>
-        /// 
+        /// Initialize a new instance of <see cref="ExCompareAttributeAdapter"/>
         /// </summary>
         /// <param name="attribute"></param>
         /// <param name="stringLocalizer"></param>
@@ -22,6 +25,10 @@ namespace XLocalizer.DataAnnotations.Adapters
             Localizer = stringLocalizer;
         }
 
+        /// <summary>
+        /// Add validation context
+        /// </summary>
+        /// <param name="context"></param>
         public override void AddValidation(ClientModelValidationContext context)
         {
             if (context == null)
@@ -32,6 +39,11 @@ namespace XLocalizer.DataAnnotations.Adapters
             MergeAttribute(context.Attributes, "data-val-equalto-other", $"*.{_att}");
         }
 
+        /// <summary>
+        /// Get localized error message
+        /// </summary>
+        /// <param name="validationContext"></param>
+        /// <returns></returns>
         public override string GetErrorMessage(ModelValidationContextBase validationContext)
         {
             if (validationContext == null)

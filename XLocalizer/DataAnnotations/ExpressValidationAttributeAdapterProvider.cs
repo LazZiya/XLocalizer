@@ -32,26 +32,6 @@ namespace XLocalizer.DataAnnotations
             if (type == typeof(ExRequiredAttribute))
                 return new RequiredAttributeAdapter((RequiredAttribute)attribute, stringLocalizer);
 
-/*#if NETCOREAPP2_0 || NETCOREAPP2_1 || NETCOREAPP2_2
-            if(type == typeof(ExMaxLengthAttribute))
-                return new MaxLengthAttributeAdapter((MaxLengthAttribute)attribute, stringLocalizer);
-            
-            if(type == typeof(ExMinLengthAttribute))
-                return new MinLengthAttributeAdapter((MinLengthAttribute)attribute, stringLocalizer);
-
-            if (type == typeof(ExCompareAttribute))
-                return new CompareAttributeAdapter((CompareAttribute)attribute, stringLocalizer);
-            
-            if (type == typeof(ExRangeAttribute))
-                return new RangeAttributeAdapter((RangeAttribute)attribute, stringLocalizer);
-
-            if (type == typeof(ExRegularExpressionAttribute))
-                return new RegularExpressionAttributeAdapter((RegularExpressionAttribute)attribute, stringLocalizer);
-
-            if (type == typeof(ExStringLengthAttribute))
-                return new StringLengthAttributeAdapter((StringLengthAttribute)attribute, stringLocalizer);
-/
-#else*/
             if (type == typeof(ExMaxLengthAttribute))
                 return new ExMaxLengthAttributeAdapter((ExMaxLengthAttribute)attribute, stringLocalizer);
 
@@ -69,8 +49,7 @@ namespace XLocalizer.DataAnnotations
                 
             if (type == typeof(ExStringLengthAttribute))
                 return new ExStringLengthAttributeAdapter((ExStringLengthAttribute)attribute, stringLocalizer);
-/*#endif
-            */
+
             return base.GetAttributeAdapter(attribute, stringLocalizer);
         }
     }

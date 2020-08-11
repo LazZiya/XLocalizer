@@ -5,14 +5,27 @@ using System;
 
 namespace XLocalizer.DataAnnotations.Adapters
 {
-    internal class ExStringLengthAttributeAdapter : AttributeAdapterBase<ExStringLengthAttribute>
+    /// <summary>
+    /// Adapter for providing a localized error message for <see cref="ExStringLengthAttribute"/>
+    /// </summary>
+    public class ExStringLengthAttributeAdapter : AttributeAdapterBase<ExStringLengthAttribute>
     {
         private readonly int MaxLenght;
+
+        /// <summary>
+        /// Initialize a new instance of <see cref="ExStringLengthAttributeAdapter"/>
+        /// </summary>
+        /// <param name="attribute"></param>
+        /// <param name="stringLocalizer"></param>
         public ExStringLengthAttributeAdapter(ExStringLengthAttribute attribute, IStringLocalizer stringLocalizer) : base(attribute, stringLocalizer)
         {
             MaxLenght = attribute.MaximumLength;
         }
 
+        /// <summary>
+        /// Add validation context
+        /// </summary>
+        /// <param name="context"></param>
         public override void AddValidation(ClientModelValidationContext context)
         {
             if (context == null)
@@ -23,6 +36,11 @@ namespace XLocalizer.DataAnnotations.Adapters
             MergeAttribute(context.Attributes, "data-val-length-max", $"{MaxLenght}");
         }
 
+        /// <summary>
+        /// Get localized error message
+        /// </summary>
+        /// <param name="validationContext"></param>
+        /// <returns></returns>
         public override string GetErrorMessage(ModelValidationContextBase validationContext)
         {
             if (validationContext == null)

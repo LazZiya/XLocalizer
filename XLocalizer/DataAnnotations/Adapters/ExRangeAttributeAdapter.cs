@@ -5,12 +5,21 @@ using System;
 
 namespace XLocalizer.DataAnnotations.Adapters
 {
-    internal class ExRangeAttributeAdapter : AttributeAdapterBase<ExRangeAttribute>
+    /// <summary>
+    /// Adapter for providing a localized error message for <see cref="ExRangeAttribute"/>
+    /// </summary>
+    public class ExRangeAttributeAdapter : AttributeAdapterBase<ExRangeAttribute>
     {
         private object Min { get; set; }
         private object Max { get; set; }
 
         private readonly IStringLocalizer Localizer;
+
+        /// <summary>
+        /// Initialize a new instance of <see cref="ExRangeAttributeAdapter"/>
+        /// </summary>
+        /// <param name="attribute"></param>
+        /// <param name="stringLocalizer"></param>
         public ExRangeAttributeAdapter(ExRangeAttribute attribute, IStringLocalizer stringLocalizer) : base(attribute, stringLocalizer)
         {
             Min = attribute.Minimum;
@@ -18,6 +27,10 @@ namespace XLocalizer.DataAnnotations.Adapters
             Localizer = stringLocalizer;
         }
 
+        /// <summary>
+        /// Add validation context
+        /// </summary>
+        /// <param name="context"></param>
         public override void AddValidation(ClientModelValidationContext context)
         {
             if (context == null)
@@ -30,6 +43,11 @@ namespace XLocalizer.DataAnnotations.Adapters
             MergeAttribute(context.Attributes, "data-val-required", GetRequiredErrorMessage(context));
         }
 
+        /// <summary>
+        /// Get localized error message
+        /// </summary>
+        /// <param name="validationContext"></param>
+        /// <returns></returns>
         public override string GetErrorMessage(ModelValidationContextBase validationContext)
         {
             if (validationContext == null)
