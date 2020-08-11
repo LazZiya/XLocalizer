@@ -10,14 +10,14 @@
 			XLocalizer package for localization of Asp.Net Core web applications, powered by online translation and auto resource creating.
 		</Description>
 		<Copyright>Ziyad.info</Copyright>
-		<PackageProjectUrl>http://docs.ziyad.info/XLocalizer</PackageProjectUrl>
+		<PackageProjectUrl>https://docs.ziyad.info/</PackageProjectUrl>
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageTags>asp.net,core,razor,mvc,localization,globalization,client side,validation,translation,autokeyadding</PackageTags>
 		<PackageReleaseNotes>
-			- Fix for translation issues with default culture
+			- Ex validation attributes configured as public
 			Release notes: https://github.com/LazZiya/XLocalizer/releases
 		</PackageReleaseNotes>
-		<Version>1.0.0-preview2</Version>
+		<Version>1.0.0-preview3</Version>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<FileVersion>1.0.0.0</FileVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
