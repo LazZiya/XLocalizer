@@ -106,12 +106,155 @@
             Remove all extra whitespaces (more than one) in a string
             </summary>
         </member>
+        <member name="T:XLocalizer.DataAnnotations.Adapters.ExCompareAttributeAdapter">
+            <summary>
+            Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExCompareAttribute"/>
+            </summary>
+        </member>
         <member name="M:XLocalizer.DataAnnotations.Adapters.ExCompareAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExCompareAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
             <summary>
-            
+            Initialize a new instance of <see cref="T:XLocalizer.DataAnnotations.Adapters.ExCompareAttributeAdapter"/>
             </summary>
             <param name="attribute"></param>
             <param name="stringLocalizer"></param>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExCompareAttributeAdapter.AddValidation(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ClientModelValidationContext)">
+            <summary>
+            Add validation context
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExCompareAttributeAdapter.GetErrorMessage(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ModelValidationContextBase)">
+            <summary>
+            Get localized error message
+            </summary>
+            <param name="validationContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.DataAnnotations.Adapters.ExMaxLengthAttributeAdapter">
+            <summary>
+            Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExMaxLengthAttribute"/>
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExMaxLengthAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExMaxLengthAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.DataAnnotations.Adapters.ExMaxLengthAttributeAdapter"/>
+            </summary>
+            <param name="attribute"></param>
+            <param name="stringLocalizer"></param>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExMaxLengthAttributeAdapter.AddValidation(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ClientModelValidationContext)">
+            <summary>
+            Add valdiation context
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExMaxLengthAttributeAdapter.GetErrorMessage(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ModelValidationContextBase)">
+            <summary>
+            Get localized error message
+            </summary>
+            <param name="validationContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.DataAnnotations.Adapters.ExMinLengthAttributeAdapter">
+            <summary>
+            Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExMinLengthAttribute"/>
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExMinLengthAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExMinLengthAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.DataAnnotations.Adapters.ExMinLengthAttributeAdapter"/>
+            </summary>
+            <param name="attribute"></param>
+            <param name="stringLocalizer"></param>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExMinLengthAttributeAdapter.AddValidation(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ClientModelValidationContext)">
+            <summary>
+            Add validaton context
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExMinLengthAttributeAdapter.GetErrorMessage(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ModelValidationContextBase)">
+            <summary>
+            Get localized error message
+            </summary>
+            <param name="validationContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.DataAnnotations.Adapters.ExRangeAttributeAdapter">
+            <summary>
+            Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExRangeAttribute"/>
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExRangeAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExRangeAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.DataAnnotations.Adapters.ExRangeAttributeAdapter"/>
+            </summary>
+            <param name="attribute"></param>
+            <param name="stringLocalizer"></param>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExRangeAttributeAdapter.AddValidation(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ClientModelValidationContext)">
+            <summary>
+            Add validation context
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExRangeAttributeAdapter.GetErrorMessage(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ModelValidationContextBase)">
+            <summary>
+            Get localized error message
+            </summary>
+            <param name="validationContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.DataAnnotations.Adapters.ExRegularExpressionAttributeAdapter">
+            <summary>
+            Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExRegularExpressionAttribute"/>
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExRegularExpressionAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExRegularExpressionAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.DataAnnotations.Adapters.ExRegularExpressionAttributeAdapter"/>
+            </summary>
+            <param name="attribute"></param>
+            <param name="stringLocalizer"></param>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExRegularExpressionAttributeAdapter.AddValidation(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ClientModelValidationContext)">
+            <summary>
+            Add valdiation context
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExRegularExpressionAttributeAdapter.GetErrorMessage(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ModelValidationContextBase)">
+            <summary>
+            Get localized error message
+            </summary>
+            <param name="validationContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XLocalizer.DataAnnotations.Adapters.ExStringLengthAttributeAdapter">
+            <summary>
+            Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExStringLengthAttribute"/>
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExStringLengthAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExStringLengthAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.DataAnnotations.Adapters.ExStringLengthAttributeAdapter"/>
+            </summary>
+            <param name="attribute"></param>
+            <param name="stringLocalizer"></param>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExStringLengthAttributeAdapter.AddValidation(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ClientModelValidationContext)">
+            <summary>
+            Add validation context
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExStringLengthAttributeAdapter.GetErrorMessage(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ModelValidationContextBase)">
+            <summary>
+            Get localized error message
+            </summary>
+            <param name="validationContext"></param>
+            <returns></returns>
         </member>
         <member name="T:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages">
             <summary>
@@ -388,12 +531,13 @@
             Extesnions for adding DataAnnotation Localization
             </summary>
         </member>
-        <member name="M:XLocalizer.DataAnnotations.DependencyInjection.AddDataAnnotationsLocalization``1(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
+        <member name="M:XLocalizer.DataAnnotations.DependencyInjection.AddDataAnnotationsLocalization``1(Microsoft.Extensions.DependencyInjection.IMvcBuilder,System.Action{XLocalizer.XLocalizerOptions})">
             <summary>
             Add DataAnnotations localization with specified resource type.
             </summary>
             <typeparam name="TResource">Type of DataAnnotations localization resource</typeparam>
             <param name="builder"></param>
+            <param name="options"></param>
             <returns></returns>
         </member>
         <member name="T:XLocalizer.DataAnnotations.ExCompareAttribute">

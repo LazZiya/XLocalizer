@@ -91,7 +91,7 @@ namespace XLocalizer
             builder.Services.AddSingleton<IXStringLocalizerFactory, XStringLocalizerFactory<TResource>>();
             builder.Services.AddSingleton<IXHtmlLocalizerFactory, XHtmlLocalizerFactory<TResource>>();
 
-            return builder.AddDataAnnotationsLocalization<TResource>()
+            return builder.AddDataAnnotationsLocalization<TResource>(options)
                           .AddModelBindingLocalization()
                           .AddIdentityErrorsLocalization()
                           .WithTranslationService<TTranslator>();
