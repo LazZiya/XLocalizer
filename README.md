@@ -80,7 +80,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ````
 
-### For more details goto [docs website](http://docs.ziyad.info/XLocalizer)
+### For more details goto [DOCS.Ziyad.info](http://docs.ziyad.info)
 
 ### Step by step tutorial 
  * coming soon...
