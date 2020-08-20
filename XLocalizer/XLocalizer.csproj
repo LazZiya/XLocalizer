@@ -18,7 +18,7 @@
 			- Localized secondary required error message in ExStringLengthAdapter
 			Release notes: https://github.com/LazZiya/XLocalizer/releases
 		</PackageReleaseNotes>
-		<Version>1.0.0-preview4</Version>
+		<Version>1.0.0-preview3</Version>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<FileVersion>1.0.0.0</FileVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>

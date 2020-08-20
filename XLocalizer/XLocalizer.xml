@@ -540,6 +540,19 @@
             <param name="options"></param>
             <returns></returns>
         </member>
+        <member name="T:XLocalizer.DataAnnotations.ExAttributeAdapterSwitch">
+            <summary>
+            A switch to return the relevant Ex attribute or null if no Ex attribute is detected
+            </summary>
+        </member>
+        <member name="M:XLocalizer.DataAnnotations.ExAttributeAdapterSwitch.GetAttributeAdapter(System.ComponentModel.DataAnnotations.ValidationAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
+            <summary>
+            Get the ex attribute adapter
+            </summary>
+            <param name="attribute"></param>
+            <param name="stringLocalizer"></param>
+            <returns></returns>
+        </member>
         <member name="T:XLocalizer.DataAnnotations.ExCompareAttribute">
             <summary>
             Provides an attribute that compares two properties, and produces localized error message.
