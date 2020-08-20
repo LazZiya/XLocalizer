@@ -14,6 +14,7 @@
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageTags>asp.net,core,razor,mvc,localization,globalization,client side,validation,translation,autokeyadding</PackageTags>
 		<PackageReleaseNotes>
+			- Ex validation attributes configured as public
 			- Localized secondary required error message in ExStringLengthAdapter
 			Release notes: https://github.com/LazZiya/XLocalizer/releases
 		</PackageReleaseNotes>
