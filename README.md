@@ -24,8 +24,8 @@ Add localization settings in `startup.cs`:
 using XLocalizer;
 using XLocalizer.Xml;
 using XLocalizer.Routing;
-using LazZiya.Translate;
-using LazZiya.Translate.GoogleTranslate;
+using XLocalizer.Translate;
+using XLocalizer.Translate.GoogleTranslate;
 
 public void ConfigureServices(IServiceCollection services)
 {
@@ -80,15 +80,16 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ````
 
-### For more details goto [docs website](http://docs.ziyad.info/XLocalizer)
+### For more details goto [DOCS.Ziyad.info](http://docs.ziyad.info)
 
 ### Step by step tutorial 
  * coming soon...
 
 ### Sample projects
  * [XML based localization sample](https://github.com/LazZiya/XLocalizer.Samples/tree/master/XmlLocalizationSample)
+ * [DB based localization sample](https://github.com/LazZiya/XLocalizer.Samples/tree/master/DbLocalizationSample)
 
 ### License
 MIT
 
-[1]:https://github.com/LazZiya/TranslationServices
+[1]:https://github.com/LazZiya/XLocalizer.Translate
