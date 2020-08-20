@@ -11,6 +11,7 @@ namespace XLocalizer.DataAnnotations.Adapters
     public class ExStringLengthAttributeAdapter : AttributeAdapterBase<ExStringLengthAttribute>
     {
         private readonly int MaxLenght;
+        private readonly IStringLocalizer Localizer;
 
         /// <summary>
         /// Initialize a new instance of <see cref="ExStringLengthAttributeAdapter"/>
@@ -20,6 +21,7 @@ namespace XLocalizer.DataAnnotations.Adapters
         public ExStringLengthAttributeAdapter(ExStringLengthAttribute attribute, IStringLocalizer stringLocalizer) : base(attribute, stringLocalizer)
         {
             MaxLenght = attribute.MaximumLength;
+            Localizer = stringLocalizer;
         }
 
         /// <summary>
@@ -34,6 +36,7 @@ namespace XLocalizer.DataAnnotations.Adapters
             MergeAttribute(context.Attributes, "data-val", "true");
             MergeAttribute(context.Attributes, "data-val-length", GetErrorMessage(context));
             MergeAttribute(context.Attributes, "data-val-length-max", $"{MaxLenght}");
+            MergeAttribute(context.Attributes, "data-val-required", GetRequiredErrorMessage(context));
         }
 
         /// <summary>
@@ -47,6 +50,16 @@ namespace XLocalizer.DataAnnotations.Adapters
                 throw new NullReferenceException(nameof(validationContext));
 
             return GetErrorMessage(validationContext.ModelMetadata, validationContext.ModelMetadata.GetDisplayName(), MaxLenght);
+        }
+
+        private string GetRequiredErrorMessage(ModelValidationContextBase validationContext)
+        {
+            if (validationContext == null)
+                throw new NullReferenceException(nameof(validationContext));
+
+            var msg = Localizer[DataAnnotationsErrorMessages.RequiredAttribute_ValidationError, validationContext.ModelMetadata.GetDisplayName()].Value;
+
+            return msg;
         }
     }
 }
