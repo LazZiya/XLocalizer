@@ -13,40 +13,41 @@ namespace XLocalizer.ModelBinding
         /// </summary>
         /// <param name="provider"></param>
         /// <param name="localizer">localizer factory</param>
-        public static void SetLocalizedModelBindingErrorMessages(this DefaultModelBindingMessageProvider provider, IStringLocalizer localizer)
+        /// <param name="mbErrors">Model binding errors provider</param>
+        public static void SetLocalizedModelBindingErrorMessages(this DefaultModelBindingMessageProvider provider, IStringLocalizer localizer, IModelBindingErrorMessagesProvider mbErrors)
         {
             provider.SetAttemptedValueIsInvalidAccessor((x, y)
-                => GetLoclizedModelBindingError(localizer, "The value '{0}' is not valid for {1}.", x, y));
+                => GetLoclizedModelBindingError(localizer, mbErrors.AttemptedValueIsInvalidAccessor, x, y));
 
             provider.SetMissingBindRequiredValueAccessor((x)
-                => GetLoclizedModelBindingError(localizer, "A value for the '{0}' parameter or property was not provided.", x));
+                => GetLoclizedModelBindingError(localizer, mbErrors.MissingBindRequiredValueAccessor, x));
 
             provider.SetMissingKeyOrValueAccessor(()
-                => GetLoclizedModelBindingError(localizer, "A value is required."));
+                => GetLoclizedModelBindingError(localizer, mbErrors.MissingKeyOrValueAccessor));
 
             provider.SetMissingRequestBodyRequiredValueAccessor(()
-                => GetLoclizedModelBindingError(localizer, "A non-empty request body is required."));
+                => GetLoclizedModelBindingError(localizer, mbErrors.MissingRequestBodyRequiredValueAccessor));
 
             provider.SetNonPropertyAttemptedValueIsInvalidAccessor((x)
-                => GetLoclizedModelBindingError(localizer, "The value '{0}' is not valid.", x));
+                => GetLoclizedModelBindingError(localizer, mbErrors.NonPropertyAttemptedValueIsInvalidAccessor, x));
 
             provider.SetNonPropertyUnknownValueIsInvalidAccessor(()
-                => GetLoclizedModelBindingError(localizer, "The supplied value is invalid."));
+                => GetLoclizedModelBindingError(localizer, mbErrors.NonPropertyUnknownValueIsInvalidAccessor));
 
             provider.SetNonPropertyValueMustBeANumberAccessor(()
-                => GetLoclizedModelBindingError(localizer, "The field must be a number."));
+                => GetLoclizedModelBindingError(localizer, mbErrors.NonPropertyValueMustBeANumberAccessor));
 
             provider.SetUnknownValueIsInvalidAccessor((x)
-                => GetLoclizedModelBindingError(localizer, "The supplied value is invalid for {0}.", x));
+                => GetLoclizedModelBindingError(localizer, mbErrors.UnknownValueIsInvalidAccessor, x));
 
             provider.SetValueIsInvalidAccessor((x)
-                => GetLoclizedModelBindingError(localizer, "The value '{0}' is invalid.", x));
+                => GetLoclizedModelBindingError(localizer, mbErrors.ValueIsInvalidAccessor, x));
 
             provider.SetValueMustBeANumberAccessor((x)
-                => GetLoclizedModelBindingError(localizer, "The field {0} must be a number.", x));
+                => GetLoclizedModelBindingError(localizer, mbErrors.ValueMustBeANumberAccessor, x));
 
             provider.SetValueMustNotBeNullAccessor((x)
-                => GetLoclizedModelBindingError(localizer, "The value '{0}' is invalid.", x));
+                => GetLoclizedModelBindingError(localizer, mbErrors.ValueMustNotBeNullAccessor, x));
         }
 
         private static string GetLoclizedModelBindingError(IStringLocalizer localizer, string code, params object[] args)

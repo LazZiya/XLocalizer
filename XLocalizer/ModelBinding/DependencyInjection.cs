@@ -1,6 +1,6 @@
-﻿using XLocalizer.Common;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace XLocalizer.ModelBinding
 {
@@ -16,12 +16,20 @@ namespace XLocalizer.ModelBinding
         /// <returns></returns>
         public static IMvcBuilder AddModelBindingLocalization(this IMvcBuilder builder)
         {
+            // Try register a service for providing default model binding error messages
+            builder.Services.TryAddSingleton<IModelBindingErrorMessagesProvider, DefaultModelBindingErrorMessagesProvider>();
+
             // Add ModelBinding errors localization
             builder.AddMvcOptions(ops =>
             {
-                var localizer = builder.Services.BuildServiceProvider().GetService(typeof(IStringLocalizer)) as IStringLocalizer;
-                ops.ModelBindingMessageProvider.SetLocalizedModelBindingErrorMessages(localizer);
+                var serviceBuilder = builder.Services.BuildServiceProvider();
+
+                var localizer = serviceBuilder.GetRequiredService(typeof(IStringLocalizer)) as IStringLocalizer;
+                var mbErrMsgProvider = serviceBuilder.GetRequiredService(typeof(IModelBindingErrorMessagesProvider)) as IModelBindingErrorMessagesProvider;
+
+                ops.ModelBindingMessageProvider.SetLocalizedModelBindingErrorMessages(localizer, mbErrMsgProvider);
             });
+
 
             return builder;
         }

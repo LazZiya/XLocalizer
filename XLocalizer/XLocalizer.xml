@@ -951,6 +951,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:XLocalizer.ModelBinding.DefaultModelBindingErrorMessagesProvider">
+            <summary>
+            Class to provide custom default model binding error messages.
+            Messages can be provided in any culture, so user can provide localized error messages here,
+            but the default request culture in startup must be configured same as messages culture.
+            </summary>
+        </member>
         <member name="T:XLocalizer.ModelBinding.DependencyInjection">
             <summary>
             Extesnions for adding DataAnnotation Localization
@@ -963,17 +970,80 @@
             <param name="builder"></param>
             <returns></returns>
         </member>
+        <member name="T:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider">
+            <summary>
+            Interface to provide custom default model binding error messages.
+            Messages can be provided in any culture, so user can provide localized error messages here,
+            but the default request culture in startup must be configured same as messages culture.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.AttemptedValueIsInvalidAccessor">
+            <summary>
+            "The value '{0}' is not valid for {1}."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.MissingBindRequiredValueAccessor">
+            <summary>
+            "A value for the '{0}' parameter or property was not provided."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.MissingKeyOrValueAccessor">
+            <summary>
+            "A value is required."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.MissingRequestBodyRequiredValueAccessor">
+            <summary>
+            "A non-empty request body is required."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.NonPropertyAttemptedValueIsInvalidAccessor">
+            <summary>
+            "The value '{0}' is not valid."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.NonPropertyUnknownValueIsInvalidAccessor">
+            <summary>
+            "The supplied value is invalid."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.NonPropertyValueMustBeANumberAccessor">
+            <summary>
+            "The field must be a number."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.UnknownValueIsInvalidAccessor">
+            <summary>
+            "The supplied value is invalid for {0}."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.ValueIsInvalidAccessor">
+            <summary>
+            "The value '{0}' is invalid."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.ValueMustBeANumberAccessor">
+            <summary>
+            "The field {0} must be a number."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.ValueMustNotBeNullAccessor">
+            <summary>
+            "The value '{0}' is invalid."
+            </summary>
+        </member>
         <member name="T:XLocalizer.ModelBinding.ModelBindingErrorsExtensions">
             <summary>
             Original messages obtained from <a href="https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/Resources.resx"/>
             </summary>
         </member>
-        <member name="M:XLocalizer.ModelBinding.ModelBindingErrorsExtensions.SetLocalizedModelBindingErrorMessages(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelBindingMessageProvider,Microsoft.Extensions.Localization.IStringLocalizer)">
+        <member name="M:XLocalizer.ModelBinding.ModelBindingErrorsExtensions.SetLocalizedModelBindingErrorMessages(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelBindingMessageProvider,Microsoft.Extensions.Localization.IStringLocalizer,XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider)">
             <summary>
             Use DB for localization
             </summary>
             <param name="provider"></param>
             <param name="localizer">localizer factory</param>
+            <param name="mbErrors">Model binding errors provider</param>
         </member>
         <member name="T:XLocalizer.Resx.ResxElement">
             <summary>
