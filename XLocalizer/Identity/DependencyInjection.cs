@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace XLocalizer.Identity
 {
@@ -15,6 +16,8 @@ namespace XLocalizer.Identity
         /// <returns></returns>
         public static IMvcBuilder AddIdentityErrorsLocalization(this IMvcBuilder builder)
         {
+            builder.Services.TryAddSingleton<IIdentityErrorMessagesProvider, DefaultIdentityErrorsProvider>();
+
             // Add Identity Erros localization
             builder.Services.AddScoped<IdentityErrorDescriber, IdentityErrorsLocalizer>();
 

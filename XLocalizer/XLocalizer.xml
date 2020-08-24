@@ -186,12 +186,13 @@
             Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExRangeAttribute"/>
             </summary>
         </member>
-        <member name="M:XLocalizer.DataAnnotations.Adapters.ExRangeAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExRangeAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExRangeAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExRangeAttribute,Microsoft.Extensions.Localization.IStringLocalizer,XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider)">
             <summary>
             Initialize a new instance of <see cref="T:XLocalizer.DataAnnotations.Adapters.ExRangeAttributeAdapter"/>
             </summary>
             <param name="attribute"></param>
             <param name="stringLocalizer"></param>
+            <param name="errProvider"></param>
         </member>
         <member name="M:XLocalizer.DataAnnotations.Adapters.ExRangeAttributeAdapter.AddValidation(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ClientModelValidationContext)">
             <summary>
@@ -211,12 +212,13 @@
             Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExRegularExpressionAttribute"/>
             </summary>
         </member>
-        <member name="M:XLocalizer.DataAnnotations.Adapters.ExRegularExpressionAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExRegularExpressionAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExRegularExpressionAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExRegularExpressionAttribute,Microsoft.Extensions.Localization.IStringLocalizer,XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider)">
             <summary>
             Initialize a new instance of <see cref="T:XLocalizer.DataAnnotations.Adapters.ExRegularExpressionAttributeAdapter"/>
             </summary>
             <param name="attribute"></param>
             <param name="stringLocalizer"></param>
+            <param name="errProvider"></param>
         </member>
         <member name="M:XLocalizer.DataAnnotations.Adapters.ExRegularExpressionAttributeAdapter.AddValidation(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ClientModelValidationContext)">
             <summary>
@@ -526,6 +528,11 @@
             The value for property '{0}' must be of type '{1}'.
             </summary>
         </member>
+        <member name="T:XLocalizer.DataAnnotations.DefaultDataAnnotationsErrorMessagesProvider">
+            <summary>
+            Original messages obtained from <a href="https://github.com/dotnet/corefx/blob/master/src/System.ComponentModel.Annotations/src/Resources/Strings.resx"/>
+            </summary>
+        </member>
         <member name="T:XLocalizer.DataAnnotations.DependencyInjection">
             <summary>
             Extesnions for adding DataAnnotation Localization
@@ -545,12 +552,13 @@
             A switch to return the relevant Ex attribute or null if no Ex attribute is detected
             </summary>
         </member>
-        <member name="M:XLocalizer.DataAnnotations.ExAttributeAdapterSwitch.GetAttributeAdapter(System.ComponentModel.DataAnnotations.ValidationAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
+        <member name="M:XLocalizer.DataAnnotations.ExAttributeAdapterSwitch.GetAttributeAdapter(System.ComponentModel.DataAnnotations.ValidationAttribute,Microsoft.Extensions.Localization.IStringLocalizer,XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider)">
             <summary>
             Get the ex attribute adapter
             </summary>
             <param name="attribute"></param>
             <param name="stringLocalizer"></param>
+            <param name="errProvider"></param>
             <returns></returns>
         </member>
         <member name="T:XLocalizer.DataAnnotations.ExCompareAttribute">
@@ -596,7 +604,7 @@
             Registeres express valdiation attributes
             </summary>
         </member>
-        <member name="M:XLocalizer.DataAnnotations.ExpressValidationAttributeAdapterProvider.#ctor">
+        <member name="M:XLocalizer.DataAnnotations.ExpressValidationAttributeAdapterProvider.#ctor(XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider)">
             <summary>
             Initialize a new instance of <see cref="T:XLocalizer.DataAnnotations.ExpressValidationAttributeAdapterProvider"/>
             </summary>
@@ -672,6 +680,248 @@
             </summary>
             <param name="maximumLength">The maximum length of a string.</param>
         </member>
+        <member name="T:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider">
+            <summary>
+            Interface to provide custom default data annotation error messages.
+            Messages can be provided in any culture, so user can provide localized error messages here,
+            but the default request culture in startup must be configured same as messages culture.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.ArgumentIsNullOrWhitespace">
+            <summary>
+            The argument '{0}' cannot be null, empty or contain only whitespace.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.AssociatedMetadataTypeTypeDescriptor_MetadataTypeContainsUnknownProperties">
+            <summary>
+            The associated metadata type for type '{0}' contains the following unknown properties or fields: {1}. Please make sure that the names of these members match the names of the properties on the main type.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.AttributeStore_Unknown_Property">
+            <summary>
+            The type '{0}' does not contain a property named '{1}'.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.Common_PropertyNotFound">
+            <summary>
+            The property {0}.{1} could not be found.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.CompareAttribute_MustMatch">
+            <summary>
+            '{0}' and '{1}' do not match.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.CompareAttribute_UnknownProperty">
+            <summary>
+            Could not find a property named {0}.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.CreditCardAttribute_Invalid">
+            <summary>
+            The {0} field is not a valid credit card number.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.CustomValidationAttribute_Type_Conversion_Failed">
+            <summary>
+            Could not convert the value of type '{0}' to '{1}' as expected by method {2}.{3}.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.CustomValidationAttribute_Type_Must_Be_Public">
+            <summary>
+            The custom validation type '{0}' must be public.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.CustomValidationAttribute_ValidationError">
+            <summary>
+            {0} is not valid.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.DataTypeAttribute_EmptyDataTypeString">
+            <summary>
+            The custom DataType string cannot be null or empty.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.DisplayAttribute_PropertyNotSet">
+            <summary>
+            The {0} property has not been set.  Use the {1} method to get the value.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.EmailAddressAttribute_Invalid">
+            <summary>
+            The {0} field is not a valid e-mail address.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.EnumDataTypeAttribute_TypeCannotBeNull">
+            <summary>
+            The type provided for EnumDataTypeAttribute cannot be null.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.EnumDataTypeAttribute_TypeNeedsToBeAnEnum">
+            <summary>
+            The type '{0}' needs to represent an enumeration type.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.FileExtensionsAttribute_Invalid">
+            <summary>
+            The {0} field only accepts files with the following extensions: {1}
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.LengthAttribute_InvalidValueType">
+            <summary>
+            The field of type {0} must be a string, array or ICollection type.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.MaxLengthAttribute_InvalidMaxLength">
+            <summary>
+            MaxLengthAttribute must have a Length value that is greater than zero. Use MaxLength() without parameters to indicate that the string or array can have the maximum allowable length.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.MaxLengthAttribute_ValidationError">
+            <summary>
+            The field {0} must be a string or array type with a maximum length of '{1}'.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.MetadataTypeAttribute_TypeCannotBeNull">
+            <summary>
+            MetadataClassType cannot be null.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.MinLengthAttribute_InvalidMinLength">
+            <summary>
+            MinLengthAttribute must have a Length value that is zero or greater.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.MinLengthAttribute_ValidationError">
+            <summary>
+            The field {0} must be a string or array type with a minimum length of '{1}'.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.PhoneAttribute_Invalid">
+            <summary>
+            The {0} field is not a valid phone number.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.RangeAttribute_ArbitraryTypeNotIComparable">
+            <summary>
+            The type {0} must implement {1}.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.RangeAttribute_MinGreaterThanMax">
+            <summary>
+            The maximum value '{0}' must be greater than or equal to the minimum value '{1}'.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.RangeAttribute_Must_Set_Min_And_Max">
+            <summary>
+            The minimum and maximum values must be set.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.RangeAttribute_Must_Set_Operand_Type">
+            <summary>
+            The OperandType must be set when strings are used for minimum and maximum values.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.RangeAttribute_ValidationError">
+            <summary>
+            The field {0} must be between {1} and {2}.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.RegexAttribute_ValidationError">
+            <summary>
+            The field {0} must match the regular expression '{1}'.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.RegularExpressionAttribute_Empty_Pattern">
+            <summary>
+            The pattern must be set to a valid regular expression.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.RequiredAttribute_ValidationError">
+            <summary>
+            The {0} field is required.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.StringLengthAttribute_InvalidMaxLength">
+            <summary>
+            The maximum length must be a nonnegative integer.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.StringLengthAttribute_ValidationError">
+            <summary>
+            The field {0} must be a string with a maximum length of {1}.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.StringLengthAttribute_ValidationErrorIncludingMinimum">
+            <summary>
+            The field {0} must be a string with a minimum length of {2} and a maximum length of {1}.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.UIHintImplementation_ControlParameterKeyIsNotAString">
+            <summary>
+            The key parameter at position {0} with value '{1}' is not a string. Every key control parameter must be a string.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.UIHintImplementation_ControlParameterKeyIsNull">
+            <summary>
+            The key parameter at position {0} is null. Every key control parameter must be a string.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.UIHintImplementation_ControlParameterKeyOccursMoreThanOnce">
+            <summary>
+            The key parameter at position {0} with value '{1}' occurs more than once.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.UIHintImplementation_NeedEvenNumberOfControlParameters">
+            <summary>
+            The number of control parameters must be even.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.UrlAttribute_Invalid">
+            <summary>
+            The {0} field is not a valid fully-qualified http, https, or ftp URL.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.ValidationAttribute_Cannot_Set_ErrorMessage_And_Resource">
+            <summary>
+            Either ErrorMessageString or ErrorMessageResourceName must be set, but not both.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.ValidationAttribute_IsValid_NotImplemented">
+            <summary>
+            IsValid(object value) has not been implemented by this class.  The preferred entry point is GetValidationResult() and classes should override IsValid(object value, ValidationContext context).
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.ValidationAttribute_NeedBothResourceTypeAndResourceName">
+            <summary>
+            Both ErrorMessageResourceType and ErrorMessageResourceName need to be set on this attribute.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.ValidationAttribute_ResourcePropertyNotStringType">
+            <summary>
+            The property '{0}' on resource type '{1}' is not a string type.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.ValidationAttribute_ResourceTypeDoesNotHaveProperty">
+            <summary>
+            The resource type '{0}' does not have an accessible static property named '{1}'.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.ValidationAttribute_ValidationError">
+            <summary>
+            The field {0} is invalid.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.Validator_InstanceMustMatchValidationContextInstance">
+            <summary>
+            The instance provided must match the ObjectInstance on the ValidationContext supplied.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.Validator_Property_Value_Wrong_Type">
+            <summary>
+            The value for property '{0}' must be of type '{1}'.
+            </summary>
+        </member>
         <member name="T:XLocalizer.DependencyInjection">
             <summary>
             DI
@@ -713,6 +963,11 @@
             <param name="options"></param>
             <returns></returns>
         </member>
+        <member name="T:XLocalizer.Identity.DefaultIdentityErrorsProvider">
+            <summary>
+            Default identity errors provider
+            </summary>
+        </member>
         <member name="T:XLocalizer.Identity.DependencyInjection">
             <summary>
             Extesnions for adding Identity errors localization
@@ -731,11 +986,12 @@
             Original mesages obtained from: https://github.com/aspnet/AspNetCore/blob/master/src/Identity/Extensions.Core/src/Resources.resx
             </summary>
         </member>
-        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.#ctor(Microsoft.Extensions.Localization.IStringLocalizer)">
+        <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.#ctor(Microsoft.Extensions.Localization.IStringLocalizer,XLocalizer.Identity.IIdentityErrorMessagesProvider)">
             <summary>
             Initialize identity erroors localization based on DB locailzer
             </summary>
             <param name="localizer"></param>
+            <param name="errProvider"></param>
         </member>
         <member name="M:XLocalizer.Identity.IdentityErrorsLocalizer.DuplicateEmail(System.String)">
             <summary>
@@ -879,6 +1135,123 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:XLocalizer.Identity.IIdentityErrorMessagesProvider">
+            <summary>
+            Interface to provide custom default identity error messages.
+            Messages can be provided in any culture, so user can provide localized error messages here,
+            but the default request culture in startup must be configured same as messages culture.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.DuplicateEmail">
+            <summary>
+            "Email '{0}' is already taken."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.DuplicateUserName">
+            <summary>
+            "User name '{0}' is already taken."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.InvalidEmail">
+            <summary>
+            "Email '{0}' is invalid."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.DuplicateRoleName">
+            <summary>
+            "Role name '{0}' is already taken."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.InvalidRoleName">
+            <summary>
+            "Role name '{0}' is invalid."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.InvalidToken">
+            <summary>
+            "Invalid token."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.InvalidUserName">
+            <summary>
+            "User name '{0}' is invalid, can only contain letters or digits."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.LoginAlreadyAssociated">
+            <summary>
+            "A user with this login already exists."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.PasswordMismatch">
+            <summary>
+            "Incorrect password."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.PasswordRequiresDigit">
+            <summary>
+            "Passwords must have at least one digit ('0'-'9')."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.PasswordRequiresLower">
+            <summary>
+            "Passwords must have at least one lowercase ('a'-'z')."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.PasswordRequiresNonAlphanumeric">
+            <summary>
+            "Passwords must have at least one non alphanumeric character."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.PasswordRequiresUniqueChars">
+            <summary>
+            "Passwords must use at least {0} different characters."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.PasswordRequiresUpper">
+            <summary>
+            "Passwords must have at least one uppercase ('A'-'Z')."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.PasswordTooShort">
+            <summary>
+            "Passwords must be at least {0} characters."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.UserAlreadyHasPassword">
+            <summary>
+            "User already has a password set."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.UserAlreadyInRole">
+            <summary>
+            "User already in role '{0}'."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.UserNotInRole">
+            <summary>
+            "User is not in role '{0}'."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.UserLockoutNotEnabled">
+            <summary>
+            "Lockout is not enabled for this user."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.RecoveryCodeRedemptionFailed">
+            <summary>
+            "Recovery code redemption failed."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.ConcurrencyFailure">
+            <summary>
+            "Optimistic concurrency failure, object has been modified."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.DefaultError">
+            <summary>
+            "An unknown failure has occurred."
+            </summary>
+        </member>
         <member name="T:XLocalizer.IXHtmlLocalizerFactory">
             <summary>
             Interface to create IHtmlLocalizer with the default (shared) resource type
@@ -951,6 +1324,13 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:XLocalizer.ModelBinding.DefaultModelBindingErrorMessagesProvider">
+            <summary>
+            Class to provide custom default model binding error messages.
+            Messages can be provided in any culture, so user can provide localized error messages here,
+            but the default request culture in startup must be configured same as messages culture.
+            </summary>
+        </member>
         <member name="T:XLocalizer.ModelBinding.DependencyInjection">
             <summary>
             Extesnions for adding DataAnnotation Localization
@@ -963,17 +1343,80 @@
             <param name="builder"></param>
             <returns></returns>
         </member>
+        <member name="T:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider">
+            <summary>
+            Interface to provide custom default model binding error messages.
+            Messages can be provided in any culture, so user can provide localized error messages here,
+            but the default request culture in startup must be configured same as messages culture.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.AttemptedValueIsInvalidAccessor">
+            <summary>
+            "The value '{0}' is not valid for {1}."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.MissingBindRequiredValueAccessor">
+            <summary>
+            "A value for the '{0}' parameter or property was not provided."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.MissingKeyOrValueAccessor">
+            <summary>
+            "A value is required."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.MissingRequestBodyRequiredValueAccessor">
+            <summary>
+            "A non-empty request body is required."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.NonPropertyAttemptedValueIsInvalidAccessor">
+            <summary>
+            "The value '{0}' is not valid."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.NonPropertyUnknownValueIsInvalidAccessor">
+            <summary>
+            "The supplied value is invalid."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.NonPropertyValueMustBeANumberAccessor">
+            <summary>
+            "The field must be a number."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.UnknownValueIsInvalidAccessor">
+            <summary>
+            "The supplied value is invalid for {0}."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.ValueIsInvalidAccessor">
+            <summary>
+            "The value '{0}' is invalid."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.ValueMustBeANumberAccessor">
+            <summary>
+            "The field {0} must be a number."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.ValueMustNotBeNullAccessor">
+            <summary>
+            "The value '{0}' is invalid."
+            </summary>
+        </member>
         <member name="T:XLocalizer.ModelBinding.ModelBindingErrorsExtensions">
             <summary>
             Original messages obtained from <a href="https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/Resources.resx"/>
             </summary>
         </member>
-        <member name="M:XLocalizer.ModelBinding.ModelBindingErrorsExtensions.SetLocalizedModelBindingErrorMessages(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelBindingMessageProvider,Microsoft.Extensions.Localization.IStringLocalizer)">
+        <member name="M:XLocalizer.ModelBinding.ModelBindingErrorsExtensions.SetLocalizedModelBindingErrorMessages(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelBindingMessageProvider,Microsoft.Extensions.Localization.IStringLocalizer,XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider)">
             <summary>
             Use DB for localization
             </summary>
             <param name="provider"></param>
             <param name="localizer">localizer factory</param>
+            <param name="mbErrors">Model binding errors provider</param>
         </member>
         <member name="T:XLocalizer.Resx.ResxElement">
             <summary>

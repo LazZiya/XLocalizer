@@ -9,20 +9,23 @@ namespace XLocalizer.Identity
     /// </summary>
     public class IdentityErrorsLocalizer : IdentityErrorDescriber 
     {
-        private readonly IStringLocalizer Localizer;
+        private readonly IStringLocalizer _localizer;
+        private readonly IIdentityErrorMessagesProvider _errProvider;
                 
         /// <summary>
         /// Initialize identity erroors localization based on DB locailzer
         /// </summary>
         /// <param name="localizer"></param>
-        public IdentityErrorsLocalizer(IStringLocalizer localizer)
+        /// <param name="errProvider"></param>
+        public IdentityErrorsLocalizer(IStringLocalizer localizer, IIdentityErrorMessagesProvider errProvider)
         {
-            Localizer = localizer;
+            _localizer = localizer;
+            _errProvider = errProvider;
         }
 
         private IdentityError LocalizedIdentityError(string code, params object[] args)
         {
-            var msg = Localizer[code, args];
+            var msg = _localizer[code, args];
 
             return new IdentityError { Code = code, Description = msg };
         }
@@ -33,7 +36,7 @@ namespace XLocalizer.Identity
         /// <param name="email"></param>
         /// <returns></returns>
         public override IdentityError DuplicateEmail(string email) 
-            => LocalizedIdentityError("Email '{0}' is already taken.", email);
+            => LocalizedIdentityError(_errProvider.DuplicateEmail, email);
 
         /// <summary>
         /// "User name '{0}' is already taken."
@@ -41,7 +44,7 @@ namespace XLocalizer.Identity
         /// <param name="userName"></param>
         /// <returns></returns>
         public override IdentityError DuplicateUserName(string userName) 
-            => LocalizedIdentityError("User name '{0}' is already taken.", userName);
+            => LocalizedIdentityError(_errProvider.DuplicateUserName, userName);
 
         /// <summary>
         /// "Email '{0}' is invalid."
@@ -49,7 +52,7 @@ namespace XLocalizer.Identity
         /// <param name="email"></param>
         /// <returns></returns>
         public override IdentityError InvalidEmail(string email) 
-            => LocalizedIdentityError("Email '{0}' is invalid.", email);
+            => LocalizedIdentityError(_errProvider.InvalidEmail, email);
 
         /// <summary>
         /// "Role name '{0}' is already taken."
@@ -57,7 +60,7 @@ namespace XLocalizer.Identity
         /// <param name="role"></param>
         /// <returns></returns>
         public override IdentityError DuplicateRoleName(string role) 
-            => LocalizedIdentityError("Role name '{0}' is already taken.", role);
+            => LocalizedIdentityError(_errProvider.DuplicateRoleName, role);
 
         /// <summary>
         /// "Role name '{0}' is invalid."
@@ -65,14 +68,14 @@ namespace XLocalizer.Identity
         /// <param name="role"></param>
         /// <returns></returns>
         public override IdentityError InvalidRoleName(string role) 
-            => LocalizedIdentityError("Role name '{0}' is invalid.", role);
+            => LocalizedIdentityError(_errProvider.InvalidRoleName, role);
 
         /// <summary>
         /// "Invalid token."
         /// </summary>
         /// <returns></returns>
         public override IdentityError InvalidToken() 
-            => LocalizedIdentityError("Invalid token.");
+            => LocalizedIdentityError(_errProvider.InvalidToken);
 
         /// <summary>
         /// "User name '{0}' is invalid, can only contain letters or digits."
@@ -80,42 +83,42 @@ namespace XLocalizer.Identity
         /// <param name="userName"></param>
         /// <returns></returns>
         public override IdentityError InvalidUserName(string userName) 
-            => LocalizedIdentityError("User name '{0}' is invalid, can only contain letters or digits.", userName);
+            => LocalizedIdentityError(_errProvider.InvalidUserName, userName);
 
         /// <summary>
         /// "A user with this login already exists."
         /// </summary>
         /// <returns></returns>
         public override IdentityError LoginAlreadyAssociated() 
-            => LocalizedIdentityError("A user with this login already exists.");
+            => LocalizedIdentityError(_errProvider.LoginAlreadyAssociated);
 
         /// <summary>
         /// "Incorrect password."
         /// </summary>
         /// <returns></returns>
         public override IdentityError PasswordMismatch() 
-            => LocalizedIdentityError("Incorrect password.");
+            => LocalizedIdentityError(_errProvider.PasswordMismatch);
 
         /// <summary>
         /// "Passwords must have at least one digit ('0'-'9')."
         /// </summary>
         /// <returns></returns>
         public override IdentityError PasswordRequiresDigit() 
-            => LocalizedIdentityError("Passwords must have at least one digit ('0'-'9').");
+            => LocalizedIdentityError(_errProvider.PasswordRequiresDigit);
 
         /// <summary>
         /// "Passwords must have at least one lowercase ('a'-'z')."
         /// </summary>
         /// <returns></returns>
         public override IdentityError PasswordRequiresLower() 
-            => LocalizedIdentityError("Passwords must have at least one lowercase ('a'-'z').");
+            => LocalizedIdentityError(_errProvider.PasswordRequiresLower);
 
         /// <summary>
         /// "Passwords must have at least one non alphanumeric character."
         /// </summary>
         /// <returns></returns>
         public override IdentityError PasswordRequiresNonAlphanumeric() 
-            => LocalizedIdentityError("Passwords must have at least one non alphanumeric character.");
+            => LocalizedIdentityError(_errProvider.PasswordRequiresNonAlphanumeric);
 
         /// <summary>
         /// "Passwords must use at least {0} different characters."
@@ -123,14 +126,14 @@ namespace XLocalizer.Identity
         /// <param name="uniqueChars"></param>
         /// <returns></returns>
         public override IdentityError PasswordRequiresUniqueChars(int uniqueChars) 
-            => LocalizedIdentityError("Passwords must use at least {0} different characters.", uniqueChars);
+            => LocalizedIdentityError(_errProvider.PasswordRequiresUniqueChars, uniqueChars);
 
         /// <summary>
         /// "Passwords must have at least one uppercase ('A'-'Z')."
         /// </summary>
         /// <returns></returns>
         public override IdentityError PasswordRequiresUpper() 
-            => LocalizedIdentityError("Passwords must have at least one uppercase ('A'-'Z').");
+            => LocalizedIdentityError(_errProvider.PasswordRequiresUpper);
 
         /// <summary>
         /// "Passwords must be at least {0} characters."
@@ -138,14 +141,14 @@ namespace XLocalizer.Identity
         /// <param name="length"></param>
         /// <returns></returns>
         public override IdentityError PasswordTooShort(int length) 
-            => LocalizedIdentityError("Passwords must be at least {0} characters.", length);
+            => LocalizedIdentityError(_errProvider.PasswordTooShort, length);
 
         /// <summary>
         /// "User already has a password set."
         /// </summary>
         /// <returns></returns>
         public override IdentityError UserAlreadyHasPassword() 
-            => LocalizedIdentityError("User already has a password set.");
+            => LocalizedIdentityError(_errProvider.UserAlreadyHasPassword);
 
         /// <summary>
         /// "User already in role '{0}'."
@@ -153,7 +156,7 @@ namespace XLocalizer.Identity
         /// <param name="role"></param>
         /// <returns></returns>
         public override IdentityError UserAlreadyInRole(string role) 
-            => LocalizedIdentityError("User already in role '{0}'.", role);
+            => LocalizedIdentityError(_errProvider.UserAlreadyInRole, role);
 
         /// <summary>
         /// "User is not in role '{0}'."
@@ -161,34 +164,34 @@ namespace XLocalizer.Identity
         /// <param name="role"></param>
         /// <returns></returns>
         public override IdentityError UserNotInRole(string role) 
-            => LocalizedIdentityError("User is not in role '{0}'.", role);
+            => LocalizedIdentityError(_errProvider.UserNotInRole, role);
 
         /// <summary>
         /// "Lockout is not enabled for this user."
         /// </summary>
         /// <returns></returns>
         public override IdentityError UserLockoutNotEnabled() 
-            => LocalizedIdentityError("Lockout is not enabled for this user.");
+            => LocalizedIdentityError(_errProvider.UserLockoutNotEnabled);
 
         /// <summary>
         /// "Recovery code redemption failed."
         /// </summary>
         /// <returns></returns>
         public override IdentityError RecoveryCodeRedemptionFailed() 
-            => LocalizedIdentityError("Recovery code redemption failed.");
+            => LocalizedIdentityError(_errProvider.RecoveryCodeRedemptionFailed);
 
         /// <summary>
         /// "Optimistic concurrency failure, object has been modified."
         /// </summary>
         /// <returns></returns>
         public override IdentityError ConcurrencyFailure() 
-            => LocalizedIdentityError("Optimistic concurrency failure, object has been modified.");
+            => LocalizedIdentityError(_errProvider.ConcurrencyFailure);
 
         /// <summary>
         /// "An unknown failure has occurred."
         /// </summary>
         /// <returns></returns>
         public override IdentityError DefaultError() 
-            => LocalizedIdentityError("An unknown failure has occurred.");
+            => LocalizedIdentityError(_errProvider.DefaultError);
     }
 }

@@ -15,6 +15,8 @@
 		<PackageTags>asp.net,core,razor,mvc,localization,globalization,client side,validation,translation,autokeyadding</PackageTags>
 		<PackageReleaseNotes>
 			- Ex validation attributes configured as public
+			- New: IModelBindingErrorMessagesProvide, use to override default model binding error messages
+			- New: IIdentityErrorMessagesProvide, use to override default identity describer error messages
 			Release notes: https://github.com/LazZiya/XLocalizer/releases
 		</PackageReleaseNotes>
 		<Version>1.0.0-preview3</Version>
