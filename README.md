@@ -14,9 +14,9 @@ Say bye-bye to manually creating localization resources...!
 **- Standard interfaces :** Easy to use due to using the standard localization interfaces: `IStringLocalizer`, `IHtmlLocalizer`, `IStringLocalizerFactory` and `IHtmlLocalizerFactory`.
 
 ### Setup
-Install from nuget :
+Install latest preview from nuget :
 ````
-Install-Package XLocalizer
+Install-Package XLocalizer -Pre
 ````
 
 Add localization settings in `startup.cs`:
