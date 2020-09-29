@@ -65,5 +65,10 @@ namespace XLocalizer
         /// Default value: true.
         /// </summary>
         public bool UseExpressMemoryCache { get; set; } = true;
+
+        /// <summary>
+        /// The culture name to translate from, if not set default request culture will be used.
+        /// </summary>
+        public string TranslateFromCulture { get; set; }
     }
 }

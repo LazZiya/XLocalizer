@@ -186,13 +186,12 @@
             Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExRangeAttribute"/>
             </summary>
         </member>
-        <member name="M:XLocalizer.DataAnnotations.Adapters.ExRangeAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExRangeAttribute,Microsoft.Extensions.Localization.IStringLocalizer,XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider)">
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExRangeAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExRangeAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
             <summary>
             Initialize a new instance of <see cref="T:XLocalizer.DataAnnotations.Adapters.ExRangeAttributeAdapter"/>
             </summary>
             <param name="attribute"></param>
             <param name="stringLocalizer"></param>
-            <param name="errProvider"></param>
         </member>
         <member name="M:XLocalizer.DataAnnotations.Adapters.ExRangeAttributeAdapter.AddValidation(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ClientModelValidationContext)">
             <summary>
@@ -212,13 +211,12 @@
             Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExRegularExpressionAttribute"/>
             </summary>
         </member>
-        <member name="M:XLocalizer.DataAnnotations.Adapters.ExRegularExpressionAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExRegularExpressionAttribute,Microsoft.Extensions.Localization.IStringLocalizer,XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider)">
+        <member name="M:XLocalizer.DataAnnotations.Adapters.ExRegularExpressionAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExRegularExpressionAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
             <summary>
             Initialize a new instance of <see cref="T:XLocalizer.DataAnnotations.Adapters.ExRegularExpressionAttributeAdapter"/>
             </summary>
             <param name="attribute"></param>
             <param name="stringLocalizer"></param>
-            <param name="errProvider"></param>
         </member>
         <member name="M:XLocalizer.DataAnnotations.Adapters.ExRegularExpressionAttributeAdapter.AddValidation(Microsoft.AspNetCore.Mvc.ModelBinding.Validation.ClientModelValidationContext)">
             <summary>
@@ -552,13 +550,12 @@
             A switch to return the relevant Ex attribute or null if no Ex attribute is detected
             </summary>
         </member>
-        <member name="M:XLocalizer.DataAnnotations.ExAttributeAdapterSwitch.GetAttributeAdapter(System.ComponentModel.DataAnnotations.ValidationAttribute,Microsoft.Extensions.Localization.IStringLocalizer,XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider)">
+        <member name="M:XLocalizer.DataAnnotations.ExAttributeAdapterSwitch.GetAttributeAdapter(System.ComponentModel.DataAnnotations.ValidationAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
             <summary>
             Get the ex attribute adapter
             </summary>
             <param name="attribute"></param>
             <param name="stringLocalizer"></param>
-            <param name="errProvider"></param>
             <returns></returns>
         </member>
         <member name="T:XLocalizer.DataAnnotations.ExCompareAttribute">
@@ -604,7 +601,7 @@
             Registeres express valdiation attributes
             </summary>
         </member>
-        <member name="M:XLocalizer.DataAnnotations.ExpressValidationAttributeAdapterProvider.#ctor(XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider)">
+        <member name="M:XLocalizer.DataAnnotations.ExpressValidationAttributeAdapterProvider.#ctor">
             <summary>
             Initialize a new instance of <see cref="T:XLocalizer.DataAnnotations.ExpressValidationAttributeAdapterProvider"/>
             </summary>
@@ -1840,6 +1837,11 @@
             ExpressMemory cache helps speeding up getting localized values from data stores.
             It is helpful to set to false during development mode and to true in production.
             Default value: true.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.XLocalizerOptions.TranslateFromCulture">
+            <summary>
+            The culture name to translate from, if not set default request culture will be used.
             </summary>
         </member>
         <member name="T:XLocalizer.Xml.XmlResourceExporter">

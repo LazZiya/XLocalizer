@@ -40,7 +40,6 @@ namespace XLocalizer.DataAnnotations.Adapters
             MergeAttribute(context.Attributes, "data-val-range", GetErrorMessage(context));
             MergeAttribute(context.Attributes, "data-val-range-max", $"{Max}");
             MergeAttribute(context.Attributes, "data-val-range-min", $"{Min}");
-            MergeAttribute(context.Attributes, "data-val-required", GetRequiredErrorMessage(context));
         }
 
         /// <summary>
