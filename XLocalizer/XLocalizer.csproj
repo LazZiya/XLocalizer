@@ -19,7 +19,8 @@
 			- Docs moved to https://docs.ziyad.info
 			Release notes: https://github.com/LazZiya/XLocalizer/releases
 		</PackageReleaseNotes>
-		<Version>1.0.0-preview4</Version>
+		<VersionPrefix>1.0.0</VersionPrefix>
+		<VersionSuffix>preview.$([System.DateTime]::UtcNow.ToString(yyMMddHHmm))</VersionSuffix>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<FileVersion>1.0.0.0</FileVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
