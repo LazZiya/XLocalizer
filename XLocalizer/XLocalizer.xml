@@ -670,6 +670,12 @@
             And provides a localized error message
             </summary>
         </member>
+        <member name="P:XLocalizer.DataAnnotations.ExStringLengthAttribute.MinimumLength">
+            <summary>
+            Gets or sets the minimum length of a string
+            </summary>
+            <remarks>Min length err check: credits <a href="https://github.com/LazZiya/ExpressLocalization/pull/31">@rrtischler</a> </remarks>
+        </member>
         <member name="M:XLocalizer.DataAnnotations.ExStringLengthAttribute.#ctor(System.Int32)">
             <summary>
             Initializes a new instance of the XLocalizer.DataAnnotations.ExStringLengthAttribute 

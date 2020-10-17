@@ -54,15 +54,5 @@ namespace XLocalizer.DataAnnotations.Adapters
 
             return GetErrorMessage(validationContext.ModelMetadata, validationContext.ModelMetadata.GetDisplayName(), Min, Max);
         }
-
-        private string GetRequiredErrorMessage(ModelValidationContextBase validationContext)
-        {
-            if (validationContext == null)
-                throw new NullReferenceException(nameof(validationContext));
-
-            var msg = Localizer[DataAnnotationsErrorMessages.RequiredAttribute_ValidationError, validationContext.ModelMetadata.GetDisplayName()].Value;
-
-            return msg;
-        }
     }
 }
