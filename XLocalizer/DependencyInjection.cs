@@ -70,17 +70,8 @@ namespace XLocalizer
             where TResource : class
             where TTranslator : ITranslator
         {
-            // invoke user provided inline options
-            var ops = new XLocalizerOptions();
-            options.Invoke(ops);
-
-#if !NETCOREAPP2_0
-            // get options from appsettings.json and override inline options
-            var sp = builder.Services.BuildServiceProvider();
-            var conf = sp.GetRequiredService(typeof(IConfiguration)) as IConfiguration;
-            conf.GetSection("XLocalizer:Options").Bind(conf);
-#endif
-            builder.Services.Configure<XLocalizerOptions>(o => o = ops);
+            // Configure XLocalizer options
+            builder.Services.Configure<XLocalizerOptions>(options);
 
             // ExpressMemoryCache for caching localized values
             builder.Services.AddSingleton<ExpressMemoryCache>();
