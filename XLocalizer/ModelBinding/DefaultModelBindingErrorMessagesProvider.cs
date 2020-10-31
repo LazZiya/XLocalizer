@@ -1,10 +1,13 @@
-﻿namespace XLocalizer.ModelBinding
+﻿using System;
+
+namespace XLocalizer.ModelBinding
 {
     /// <summary>
     /// Class to provide custom default model binding error messages.
     /// Messages can be provided in any culture, so user can provide localized error messages here,
     /// but the default request culture in startup must be configured same as messages culture.
     /// </summary>
+    [Obsolete("This class is deprected and will be removed in a future release.")]
     public class DefaultModelBindingErrorMessagesProvider : IModelBindingErrorMessagesProvider
     {
         string IModelBindingErrorMessagesProvider.AttemptedValueIsInvalidAccessor => "The value '{0}' is not valid for {1}.";

@@ -11,6 +11,8 @@ using Microsoft.Extensions.Localization;
 using System;
 using XLocalizer.Xml;
 using Microsoft.Extensions.Configuration;
+using XLocalizer.Routing;
+using Microsoft.Extensions.Options;
 
 namespace XLocalizer
 {
@@ -93,10 +95,11 @@ namespace XLocalizer
             builder.Services.AddSingleton<IXStringLocalizerFactory, XStringLocalizerFactory<TResource>>();
             builder.Services.AddSingleton<IXHtmlLocalizerFactory, XHtmlLocalizerFactory<TResource>>();
 
-            return builder.AddDataAnnotationsLocalization<TResource>(options)
-                          .AddModelBindingLocalization()
-                          .AddIdentityErrorsLocalization()
-                          .WithTranslationService<TTranslator>();
+            return builder.WithTranslationService<TTranslator>()
+                          .AddDataAnnotationsLocalization<TResource>(options)
+                          //.AddModelBindingLocalization(options)
+                          .AddIdentityErrorsLocalization();
+                          //.ConfigureApplicationCookie()
         }
     }
 }

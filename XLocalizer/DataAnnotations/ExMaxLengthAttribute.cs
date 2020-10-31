@@ -1,10 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace XLocalizer.DataAnnotations
 {
     /// <summary>
-    /// Specifies the maximum length of array or string data allowed in a property. And produces localized error message.
+    /// This attribute is deprected and will be removed in a future release. Use [MaxLength] instead
     /// </summary>
+    /// 
+    [Obsolete("This class is deprected and will be removed in a future release. Use [MaxLength] instead")]
     public sealed class ExMaxLengthAttribute : MaxLengthAttribute
     {
         /// <summary>

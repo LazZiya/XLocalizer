@@ -1,11 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 using Microsoft.Extensions.Localization;
+using System;
+using XLocalizer.Messages;
 
 namespace XLocalizer.ModelBinding
 {
     /// <summary>
     /// Original messages obtained from <a href="https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/Resources.resx"/>
     /// </summary>
+    [Obsolete("This class is deprected and will be removed in a future release.")]
     public static class ModelBindingErrorsExtensions
     {
         /// <summary>
@@ -13,8 +16,8 @@ namespace XLocalizer.ModelBinding
         /// </summary>
         /// <param name="provider"></param>
         /// <param name="localizer">localizer factory</param>
-        /// <param name="mbErrors">Model binding errors provider</param>
-        public static void SetLocalizedModelBindingErrorMessages(this DefaultModelBindingMessageProvider provider, IStringLocalizer localizer, IModelBindingErrorMessagesProvider mbErrors)
+        /// <param name="mbErrors">Model binding errors</param>
+        public static void SetLocalizedModelBindingErrorMessages(this DefaultModelBindingMessageProvider provider, DefaultModelBindingErrorMessages mbErrors, IStringLocalizer localizer)
         {
             provider.SetAttemptedValueIsInvalidAccessor((x, y)
                 => GetLoclizedModelBindingError(localizer, mbErrors.AttemptedValueIsInvalidAccessor, x, y));

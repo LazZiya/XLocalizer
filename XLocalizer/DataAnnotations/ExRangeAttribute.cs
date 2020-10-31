@@ -4,8 +4,10 @@ using System.ComponentModel.DataAnnotations;
 namespace XLocalizer.DataAnnotations
 {
     /// <summary>
-    /// Specifies the numeric range constraints for the value of a data field. And produces localized error message.
+    /// This attribute is deprected and will be removed in a future release. Use [Range] instead
     /// </summary>
+    /// 
+    [Obsolete("This class is deprected and will be removed in a future release. Use [Range] instead")]
     public sealed class ExRangeAttribute : RangeAttribute
     {
         /// <summary>

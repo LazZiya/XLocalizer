@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Builder;
-
-using System;
+﻿using XLocalizer.Messages;
 
 namespace XLocalizer
 {
@@ -13,32 +11,7 @@ namespace XLocalizer
         /// The path to the resources folder e.g. "LocalizationResources"
         /// </summary>
         public string ResourcesPath { get; set; } = "LocalizationResources";
-
-        /// <summary>
-        /// Optional : Add culture parameter to login, logout and access denied paths.
-        /// <para>default value = true</para>
-        /// <para>set to false if you need to configure the application cookie options manually</para>
-        /// </summary>
-        public bool ConfigureRedirectPaths { get; set; } = true;
-
-        /// <summary>
-        /// The default login path
-        /// <para>default value = "/Identity/Account/Login/"</para>
-        /// </summary>
-        public string RedirectToLoginPath { get; set; } = "/Identity/Account/Login/";
         
-        /// <summary>
-        /// The default logout path
-        /// <para>default value = "/Identity/Account/Logout/"</para>
-        /// </summary>
-        public string RedirectToLogoutPath { get; set; } = "/Identity/Account/Logout/";
-        
-        /// <summary>
-        /// The default access denied path
-        /// <para>default value = "/Identity/Account/AccessDenied/"</para>
-        /// </summary>
-        public string RedirectToAccessDeniedPath { get; set; } = "/Identity/Account/AccessDenied/";
-
         /// <summary>
         /// Express valdiation attributes provides already localized error messages.
         /// Set to true by default. 
@@ -70,5 +43,20 @@ namespace XLocalizer
         /// The culture name to translate from, if not set default request culture will be used.
         /// </summary>
         public string TranslateFromCulture { get; set; }
+
+        /// <summary>
+        /// Default DataAnnotation error messages.
+        /// </summary>
+        public DefaultDataAnnotationsErrorMessages DefaultDataAnnotationsErrorMessages { get; set; } = new DefaultDataAnnotationsErrorMessages();
+
+        /// <summary>
+        /// Default identity describer error messages
+        /// </summary>
+        public DefaultIdentityErrorsMessages DefaultIdentityErrorsMessages { get; set; } = new DefaultIdentityErrorsMessages();
+
+        /// <summary>
+        /// Default Model Binding Error Messages
+        /// </summary>
+        public DefaultModelBindingErrorMessages DefaultModelBindingErrorMessages { get; set; } = new DefaultModelBindingErrorMessages();
     }
 }

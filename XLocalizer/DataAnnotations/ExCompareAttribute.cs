@@ -1,10 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace XLocalizer.DataAnnotations
 {
     /// <summary>
-    /// Provides an attribute that compares two properties, and produces localized error message.
+    /// This attribute is deprected and will be removed in a future release. Use [Compare("otherproperty")] instead
     /// </summary>
+    /// 
+    [Obsolete("This class is deprected and will be removed in a future release. Use [Compare(\"otherproperty\")] instead")]
     public sealed class ExCompareAttribute : CompareAttribute
     {
         /// <summary>

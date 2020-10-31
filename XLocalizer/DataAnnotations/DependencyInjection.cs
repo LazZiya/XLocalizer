@@ -19,6 +19,7 @@ namespace XLocalizer.DataAnnotations
         public static IMvcBuilder AddDataAnnotationsLocalization<TResource>(this IMvcBuilder builder, Action<XLocalizerOptions> options)
             where TResource : class
         {
+            /*
             var o = new XLocalizerOptions();
             options.Invoke(o);
 
@@ -27,7 +28,7 @@ namespace XLocalizer.DataAnnotations
                 // Add ExpressValdiationAttributes to provide error messages by default without using ErrorMessage="..."
                 builder.Services.AddTransient<IValidationAttributeAdapterProvider, ExpressValidationAttributeAdapterProvider>();
             }
-
+            */
             // Add data annotations locailzation
             builder.AddDataAnnotationsLocalization(ops =>
             {

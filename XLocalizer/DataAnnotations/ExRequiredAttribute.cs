@@ -1,10 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace XLocalizer.DataAnnotations
 {
     /// <summary>
-    /// Specifies that a data field is required, and provides a localized error message
+    /// This attribute is deprected and will be removed in a future release. Use [Required] instead
     /// </summary>
+    /// 
+    [Obsolete("This class is deprected and will be removed in a future release. Use [Required] instead")]
     public sealed class ExRequiredAttribute : RequiredAttribute
     {
         /// <summary>

@@ -1,10 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace XLocalizer.DataAnnotations
 {
     /// <summary>
-    /// Specifies the minimum length of array or string data allowed in a property. And produces loclaized error message.
+    /// This attribute is deprected and will be removed in a future release. Use [MinLength] instead
     /// </summary>
+    /// 
+    [Obsolete("This class is deprected and will be removed in a future release. Use [MinLength] instead")]
     public sealed class ExMinLengthAttribute : MinLengthAttribute
     {
         /// <summary>

@@ -1,11 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace XLocalizer.DataAnnotations
 {
     /// <summary>
-    /// Specifies the minimum and maximum length of characters that are allowed in a data field. 
-    /// And provides a localized error message
+    /// This attribute is deprected and will be removed in a future release. Use [StringLength] instead
     /// </summary>
+    /// 
+    [Obsolete("This class is deprected and will be removed in a future release. Use [StringLength] instead")]
     public sealed class ExStringLengthAttribute : StringLengthAttribute
     {
         private bool HasCustomError;

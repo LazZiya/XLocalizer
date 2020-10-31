@@ -1,8 +1,11 @@
-﻿namespace XLocalizer.Identity
+﻿using System;
+
+namespace XLocalizer.Identity
 {
     /// <summary>
     /// Default identity errors provider
     /// </summary>
+    [Obsolete("This class is deprected and will be removed in a future release.")]
     public class DefaultIdentityErrorsProvider : IIdentityErrorMessagesProvider
     {
         string IIdentityErrorMessagesProvider.DuplicateEmail => "Email '{0}' is already taken.";
