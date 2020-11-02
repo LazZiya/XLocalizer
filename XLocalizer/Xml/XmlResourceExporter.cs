@@ -78,7 +78,7 @@ namespace XLocalizer.Xml
                              });
 
             var resxWriter = new ResxWriter(resxFilePath, _loggerFactory);
-            var totalExported = await resxWriter.AddRangeAsync(elements, overwriteExistingKeys);
+            var totalExported = await resxWriter.AddRangeAsync(elements.Where(x => x.Key != null && x.Value != null), overwriteExistingKeys);
 
             if (totalExported > 0)
             {

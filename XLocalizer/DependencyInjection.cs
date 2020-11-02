@@ -13,6 +13,8 @@ using XLocalizer.Xml;
 using Microsoft.Extensions.Configuration;
 using XLocalizer.Routing;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Mvc;
+using XLocalizer.MetadataProviders;
 
 namespace XLocalizer
 {
@@ -95,11 +97,11 @@ namespace XLocalizer
             builder.Services.AddSingleton<IXStringLocalizerFactory, XStringLocalizerFactory<TResource>>();
             builder.Services.AddSingleton<IXHtmlLocalizerFactory, XHtmlLocalizerFactory<TResource>>();
 
-            return builder.WithTranslationService<TTranslator>()
-                          .AddDataAnnotationsLocalization<TResource>(options)
-                          //.AddModelBindingLocalization(options)
-                          .AddIdentityErrorsLocalization();
-                          //.ConfigureApplicationCookie()
+            // Add custom providers for overriding default modelbinding and data annotations errors
+            builder.Services.AddSingleton<IConfigureOptions<MvcOptions>, ConfigureMvcOptions>();
+
+            return builder.AddIdentityErrorsLocalization()
+                          .WithTranslationService<TTranslator>();
         }
     }
 }

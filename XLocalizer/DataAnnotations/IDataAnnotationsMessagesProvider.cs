@@ -1,10 +1,13 @@
-﻿namespace XLocalizer.DataAnnotations
+﻿using System;
+
+namespace XLocalizer.DataAnnotations
 {
     /// <summary>
     /// Interface to provide custom default data annotation error messages.
     /// Messages can be provided in any culture, so user can provide localized error messages here,
     /// but the default request culture in startup must be configured same as messages culture.
     /// </summary>
+    [Obsolete]
     public interface IDataAnnotationsMessagesProvider
     {
         /// <summary>

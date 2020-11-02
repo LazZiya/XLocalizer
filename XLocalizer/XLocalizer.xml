@@ -4,18 +4,6 @@
         <name>XLocalizer</name>
     </assembly>
     <members>
-        <member name="T:XLocalizer.ApplicationBuilderExtensions">
-            <summary>
-            Extension methods for configuring services to work with XLocalizer
-            </summary>
-        </member>
-        <member name="M:XLocalizer.ApplicationBuilderExtensions.UseXLocalizer(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
-            <summary>
-            Configure the app to use localized model binding errors, and configure cookie
-            </summary>
-            <param name="app"></param>
-            <returns></returns>
-        </member>
         <member name="T:XLocalizer.Common.CultureSwitcher">
             <summary>
             Switches the current culture to a specific culture then return to the original culture and dispose.
@@ -354,18 +342,22 @@
             </summary>
         </member>
         <!-- Badly formed XML comment ignored for member "F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.ValidationAttribute_ValidationError" -->
+        <member name="T:XLocalizer.DataAnnotations.DefaultDataAnnotationsErrorMessagesProvider">
+            <summary>
+            Original messages obtained from <a href="https://github.com/dotnet/corefx/blob/master/src/System.ComponentModel.Annotations/src/Resources/Strings.resx"/>
+            </summary>
+        </member>
         <member name="T:XLocalizer.DataAnnotations.DependencyInjection">
             <summary>
             Extesnions for adding DataAnnotation Localization
             </summary>
         </member>
-        <member name="M:XLocalizer.DataAnnotations.DependencyInjection.AddDataAnnotationsLocalization``1(Microsoft.Extensions.DependencyInjection.IMvcBuilder,System.Action{XLocalizer.XLocalizerOptions})">
+        <member name="M:XLocalizer.DataAnnotations.DependencyInjection.AddDataAnnotationsLocalization``1(Microsoft.Extensions.DependencyInjection.IMvcBuilder)">
             <summary>
             Add DataAnnotations localization with specified resource type.
             </summary>
             <typeparam name="TResource">Type of DataAnnotations localization resource</typeparam>
             <param name="builder"></param>
-            <param name="options"></param>
             <returns></returns>
         </member>
         <member name="T:XLocalizer.DataAnnotations.ExAttributeAdapterSwitch">
@@ -1269,6 +1261,24 @@
             "The value '{0}' is invalid."
             </summary>
         </member>
+        <member name="T:XLocalizer.MetadataProviders.ConfigureMvcOptions">
+            <summary>
+            Configure MvcOptions to add custom model binding and validator providers.
+            see <a href="https://andrewlock.net/access-services-inside-options-and-startup-using-configureoptions/#the-new-improved-answer">Access Services Inside Startup</a>
+            </summary>
+        </member>
+        <member name="M:XLocalizer.MetadataProviders.ConfigureMvcOptions.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)">
+            <summary>
+            Initialize a new instance of <see cref="T:XLocalizer.MetadataProviders.ConfigureMvcOptions"/>
+            </summary>
+            <param name="serviceScopeFactory"></param>
+        </member>
+        <member name="M:XLocalizer.MetadataProviders.ConfigureMvcOptions.Configure(Microsoft.AspNetCore.Mvc.MvcOptions)">
+            <summary>
+            Add <see cref="T:XLocalizer.MetadataProviders.XModelBindingMetadataProvider"/> and <see cref="T:XLocalizer.MetadataProviders.XValidationMetadataProvider"/> to <see cref="T:Microsoft.AspNetCore.Mvc.MvcOptions"/>
+            </summary>
+            <param name="options"></param>
+        </member>
         <member name="T:XLocalizer.MetadataProviders.XModelBindingMetadataProvider">
             <summary>
             A class to override the default model binding error messages
@@ -1289,7 +1299,7 @@
         </member>
         <member name="T:XLocalizer.MetadataProviders.XValidationMetadataProvider">
             <summary>
-            ModelBinding Metadata Provider
+            DataAnnotations Metadata Provider
             </summary>
         </member>
         <member name="M:XLocalizer.MetadataProviders.XValidationMetadataProvider.#ctor(Microsoft.Extensions.Options.IOptions{XLocalizer.XLocalizerOptions})">

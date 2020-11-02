@@ -1,4 +1,5 @@
-﻿using XLocalizer.Messages;
+﻿using System;
+using XLocalizer.Messages;
 
 namespace XLocalizer
 {
@@ -17,7 +18,8 @@ namespace XLocalizer
         /// Set to true by default. 
         /// Set to false if you don't want to use express validation attributes.
         /// </summary>
-        public bool UseExpressValidationAttributes { get; set; } = true;
+        [Obsolete]
+        public bool UseExpressValidationAttributes { get; set; } = false;
 
         /// <summary>
         /// If the key string is not found in the DB, it will be inserted autoamtically to the DB.

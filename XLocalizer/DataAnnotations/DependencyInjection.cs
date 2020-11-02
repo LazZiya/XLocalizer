@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.DataAnnotations;
-using Microsoft.Extensions.DependencyInjection;
-using System;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace XLocalizer.DataAnnotations
 {
@@ -14,21 +12,10 @@ namespace XLocalizer.DataAnnotations
         /// </summary>
         /// <typeparam name="TResource">Type of DataAnnotations localization resource</typeparam>
         /// <param name="builder"></param>
-        /// <param name="options"></param>
         /// <returns></returns>
-        public static IMvcBuilder AddDataAnnotationsLocalization<TResource>(this IMvcBuilder builder, Action<XLocalizerOptions> options)
+        public static IMvcBuilder AddDataAnnotationsLocalization<TResource>(this IMvcBuilder builder)
             where TResource : class
         {
-            /*
-            var o = new XLocalizerOptions();
-            options.Invoke(o);
-
-            if (o.UseExpressValidationAttributes)
-            {
-                // Add ExpressValdiationAttributes to provide error messages by default without using ErrorMessage="..."
-                builder.Services.AddTransient<IValidationAttributeAdapterProvider, ExpressValidationAttributeAdapterProvider>();
-            }
-            */
             // Add data annotations locailzation
             builder.AddDataAnnotationsLocalization(ops =>
             {
