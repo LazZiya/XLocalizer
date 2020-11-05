@@ -95,6 +95,9 @@ namespace XLocalizer.Resx
 
             foreach (var e in elements.Distinct())
             {
+                if (string.IsNullOrWhiteSpace(e.Key) || string.IsNullOrWhiteSpace(e.Value))
+                    continue;
+
                 var success = await AddAsync(e, overWriteExistingKeys);
 
                 if (success)
@@ -113,9 +116,11 @@ namespace XLocalizer.Resx
         /// <returns></returns>
         public async Task<bool> AddAsync(ResxElement element, bool overWriteExistingKeys = false)
         {
+            // Look for an existing element with the same key
             var elmnt = await FindAsync(element.Key);
             var tsk = new TaskCompletionSource<bool>();
 
+            // If no similar element add the new one
             if (elmnt == null)
             {
                 try
@@ -129,11 +134,13 @@ namespace XLocalizer.Resx
                 }
             }
 
+            // If a similar element is existing and overwrite = false
             if (elmnt != null && overWriteExistingKeys == false)
             {
                 tsk.SetResult(false);
             }
 
+            // If a similar element is existing and overwrite = true
             if (elmnt != null && overWriteExistingKeys == true)
             {
                 try
@@ -143,7 +150,10 @@ namespace XLocalizer.Resx
                 }
                 catch (Exception e)
                 {
-                    throw e;
+                    _logger.LogError("Resource exporting error! An error occord during adding element to resx file.");
+                    _logger.LogError(e.Message);
+                    tsk.SetException(e);
+                    tsk.TrySetResult(false);
                 }
             }
 

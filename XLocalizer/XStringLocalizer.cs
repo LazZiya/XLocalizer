@@ -24,7 +24,7 @@ namespace XLocalizer
         private readonly IXResourceProvider _provider;
         private readonly XLocalizerOptions _options;
         private readonly ILogger _logger;
-        private string _defaultCulture;
+        private string _transCulture;
 
         /// <summary>
         /// Initialize a new instance of <see cref="XStringLocalizer{TResource}"/>
@@ -46,7 +46,7 @@ namespace XLocalizer
             _translator = translatorFactory.Create();
             _provider = provider;
             _options = options.Value;
-            _defaultCulture = localizationOptions.Value.DefaultRequestCulture.Culture.Name;
+            _transCulture = options.Value.TranslateFromCulture ?? localizationOptions.Value.DefaultRequestCulture.Culture.Name;
             _logger = loggerFactory.CreateLogger<XStringLocalizer<TResource>>();
         }
 
@@ -102,13 +102,13 @@ namespace XLocalizer
                 if (!availableInSource && _options.AutoTranslate)
                 {
 
-                    if (_defaultCulture != culture)
+                    if (_transCulture != culture)
                         // Option 3: Online translate
-                        availableInTranslate = _translator.TryTranslate(_defaultCulture, culture, name, out value);
+                        availableInTranslate = _translator.TryTranslate(_transCulture, culture, name, out value);
                 }
 
                 // add a resource if it is not available in source and auto add is enabled
-                if (!availableInSource && _options.AutoAddKeys && _defaultCulture != culture)
+                if (!availableInSource && _options.AutoAddKeys && _transCulture != culture)
                 {
                     // Add a resource only if auto translate is off or if available in translation
                     if (!_options.AutoTranslate || availableInTranslate)

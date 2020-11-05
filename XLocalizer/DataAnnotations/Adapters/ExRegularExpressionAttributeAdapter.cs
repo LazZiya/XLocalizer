@@ -6,8 +6,9 @@ using System;
 namespace XLocalizer.DataAnnotations.Adapters
 {
     /// <summary>
-    /// Adapter for providing a localized error message for <see cref="ExRegularExpressionAttribute"/>
+    /// Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
     /// </summary>
+    [Obsolete("Express validation attributes are deprected. Use default attributes instead. See https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md")]
     public class ExRegularExpressionAttributeAdapter : AttributeAdapterBase<ExRegularExpressionAttribute>
     {
         private readonly string RegexPattern;
@@ -36,7 +37,6 @@ namespace XLocalizer.DataAnnotations.Adapters
             MergeAttribute(context.Attributes, "data-val", "true");
             MergeAttribute(context.Attributes, "data-val-regex", GetErrorMessage(context));
             MergeAttribute(context.Attributes, "data-val-regex-pattern", RegexPattern);
-            MergeAttribute(context.Attributes, "data-val-required", GetRequiredErrorMessage(context));
         }
 
         /// <summary>
@@ -50,16 +50,6 @@ namespace XLocalizer.DataAnnotations.Adapters
                 throw new NullReferenceException(nameof(validationContext));
 
             return GetErrorMessage(validationContext.ModelMetadata, validationContext.ModelMetadata.GetDisplayName(), RegexPattern);
-        }
-
-        private string GetRequiredErrorMessage(ModelValidationContextBase validationContext)
-        {
-            if (validationContext == null)
-                throw new NullReferenceException(nameof(validationContext));
-
-            var msg = Localizer[DataAnnotationsErrorMessages.RequiredAttribute_ValidationError, validationContext.ModelMetadata.GetDisplayName()].Value;
-
-            return msg;
         }
     }
 }

@@ -10,6 +10,11 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Localization;
 using System;
 using XLocalizer.Xml;
+using Microsoft.Extensions.Configuration;
+using XLocalizer.Routing;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Mvc;
+using XLocalizer.MetadataProviders;
 
 namespace XLocalizer
 {
@@ -69,6 +74,7 @@ namespace XLocalizer
             where TResource : class
             where TTranslator : ITranslator
         {
+            // Configure XLocalizer options
             builder.Services.Configure<XLocalizerOptions>(options);
 
             // ExpressMemoryCache for caching localized values
@@ -91,9 +97,17 @@ namespace XLocalizer
             builder.Services.AddSingleton<IXStringLocalizerFactory, XStringLocalizerFactory<TResource>>();
             builder.Services.AddSingleton<IXHtmlLocalizerFactory, XHtmlLocalizerFactory<TResource>>();
 
-            return builder.AddDataAnnotationsLocalization<TResource>(options)
-                          .AddModelBindingLocalization()
-                          .AddIdentityErrorsLocalization()
+            // Add custom providers for overriding default modelbinding and data annotations errors
+            builder.Services.AddSingleton<IConfigureOptions<MvcOptions>, ConfigureMvcOptions>();
+
+            // Add data annotations locailzation
+            builder.AddDataAnnotationsLocalization(ops =>
+            {
+                // This will look for localization resource with type of T (shared resource)
+                ops.DataAnnotationLocalizerProvider = (type, factory) => factory.Create(typeof(TResource));
+            });
+
+            return builder.AddIdentityErrorsLocalization()
                           .WithTranslationService<TTranslator>();
         }
     }

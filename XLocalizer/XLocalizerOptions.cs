@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
-
-using System;
+﻿using System;
+using XLocalizer.ErrorMessages;
 
 namespace XLocalizer
 {
@@ -15,36 +14,10 @@ namespace XLocalizer
         public string ResourcesPath { get; set; } = "LocalizationResources";
 
         /// <summary>
-        /// Optional : Add culture parameter to login, logout and access denied paths.
-        /// <para>default value = true</para>
-        /// <para>set to false if you need to configure the application cookie options manually</para>
+        /// Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
         /// </summary>
-        public bool ConfigureRedirectPaths { get; set; } = true;
-
-        /// <summary>
-        /// The default login path
-        /// <para>default value = "/Identity/Account/Login/"</para>
-        /// </summary>
-        public string RedirectToLoginPath { get; set; } = "/Identity/Account/Login/";
-        
-        /// <summary>
-        /// The default logout path
-        /// <para>default value = "/Identity/Account/Logout/"</para>
-        /// </summary>
-        public string RedirectToLogoutPath { get; set; } = "/Identity/Account/Logout/";
-        
-        /// <summary>
-        /// The default access denied path
-        /// <para>default value = "/Identity/Account/AccessDenied/"</para>
-        /// </summary>
-        public string RedirectToAccessDeniedPath { get; set; } = "/Identity/Account/AccessDenied/";
-
-        /// <summary>
-        /// Express valdiation attributes provides already localized error messages.
-        /// Set to true by default. 
-        /// Set to false if you don't want to use express validation attributes.
-        /// </summary>
-        public bool UseExpressValidationAttributes { get; set; } = true;
+        [Obsolete("Express validation attributes are deprected. Use default attributes instead. See https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md")]
+        public bool UseExpressValidationAttributes { get; set; } = false;
 
         /// <summary>
         /// If the key string is not found in the DB, it will be inserted autoamtically to the DB.
@@ -55,7 +28,7 @@ namespace XLocalizer
         /// <summary>
         /// If the translation string is not found, it will be translated via registered translation servies.
         /// default: false
-        /// Requires registering of one translation service at least. see <a href="...">Registering Translation Services for Localization</a>
+        /// Requires registering of one translation service at least. see <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/translate-services.md">Registering Translation Services for Localization</a>
         /// </summary>
         public bool AutoTranslate { get; set; } = false;
 
@@ -65,5 +38,25 @@ namespace XLocalizer
         /// Default value: true.
         /// </summary>
         public bool UseExpressMemoryCache { get; set; } = true;
+
+        /// <summary>
+        /// The culture name to translate from, if not set default request culture will be used.
+        /// </summary>
+        public string TranslateFromCulture { get; set; }
+
+        /// <summary>
+        /// Customize all valdiation error messages.
+        /// </summary>
+        public ValidationErrors ValidationErrors { get; set; } = new ValidationErrors();
+
+        /// <summary>
+        /// identity describer error messages
+        /// </summary>
+        public IdentityErrors IdentityErrors { get; set; } = new IdentityErrors();
+
+        /// <summary>
+        /// Model Binding Error Messages
+        /// </summary>
+        public ModelBindingErrors ModelBindingErrors { get; set; } = new ModelBindingErrors();
     }
 }

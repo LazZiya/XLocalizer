@@ -4,9 +4,9 @@ using System.ComponentModel.DataAnnotations;
 namespace XLocalizer.DataAnnotations
 {
     /// <summary>
-    /// Specifies that a data field value in ASP.NET Dynamic Data must match the specified regular expression.
-    /// And proivdes locaized error message.
+    /// Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
     /// </summary>
+    [Obsolete("Express validation attributes are deprected. Use default attributes instead. See https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md")]
     public sealed class ExRegularExpressionAttribute : RegularExpressionAttribute
     {
         /// <summary>

@@ -45,6 +45,12 @@ namespace XLocalizer
             return new XHtmlLocalizer(strLocalizer);
         }
 
+        /// <summary>
+        /// Create a new <see cref="IHtmlLocalizer"/> based on provided basename and location
+        /// </summary>
+        /// <param name="baseName"></param>
+        /// <param name="location"></param>
+        /// <returns></returns>
         public IHtmlLocalizer Create(string baseName, string location)
         {
             throw new NotImplementedException();

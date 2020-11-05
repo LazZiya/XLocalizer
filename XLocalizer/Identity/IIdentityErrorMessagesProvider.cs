@@ -1,10 +1,11 @@
-﻿namespace XLocalizer.Identity
+﻿using System;
+
+namespace XLocalizer.Identity
 {
     /// <summary>
-    /// Interface to provide custom default identity error messages.
-    /// Messages can be provided in any culture, so user can provide localized error messages here,
-    /// but the default request culture in startup must be configured same as messages culture.
+    /// This class is deprected. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/identity-errors.md">Localizing Identity Errors</a>
     /// </summary>
+    [Obsolete("This class is deprected. See https://docs.ziyad.info/en/XLocalizer/v1.0/identity-errors.md")]
     public interface IIdentityErrorMessagesProvider
     {
         /// <summary>

@@ -1,8 +1,11 @@
-﻿namespace XLocalizer.Identity
+﻿using System;
+
+namespace XLocalizer.Identity
 {
     /// <summary>
-    /// Default identity errors provider
+    /// This class is deprected. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/identity-errors.md">Localizing Identity Errors</a>
     /// </summary>
+    [Obsolete("This class is deprected. See https://docs.ziyad.info/en/XLocalizer/v1.0/identity-errors.md")]
     public class DefaultIdentityErrorsProvider : IIdentityErrorMessagesProvider
     {
         string IIdentityErrorMessagesProvider.DuplicateEmail => "Email '{0}' is already taken.";
