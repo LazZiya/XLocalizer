@@ -15,6 +15,7 @@
 		<PackageTags>asp.net,core,razor,mvc,localization,globalization,client side,validation,translation,autokeyadding</PackageTags>
 		<PackageReleaseNotes>
 			- New: TranslateFromCulture property, specifies the source culture to translate from, if not specified default culture will be used.
+			- New: All default validation attributes, model binding and identity errors are customizable/localizable from one single place.
 			- Fix: removed Required error message from ExRange and ExREgularExpression attributes.
 			- Docs moved to https://docs.ziyad.info
 			Release notes: https://github.com/LazZiya/XLocalizer/releases
