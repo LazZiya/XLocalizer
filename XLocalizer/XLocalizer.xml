@@ -108,7 +108,7 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.Adapters.ExCompareAttributeAdapter">
             <summary>
-            Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExCompareAttribute"/>
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
         </member>
         <member name="M:XLocalizer.DataAnnotations.Adapters.ExCompareAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExCompareAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
@@ -133,7 +133,7 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.Adapters.ExMaxLengthAttributeAdapter">
             <summary>
-            Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExMaxLengthAttribute"/>
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
         </member>
         <member name="M:XLocalizer.DataAnnotations.Adapters.ExMaxLengthAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExMaxLengthAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
@@ -158,7 +158,7 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.Adapters.ExMinLengthAttributeAdapter">
             <summary>
-            Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExMinLengthAttribute"/>
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
         </member>
         <member name="M:XLocalizer.DataAnnotations.Adapters.ExMinLengthAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExMinLengthAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
@@ -183,7 +183,7 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.Adapters.ExRangeAttributeAdapter">
             <summary>
-            Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExRangeAttribute"/>
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
         </member>
         <member name="M:XLocalizer.DataAnnotations.Adapters.ExRangeAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExRangeAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
@@ -208,7 +208,7 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.Adapters.ExRegularExpressionAttributeAdapter">
             <summary>
-            Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExRegularExpressionAttribute"/>
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
         </member>
         <member name="M:XLocalizer.DataAnnotations.Adapters.ExRegularExpressionAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExRegularExpressionAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
@@ -233,7 +233,7 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.Adapters.ExStringLengthAttributeAdapter">
             <summary>
-            Adapter for providing a localized error message for <see cref="T:XLocalizer.DataAnnotations.ExStringLengthAttribute"/>
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
         </member>
         <member name="M:XLocalizer.DataAnnotations.Adapters.ExStringLengthAttributeAdapter.#ctor(XLocalizer.DataAnnotations.ExStringLengthAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
@@ -258,7 +258,7 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages">
             <summary>
-            Original messages obtained from <a href="https://github.com/dotnet/corefx/blob/master/src/System.ComponentModel.Annotations/src/Resources/Strings.resx"></a>
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
         </member>
         <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.CompareAttribute_MustMatch">
@@ -344,7 +344,7 @@
         <!-- Badly formed XML comment ignored for member "F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.ValidationAttribute_ValidationError" -->
         <member name="T:XLocalizer.DataAnnotations.DefaultDataAnnotationsErrorMessagesProvider">
             <summary>
-            Original messages obtained from <a href="https://github.com/dotnet/corefx/blob/master/src/System.ComponentModel.Annotations/src/Resources/Strings.resx"/>
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
         </member>
         <member name="T:XLocalizer.DataAnnotations.DependencyInjection">
@@ -362,7 +362,7 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.ExAttributeAdapterSwitch">
             <summary>
-            A switch to return the relevant Ex attribute or null if no Ex attribute is detected
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
         </member>
         <member name="M:XLocalizer.DataAnnotations.ExAttributeAdapterSwitch.GetAttributeAdapter(System.ComponentModel.DataAnnotations.ValidationAttribute,Microsoft.Extensions.Localization.IStringLocalizer)">
@@ -375,9 +375,8 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.ExCompareAttribute">
             <summary>
-            This attribute is deprected and will be removed in a future release. Use [Compare("otherproperty")] instead
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
-            
         </member>
         <member name="M:XLocalizer.DataAnnotations.ExCompareAttribute.#ctor(System.String)">
             <summary>
@@ -387,9 +386,8 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.ExMaxLengthAttribute">
             <summary>
-            This attribute is deprected and will be removed in a future release. Use [MaxLength] instead
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
-            
         </member>
         <member name="M:XLocalizer.DataAnnotations.ExMaxLengthAttribute.#ctor">
             <summary>
@@ -404,9 +402,8 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.ExMinLengthAttribute">
             <summary>
-            This attribute is deprected and will be removed in a future release. Use [MinLength] instead
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
-            
         </member>
         <member name="M:XLocalizer.DataAnnotations.ExMinLengthAttribute.#ctor(System.Int32)">
             <summary>
@@ -416,7 +413,7 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.ExpressValidationAttributeAdapterProvider">
             <summary>
-            Registeres express valdiation attributes
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
         </member>
         <member name="M:XLocalizer.DataAnnotations.ExpressValidationAttributeAdapterProvider.#ctor">
@@ -426,9 +423,8 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.ExRangeAttribute">
             <summary>
-            This attribute is deprected and will be removed in a future release. Use [Range] instead
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
-            
         </member>
         <member name="M:XLocalizer.DataAnnotations.ExRangeAttribute.#ctor(System.Double,System.Double)">
             <summary>
@@ -460,9 +456,8 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.ExRegularExpressionAttribute">
             <summary>
-            This attribute is deprected and will be removed in a future release. Use [RegularExpression] instead
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
-            
         </member>
         <member name="M:XLocalizer.DataAnnotations.ExRegularExpressionAttribute.#ctor(System.String)">
             <summary>
@@ -475,9 +470,8 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.ExRequiredAttribute">
             <summary>
-            This attribute is deprected and will be removed in a future release. Use [Required] instead
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
-            
         </member>
         <member name="M:XLocalizer.DataAnnotations.ExRequiredAttribute.#ctor">
             <summary>
@@ -486,9 +480,8 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.ExStringLengthAttribute">
             <summary>
-            This attribute is deprected and will be removed in a future release. Use [StringLength] instead
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
-            
         </member>
         <member name="P:XLocalizer.DataAnnotations.ExStringLengthAttribute.MinimumLength">
             <summary>
@@ -505,9 +498,7 @@
         </member>
         <member name="T:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider">
             <summary>
-            Interface to provide custom default data annotation error messages.
-            Messages can be provided in any culture, so user can provide localized error messages here,
-            but the default request culture in startup must be configured same as messages culture.
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
         </member>
         <member name="P:XLocalizer.DataAnnotations.IDataAnnotationsMessagesProvider.CompareAttribute_MustMatch">
@@ -631,9 +622,278 @@
             <param name="options"></param>
             <returns></returns>
         </member>
+        <member name="T:XLocalizer.ErrorMessages.IdentityErrors">
+            <summary>
+            Provides all identity describer error messages in one single class. 
+            This class is part of XLocalizer members, so it can be overridden in appsettings.json or antother file.
+            Overriding values in appsettings.jso allows to customize the error messages, 
+            or to provide default error messages in a different culture other than en
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.DuplicateEmail">
+            <summary>
+            "Email '{0}' is already taken."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.DuplicateUserName">
+            <summary>
+            "User name '{0}' is already taken."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.InvalidEmail">
+            <summary>
+            "Email '{0}' is invalid."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.DuplicateRoleName">
+            <summary>
+            "Role name '{0}' is already taken."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.InvalidRoleName">
+            <summary>
+            "Role name '{0}' is invalid."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.InvalidToken">
+            <summary>
+            "Invalid token."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.InvalidUserName">
+            <summary>
+            "User name '{0}' is invalid, can only contain letters or digits."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.LoginAlreadyAssociated">
+            <summary>
+            "A user with this login already exists."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.PasswordMismatch">
+            <summary>
+            "Incorrect password."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.PasswordRequiresDigit">
+            <summary>
+            "Passwords must have at least one digit ('0'-'9')."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.PasswordRequiresLower">
+            <summary>
+            "Passwords must have at least one lowercase ('a'-'z')."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.PasswordRequiresNonAlphanumeric">
+            <summary>
+            "Passwords must have at least one non alphanumeric character."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.PasswordRequiresUniqueChars">
+            <summary>
+            "Passwords must use at least {0} different characters."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.PasswordRequiresUpper">
+            <summary>
+            "Passwords must have at least one uppercase ('A'-'Z')."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.PasswordTooShort">
+            <summary>
+            "Passwords must be at least {0} characters."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.UserAlreadyHasPassword">
+            <summary>
+            "User already has a password set."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.UserAlreadyInRole">
+            <summary>
+            "User already in role '{0}'."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.UserNotInRole">
+            <summary>
+            "User is not in role '{0}'."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.UserLockoutNotEnabled">
+            <summary>
+            "Lockout is not enabled for this user."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.RecoveryCodeRedemptionFailed">
+            <summary>
+            "Recovery code redemption failed."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.ConcurrencyFailure">
+            <summary>
+            "Optimistic concurrency failure, object has been modified."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.IdentityErrors.DefaultError">
+            <summary>
+            "An unknown failure has occurred."
+            </summary>
+        </member>
+        <member name="T:XLocalizer.ErrorMessages.ModelBindingErrors">
+            <summary>
+            Class to provide custom default model binding error messages.
+            Messages can be provided in any culture, so user can provide localized error messages here,
+            but the default request culture in startup must be configured same as messages culture.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ModelBindingErrors.AttemptedValueIsInvalidAccessor">
+            <summary>
+            "The value '{0}' is not valid for {1}."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ModelBindingErrors.MissingBindRequiredValueAccessor">
+            <summary>
+            "A value for the '{0}' parameter or property was not provided."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ModelBindingErrors.MissingKeyOrValueAccessor">
+            <summary>
+            "A value is required."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ModelBindingErrors.MissingRequestBodyRequiredValueAccessor">
+            <summary>
+            "A non-empty request body is required."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ModelBindingErrors.NonPropertyAttemptedValueIsInvalidAccessor">
+            <summary>
+            "The value '{0}' is not valid."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ModelBindingErrors.NonPropertyUnknownValueIsInvalidAccessor">
+            <summary>
+            "The supplied value is invalid."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ModelBindingErrors.NonPropertyValueMustBeANumberAccessor">
+            <summary>
+            "The field must be a number."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ModelBindingErrors.UnknownValueIsInvalidAccessor">
+            <summary>
+            "The supplied value is invalid for {0}."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ModelBindingErrors.ValueIsInvalidAccessor">
+            <summary>
+            "The value '{0}' is invalid."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ModelBindingErrors.ValueMustBeANumberAccessor">
+            <summary>
+            "The field {0} must be a number."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ModelBindingErrors.ValueMustNotBeNullAccessor">
+            <summary>
+            "The value '{0}' is invalid."
+            </summary>
+        </member>
+        <member name="T:XLocalizer.ErrorMessages.ValidationErrors">
+            <summary>
+            Provides all validiation error messages in one single class. 
+            This class is part of XLocalizer members, so it can be overridden in appsettings.json or antother file.
+            Overriding values in appsettings.jso allows to customize the error messages, 
+            or to provide default error messages in a different culture other than en
+            Original messages obtained from <a href="https://github.com/dotnet/corefx/blob/master/src/System.ComponentModel.Annotations/src/Resources/Strings.resx"/>
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.CompareAttribute_MustMatch">
+            <summary>
+            "'{0}' and '{1}' do not match."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.CreditCardAttribute_Invalid">
+            <summary>
+            "The {0} field is not a valid credit card number."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.CustomValidationAttribute_ValidationError">
+            <summary>
+            "{0} is not valid."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.DataTypeAttribute_EmptyDataTypeString">
+            <summary>
+            "The custom DataType string cannot be null or empty."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.EmailAddressAttribute_Invalid">
+            <summary>
+            "The {0} field is not a valid e-mail address."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.FileExtensionsAttribute_Invalid">
+            <summary>
+            "The {0} field only accepts files with the following extensions: {1}"
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.MaxLengthAttribute_ValidationError">
+            <summary>
+            "The field {0} must be a string or array type with a maximum length of '{1}'."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.MinLengthAttribute_ValidationError">
+            <summary>
+            "The field {0} must be a string or array type with a minimum length of '{1}'."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.PhoneAttribute_Invalid">
+            <summary>
+            "The {0} field is not a valid phone number."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.RangeAttribute_ValidationError">
+            <summary>
+            "The field {0} must be between {1} and {2}."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.RegexAttribute_ValidationError">
+            <summary>
+            "The field {0} must match the regular expression '{1}'."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.RequiredAttribute_ValidationError">
+            <summary>
+            "The {0} field is required."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.StringLengthAttribute_ValidationError">
+            <summary>
+            "The field {0} must be a string with a maximum length of {1}."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.StringLengthAttribute_ValidationErrorIncludingMinimum">
+            <summary>
+            "The field {0} must be a string with a minimum length of {2} and a maximum length of {1}."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.UrlAttribute_Invalid">
+            <summary>
+            "The {0} field is not a valid fully-qualified http, https, or ftp URL."
+            </summary>
+        </member>
+        <member name="P:XLocalizer.ErrorMessages.ValidationErrors.ValidationAttribute_ValidationError">
+            <summary>
+            "The field {0} is invalid."
+            </summary>
+        </member>
         <member name="T:XLocalizer.Identity.DefaultIdentityErrorsProvider">
             <summary>
-            Default identity errors provider
+            This class is deprected. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/identity-errors.md">Localizing Identity Errors</a>
             </summary>
         </member>
         <member name="T:XLocalizer.Identity.DependencyInjection">
@@ -805,9 +1065,7 @@
         </member>
         <member name="T:XLocalizer.Identity.IIdentityErrorMessagesProvider">
             <summary>
-            Interface to provide custom default identity error messages.
-            Messages can be provided in any culture, so user can provide localized error messages here,
-            but the default request culture in startup must be configured same as messages culture.
+            This class is deprected. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/identity-errors.md">Localizing Identity Errors</a>
             </summary>
         </member>
         <member name="P:XLocalizer.Identity.IIdentityErrorMessagesProvider.DuplicateEmail">
@@ -992,275 +1250,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="T:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages">
-            <summary>
-            Provides all DataAnnotation error messages in one single class. 
-            This class is part of XLocalizer members, so it can be overridden in appsettings.json or antother file.
-            Overriding values in appsettings.jso allows to customize the error messages, 
-            or to provide default error messages in a different culture other than en
-            Original messages obtained from <a href="https://github.com/dotnet/corefx/blob/master/src/System.ComponentModel.Annotations/src/Resources/Strings.resx"/>
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.CompareAttribute_MustMatch">
-            <summary>
-            "'{0}' and '{1}' do not match."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.CreditCardAttribute_Invalid">
-            <summary>
-            "The {0} field is not a valid credit card number."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.CustomValidationAttribute_ValidationError">
-            <summary>
-            "{0} is not valid."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.DataTypeAttribute_EmptyDataTypeString">
-            <summary>
-            "The custom DataType string cannot be null or empty."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.EmailAddressAttribute_Invalid">
-            <summary>
-            "The {0} field is not a valid e-mail address."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.FileExtensionsAttribute_Invalid">
-            <summary>
-            "The {0} field only accepts files with the following extensions: {1}"
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.MaxLengthAttribute_ValidationError">
-            <summary>
-            "The field {0} must be a string or array type with a maximum length of '{1}'."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.MinLengthAttribute_ValidationError">
-            <summary>
-            "The field {0} must be a string or array type with a minimum length of '{1}'."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.PhoneAttribute_Invalid">
-            <summary>
-            "The {0} field is not a valid phone number."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.RangeAttribute_ValidationError">
-            <summary>
-            "The field {0} must be between {1} and {2}."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.RegexAttribute_ValidationError">
-            <summary>
-            "The field {0} must match the regular expression '{1}'."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.RequiredAttribute_ValidationError">
-            <summary>
-            "The {0} field is required."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.StringLengthAttribute_ValidationError">
-            <summary>
-            "The field {0} must be a string with a maximum length of {1}."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.StringLengthAttribute_ValidationErrorIncludingMinimum">
-            <summary>
-            "The field {0} must be a string with a minimum length of {2} and a maximum length of {1}."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.UrlAttribute_Invalid">
-            <summary>
-            "The {0} field is not a valid fully-qualified http, https, or ftp URL."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultDataAnnotationsErrorMessages.ValidationAttribute_ValidationError">
-            <summary>
-            "The field {0} is invalid."
-            </summary>
-        </member>
-        <member name="T:XLocalizer.Messages.DefaultIdentityErrorsMessages">
-            <summary>
-            Provides all identity describer error messages in one single class. 
-            This class is part of XLocalizer members, so it can be overridden in appsettings.json or antother file.
-            Overriding values in appsettings.jso allows to customize the error messages, 
-            or to provide default error messages in a different culture other than en
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.DuplicateEmail">
-            <summary>
-            "Email '{0}' is already taken."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.DuplicateUserName">
-            <summary>
-            "User name '{0}' is already taken."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.InvalidEmail">
-            <summary>
-            "Email '{0}' is invalid."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.DuplicateRoleName">
-            <summary>
-            "Role name '{0}' is already taken."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.InvalidRoleName">
-            <summary>
-            "Role name '{0}' is invalid."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.InvalidToken">
-            <summary>
-            "Invalid token."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.InvalidUserName">
-            <summary>
-            "User name '{0}' is invalid, can only contain letters or digits."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.LoginAlreadyAssociated">
-            <summary>
-            "A user with this login already exists."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.PasswordMismatch">
-            <summary>
-            "Incorrect password."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.PasswordRequiresDigit">
-            <summary>
-            "Passwords must have at least one digit ('0'-'9')."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.PasswordRequiresLower">
-            <summary>
-            "Passwords must have at least one lowercase ('a'-'z')."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.PasswordRequiresNonAlphanumeric">
-            <summary>
-            "Passwords must have at least one non alphanumeric character."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.PasswordRequiresUniqueChars">
-            <summary>
-            "Passwords must use at least {0} different characters."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.PasswordRequiresUpper">
-            <summary>
-            "Passwords must have at least one uppercase ('A'-'Z')."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.PasswordTooShort">
-            <summary>
-            "Passwords must be at least {0} characters."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.UserAlreadyHasPassword">
-            <summary>
-            "User already has a password set."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.UserAlreadyInRole">
-            <summary>
-            "User already in role '{0}'."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.UserNotInRole">
-            <summary>
-            "User is not in role '{0}'."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.UserLockoutNotEnabled">
-            <summary>
-            "Lockout is not enabled for this user."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.RecoveryCodeRedemptionFailed">
-            <summary>
-            "Recovery code redemption failed."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.ConcurrencyFailure">
-            <summary>
-            "Optimistic concurrency failure, object has been modified."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultIdentityErrorsMessages.DefaultError">
-            <summary>
-            "An unknown failure has occurred."
-            </summary>
-        </member>
-        <member name="T:XLocalizer.Messages.DefaultModelBindingErrorMessages">
-            <summary>
-            Class to provide custom default model binding error messages.
-            Messages can be provided in any culture, so user can provide localized error messages here,
-            but the default request culture in startup must be configured same as messages culture.
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultModelBindingErrorMessages.AttemptedValueIsInvalidAccessor">
-            <summary>
-            "The value '{0}' is not valid for {1}."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultModelBindingErrorMessages.MissingBindRequiredValueAccessor">
-            <summary>
-            "A value for the '{0}' parameter or property was not provided."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultModelBindingErrorMessages.MissingKeyOrValueAccessor">
-            <summary>
-            "A value is required."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultModelBindingErrorMessages.MissingRequestBodyRequiredValueAccessor">
-            <summary>
-            "A non-empty request body is required."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultModelBindingErrorMessages.NonPropertyAttemptedValueIsInvalidAccessor">
-            <summary>
-            "The value '{0}' is not valid."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultModelBindingErrorMessages.NonPropertyUnknownValueIsInvalidAccessor">
-            <summary>
-            "The supplied value is invalid."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultModelBindingErrorMessages.NonPropertyValueMustBeANumberAccessor">
-            <summary>
-            "The field must be a number."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultModelBindingErrorMessages.UnknownValueIsInvalidAccessor">
-            <summary>
-            "The supplied value is invalid for {0}."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultModelBindingErrorMessages.ValueIsInvalidAccessor">
-            <summary>
-            "The value '{0}' is invalid."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultModelBindingErrorMessages.ValueMustBeANumberAccessor">
-            <summary>
-            "The field {0} must be a number."
-            </summary>
-        </member>
-        <member name="P:XLocalizer.Messages.DefaultModelBindingErrorMessages.ValueMustNotBeNullAccessor">
-            <summary>
-            "The value '{0}' is invalid."
-            </summary>
-        </member>
         <member name="T:XLocalizer.MetadataProviders.ConfigureMvcOptions">
             <summary>
             Configure MvcOptions to add custom model binding and validator providers.
@@ -1293,7 +1282,7 @@
         </member>
         <member name="M:XLocalizer.MetadataProviders.XModelBindingMetadataProvider.CreateBindingMetadata(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.BindingMetadataProviderContext)">
             <summary>
-            Create binding metadata and override <see cref="T:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelBindingMessageProvider"/> by custom instance of <see cref="T:XLocalizer.Messages.DefaultModelBindingErrorMessages"/>
+            Create binding metadata and override <see cref="T:Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelBindingMessageProvider"/> by custom instance of <see cref="T:XLocalizer.ErrorMessages.ModelBindingErrors"/>
             </summary>
             <param name="context"></param>
         </member>
@@ -1316,16 +1305,12 @@
         </member>
         <member name="T:XLocalizer.ModelBinding.DefaultModelBindingErrorMessagesProvider">
             <summary>
-            Class to provide custom default model binding error messages.
-            Messages can be provided in any culture, so user can provide localized error messages here,
-            but the default request culture in startup must be configured same as messages culture.
+            This class is deprected. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/model-binding-errors.md">Localizing Model Binding Errors</a>
             </summary>
         </member>
         <member name="T:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider">
             <summary>
-            Interface to provide custom default model binding error messages.
-            Messages can be provided in any culture, so user can provide localized error messages here,
-            but the default request culture in startup must be configured same as messages culture.
+            This class is deprected. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/model-binding-errors.md">Localizing Model Binding Errors</a>
             </summary>
         </member>
         <member name="P:XLocalizer.ModelBinding.IModelBindingErrorMessagesProvider.AttemptedValueIsInvalidAccessor">
@@ -1385,10 +1370,10 @@
         </member>
         <member name="T:XLocalizer.ModelBinding.ModelBindingErrorsExtensions">
             <summary>
-            Original messages obtained from <a href="https://github.com/aspnet/AspNetCore/blob/master/src/Mvc/Mvc.Core/src/Resources.resx"/>
+            This class is deprected. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/model-binding-errors.md">Localizing Model Binding Errors</a>
             </summary>
         </member>
-        <member name="M:XLocalizer.ModelBinding.ModelBindingErrorsExtensions.SetLocalizedModelBindingErrorMessages(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelBindingMessageProvider,XLocalizer.Messages.DefaultModelBindingErrorMessages,Microsoft.Extensions.Localization.IStringLocalizer)">
+        <member name="M:XLocalizer.ModelBinding.ModelBindingErrorsExtensions.SetLocalizedModelBindingErrorMessages(Microsoft.AspNetCore.Mvc.ModelBinding.Metadata.DefaultModelBindingMessageProvider,XLocalizer.ErrorMessages.ModelBindingErrors,Microsoft.Extensions.Localization.IStringLocalizer)">
             <summary>
             Use DB for localization
             </summary>
@@ -1753,9 +1738,7 @@
         </member>
         <member name="P:XLocalizer.XLocalizerOptions.UseExpressValidationAttributes">
             <summary>
-            Express valdiation attributes provides already localized error messages.
-            Set to true by default. 
-            Set to false if you don't want to use express validation attributes.
+            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
             </summary>
         </member>
         <member name="P:XLocalizer.XLocalizerOptions.AutoAddKeys">
@@ -1768,7 +1751,7 @@
             <summary>
             If the translation string is not found, it will be translated via registered translation servies.
             default: false
-            Requires registering of one translation service at least. see <a href="...">Registering Translation Services for Localization</a>
+            Requires registering of one translation service at least. see <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/translate-services.md">Registering Translation Services for Localization</a>
             </summary>
         </member>
         <member name="P:XLocalizer.XLocalizerOptions.UseExpressMemoryCache">
@@ -1783,19 +1766,19 @@
             The culture name to translate from, if not set default request culture will be used.
             </summary>
         </member>
-        <member name="P:XLocalizer.XLocalizerOptions.DefaultDataAnnotationsErrorMessages">
+        <member name="P:XLocalizer.XLocalizerOptions.ValidationErrors">
             <summary>
-            Default DataAnnotation error messages.
+            Customize all valdiation error messages.
             </summary>
         </member>
-        <member name="P:XLocalizer.XLocalizerOptions.DefaultIdentityErrorsMessages">
+        <member name="P:XLocalizer.XLocalizerOptions.IdentityErrors">
             <summary>
-            Default identity describer error messages
+            identity describer error messages
             </summary>
         </member>
-        <member name="P:XLocalizer.XLocalizerOptions.DefaultModelBindingErrorMessages">
+        <member name="P:XLocalizer.XLocalizerOptions.ModelBindingErrors">
             <summary>
-            Default Model Binding Error Messages
+            Model Binding Error Messages
             </summary>
         </member>
         <member name="T:XLocalizer.Xml.XmlResourceExporter">

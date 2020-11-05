@@ -1,13 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace XLocalizer.Messages
+namespace XLocalizer.ErrorMessages
 {
     /// <summary>
     /// Class to provide custom default model binding error messages.
     /// Messages can be provided in any culture, so user can provide localized error messages here,
     /// but the default request culture in startup must be configured same as messages culture.
     /// </summary>
-    public class DefaultModelBindingErrorMessages
+    public class ModelBindingErrors
     {
         /// <summary>
         /// "The value '{0}' is not valid for {1}."

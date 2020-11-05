@@ -4,10 +4,9 @@ using System.ComponentModel.DataAnnotations;
 namespace XLocalizer.DataAnnotations
 {
     /// <summary>
-    /// This attribute is deprected and will be removed in a future release. Use [Required] instead
+    /// Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
     /// </summary>
-    /// 
-    [Obsolete("This class is deprected and will be removed in a future release. Use [Required] instead")]
+    [Obsolete("Express validation attributes are deprected. Use default attributes instead. See https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md")]
     public sealed class ExRequiredAttribute : RequiredAttribute
     {
         /// <summary>

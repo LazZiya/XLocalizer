@@ -3,9 +3,9 @@
 namespace XLocalizer.DataAnnotations
 {
     /// <summary>
-    /// Original messages obtained from <a href="https://github.com/dotnet/corefx/blob/master/src/System.ComponentModel.Annotations/src/Resources/Strings.resx"/>
+    /// Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
     /// </summary>
-    [Obsolete]
+    [Obsolete("Express validation attributes are deprected. Use default attributes instead. See https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md")]
     public class DefaultDataAnnotationsErrorMessagesProvider : IDataAnnotationsMessagesProvider
     {
         string IDataAnnotationsMessagesProvider.CompareAttribute_MustMatch => "'{0}' and '{1}' do not match.";

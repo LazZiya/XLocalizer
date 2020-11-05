@@ -1,5 +1,5 @@
 ﻿using System;
-using XLocalizer.Messages;
+using XLocalizer.ErrorMessages;
 
 namespace XLocalizer
 {
@@ -12,13 +12,11 @@ namespace XLocalizer
         /// The path to the resources folder e.g. "LocalizationResources"
         /// </summary>
         public string ResourcesPath { get; set; } = "LocalizationResources";
-        
+
         /// <summary>
-        /// Express valdiation attributes provides already localized error messages.
-        /// Set to true by default. 
-        /// Set to false if you don't want to use express validation attributes.
+        /// Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
         /// </summary>
-        [Obsolete]
+        [Obsolete("Express validation attributes are deprected. Use default attributes instead. See https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md")]
         public bool UseExpressValidationAttributes { get; set; } = false;
 
         /// <summary>
@@ -30,7 +28,7 @@ namespace XLocalizer
         /// <summary>
         /// If the translation string is not found, it will be translated via registered translation servies.
         /// default: false
-        /// Requires registering of one translation service at least. see <a href="...">Registering Translation Services for Localization</a>
+        /// Requires registering of one translation service at least. see <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/translate-services.md">Registering Translation Services for Localization</a>
         /// </summary>
         public bool AutoTranslate { get; set; } = false;
 
@@ -47,18 +45,18 @@ namespace XLocalizer
         public string TranslateFromCulture { get; set; }
 
         /// <summary>
-        /// Default DataAnnotation error messages.
+        /// Customize all valdiation error messages.
         /// </summary>
-        public DefaultDataAnnotationsErrorMessages DefaultDataAnnotationsErrorMessages { get; set; } = new DefaultDataAnnotationsErrorMessages();
+        public ValidationErrors ValidationErrors { get; set; } = new ValidationErrors();
 
         /// <summary>
-        /// Default identity describer error messages
+        /// identity describer error messages
         /// </summary>
-        public DefaultIdentityErrorsMessages DefaultIdentityErrorsMessages { get; set; } = new DefaultIdentityErrorsMessages();
+        public IdentityErrors IdentityErrors { get; set; } = new IdentityErrors();
 
         /// <summary>
-        /// Default Model Binding Error Messages
+        /// Model Binding Error Messages
         /// </summary>
-        public DefaultModelBindingErrorMessages DefaultModelBindingErrorMessages { get; set; } = new DefaultModelBindingErrorMessages();
+        public ModelBindingErrors ModelBindingErrors { get; set; } = new ModelBindingErrors();
     }
 }

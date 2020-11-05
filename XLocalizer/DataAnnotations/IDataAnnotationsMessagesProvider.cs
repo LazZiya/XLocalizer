@@ -3,11 +3,9 @@
 namespace XLocalizer.DataAnnotations
 {
     /// <summary>
-    /// Interface to provide custom default data annotation error messages.
-    /// Messages can be provided in any culture, so user can provide localized error messages here,
-    /// but the default request culture in startup must be configured same as messages culture.
+    /// Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
     /// </summary>
-    [Obsolete]
+    [Obsolete("Express validation attributes are deprected. Use default attributes instead. See https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md")]
     public interface IDataAnnotationsMessagesProvider
     {
         /// <summary>

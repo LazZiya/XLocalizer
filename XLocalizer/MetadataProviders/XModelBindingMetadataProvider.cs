@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
-using XLocalizer.Messages;
+using XLocalizer.ErrorMessages;
 
 namespace XLocalizer.MetadataProviders
 {
@@ -11,7 +11,7 @@ namespace XLocalizer.MetadataProviders
     public class XModelBindingMetadataProvider : IBindingMetadataProvider
     {
         private readonly IStringLocalizer localizer;
-        private readonly DefaultModelBindingErrorMessages mbErrors;
+        private readonly ModelBindingErrors mbErrors;
 
         /// <summary>
         /// Initialize a new instance of <see cref="XModelBindingMetadataProvider"/>
@@ -21,11 +21,11 @@ namespace XLocalizer.MetadataProviders
         public XModelBindingMetadataProvider(IStringLocalizer strLocalizer, IOptions<XLocalizerOptions> options)
         {
             localizer = strLocalizer;
-            mbErrors = options.Value.DefaultModelBindingErrorMessages;
+            mbErrors = options.Value.ModelBindingErrors;
         }
 
         /// <summary>
-        /// Create binding metadata and override <see cref="DefaultModelBindingMessageProvider"/> by custom instance of <see cref="DefaultModelBindingErrorMessages"/>
+        /// Create binding metadata and override <see cref="DefaultModelBindingMessageProvider"/> by custom instance of <see cref="ModelBindingErrors"/>
         /// </summary>
         /// <param name="context"></param>
         public void CreateBindingMetadata(BindingMetadataProviderContext context)

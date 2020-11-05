@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Options;
-using XLocalizer.Messages;
+using XLocalizer.ErrorMessages;
 
 namespace XLocalizer.Identity
 {
@@ -12,7 +12,7 @@ namespace XLocalizer.Identity
     public class IdentityErrorsLocalizer : IdentityErrorDescriber
     {
         private readonly IStringLocalizer _localizer;
-        private readonly DefaultIdentityErrorsMessages _err;
+        private readonly IdentityErrors _err;
 
         /// <summary>
         /// Initialize identity erroors localization based on DB locailzer
@@ -22,7 +22,7 @@ namespace XLocalizer.Identity
         public IdentityErrorsLocalizer(IStringLocalizer localizer, IOptions<XLocalizerOptions> options)
         {
             _localizer = localizer;
-            _err = options.Value.DefaultIdentityErrorsMessages;
+            _err = options.Value.IdentityErrors;
         }
 
         private IdentityError LocalizedIdentityError(string code, params object[] args)

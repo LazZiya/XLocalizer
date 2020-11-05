@@ -6,8 +6,9 @@ using System;
 namespace XLocalizer.DataAnnotations.Adapters
 {
     /// <summary>
-    /// Adapter for providing a localized error message for <see cref="ExMinLengthAttribute"/>
+    /// Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
     /// </summary>
+    [Obsolete("Express validation attributes are deprected. Use default attributes instead. See https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md")]
     public class ExMinLengthAttributeAdapter : AttributeAdapterBase<ExMinLengthAttribute>
     {
         private int MinLength { get; set; }

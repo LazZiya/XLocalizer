@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 using Microsoft.Extensions.Options;
-using XLocalizer.Messages;
+using XLocalizer.ErrorMessages;
 
 namespace XLocalizer.MetadataProviders
 {
@@ -12,7 +12,7 @@ namespace XLocalizer.MetadataProviders
     /// </summary>
     public class XValidationMetadataProvider : IValidationMetadataProvider
     {
-        private readonly DefaultDataAnnotationsErrorMessages errorMessages;
+        private readonly ValidationErrors errorMessages;
         private readonly KeyValuePair<string, string>[] map;
 
         /// <summary>
@@ -21,7 +21,7 @@ namespace XLocalizer.MetadataProviders
         /// <param name="options"></param>
         public XValidationMetadataProvider(IOptions<XLocalizerOptions> options)
         {
-            errorMessages = options.Value.DefaultDataAnnotationsErrorMessages;
+            errorMessages = options.Value.ValidationErrors;
 
             map = new KeyValuePair<string, string>[]
             {
@@ -54,10 +54,12 @@ namespace XLocalizer.MetadataProviders
                 if (attribute is ValidationAttribute vAtt)
                 {
                     var type = vAtt.GetType();
-                    
-                    vAtt.ErrorMessage = (type == typeof(StringLengthAttribute) && ((StringLengthAttribute)vAtt).MinimumLength > 0) 
-                        ? errorMessages.StringLengthAttribute_ValidationErrorIncludingMinimum
-                        : map.SingleOrDefault(x => x.Key == type.FullName).Value;
+
+                    if (type == typeof(StringLengthAttribute) && ((StringLengthAttribute)vAtt).MinimumLength > 0)
+                        vAtt.ErrorMessage = errorMessages.StringLengthAttribute_ValidationErrorIncludingMinimum;
+
+                    else if (map.Count(x => x.Key == type.FullName) == 1)
+                        vAtt.ErrorMessage = map.FirstOrDefault(x => x.Key == type.FullName).Value;
                 }
             }
         }
