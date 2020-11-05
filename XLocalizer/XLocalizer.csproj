@@ -42,7 +42,7 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(UseReference)' == 'Nugets'">
-		<PackageReference Include="XLocalizer.Translate" Version="1.0.0-rc.*" Exclude="Build,Analyzers" />
+		<PackageReference Include="XLocalizer.Translate" Version="1.0.0-rc.1" Exclude="Build,Analyzers" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
