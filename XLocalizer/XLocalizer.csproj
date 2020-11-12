@@ -14,14 +14,16 @@
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageTags>asp.net,core,razor,mvc,localization,globalization,client side,validation,translation,autokeyadding</PackageTags>
 		<PackageReleaseNotes>
-			- New: TranslateFromCulture property, specifies the source culture to translate from, if not specified default culture will be used.
-			- New: All default validation attributes, model binding and identity errors are customizable/localizable from one single place.
-			- Fix: removed Required error message from ExRange and ExREgularExpression attributes.
-			- Docs moved to https://docs.ziyad.info
+			- New: `TranslateFromCulture` property to specify the source culture to translate from, if not specified default culture will be used.
+			- New: All default validation attributes errors, model binding errors and identity errors are customizable/localizable via `XLocalizerOptions` or Json See https://docs.ziyad.info/en/XLocalizer/v1.0/setup-json.md.
+			Deprected:
+			- Express validation attributes are deprected. Use default attributes instead. A new approach has been introduced that allows to customize/localize all framework default validation attributes without the need to use Ex valdiaton attributes.
+			See all docs: https://docs.ziyad.info/en/XLocalizer/v1.0/index.md
+			
 			Release notes: https://github.com/LazZiya/XLocalizer/releases
 		</PackageReleaseNotes>
 		<VersionPrefix>1.0.0</VersionPrefix>
-		<VersionSuffix>rc.1</VersionSuffix>
+		<VersionSuffix></VersionSuffix>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<FileVersion>1.0.0.0</FileVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
@@ -42,7 +44,7 @@
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(UseReference)' == 'Nugets'">
-		<PackageReference Include="XLocalizer.Translate" Version="1.0.0-rc.1" Exclude="Build,Analyzers" />
+		<PackageReference Include="XLocalizer.Translate" Version="1.0.0" Exclude="Build,Analyzers" />
 	</ItemGroup>
 
 	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
