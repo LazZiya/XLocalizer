@@ -60,6 +60,7 @@ public void ConfigureServices(IServiceCollection services)
                 x.ResourcesPath = "LocalizationResources";
                 x.AutoTranslate = true;
                 x.AutoAddKeys = true;
+                x.TranslateFromCulture = "en";
             });
 }
 ````
@@ -80,7 +81,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ````
 
-### For more details goto [DOCS.Ziyad.info](http://docs.ziyad.info)
+### For more details goto [DOCS.Ziyad.info](https://docs.ziyad.info)
 
 ### Step by step tutorial 
  * coming soon...
@@ -88,6 +89,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 ### Sample projects
  * [XML based localization sample](https://github.com/LazZiya/XLocalizer.Samples/tree/master/XmlLocalizationSample)
  * [DB based localization sample](https://github.com/LazZiya/XLocalizer.Samples/tree/master/DbLocalizationSample)
+ * [Blazor localization sample](https://github.com/LazZiya/XLocalizer.Samples/tree/master/BlazorLocalizationSample)
 
 ### License
 MIT
