@@ -16,7 +16,7 @@ Say bye-bye to manually creating localization resources...!
 ### Setup
 Install latest preview from nuget :
 ````
-Install-Package XLocalizer -Pre
+Install-Package XLocalizer
 ````
 
 Add localization settings in `startup.cs`:
@@ -84,7 +84,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 ### For more details goto [DOCS.Ziyad.info](https://docs.ziyad.info)
 
 ### Step by step tutorial 
- * coming soon...
+ * [XLocalizer for Asp Net Core](http://ziyad.info/en/articles/1040-XLocalizer_for_Asp_Net_Core)
 
 ### Sample projects
  * [XML based localization sample](https://github.com/LazZiya/XLocalizer.Samples/tree/master/XmlLocalizationSample)
