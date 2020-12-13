@@ -38,7 +38,7 @@ namespace XLocalizer.Xml
             {
                 string typeName = ResourceTypeHelper.CreateResourceName(typeof(TResource), _options.ResourcesPath);
 
-                return $".\\{_options.ResourcesPath}\\{typeName}.{{0}}.xml";
+                return $"{_options.ResourcesPath}/{typeName}.{{0}}.xml";
             });
         }
 
