@@ -89,7 +89,6 @@ namespace XLocalizer.DataAnnotations
         public const string UrlAttribute_Invalid = "The {0} field is not a valid fully-qualified http, https, or ftp URL.";
 
         /// <summary>
-        /// <summary>
         /// The field {0} is invalid.
         /// </summary>
         public const string ValidationAttribute_ValidationError = "The field {0} is invalid.";

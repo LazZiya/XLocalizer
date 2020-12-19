@@ -349,7 +349,11 @@
             The {0} field is not a valid fully-qualified http, https, or ftp URL.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.ValidationAttribute_ValidationError" -->
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.ValidationAttribute_ValidationError">
+            <summary>
+            The field {0} is invalid.
+            </summary>
+        </member>
         <member name="T:XLocalizer.DataAnnotations.DefaultDataAnnotationsErrorMessagesProvider">
             <summary>
             Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
