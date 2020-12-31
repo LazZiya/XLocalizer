@@ -20,7 +20,7 @@
 			Release notes: https://github.com/LazZiya/XLocalizer/releases
 		</PackageReleaseNotes>
 		<VersionPrefix>1.0.1</VersionPrefix>
-		<VersionSuffix>a2</VersionSuffix>
+		<VersionSuffix>a4</VersionSuffix>
 		<AssemblyVersion>1.0.0.0</AssemblyVersion>
 		<FileVersion>1.0.0.0</FileVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>

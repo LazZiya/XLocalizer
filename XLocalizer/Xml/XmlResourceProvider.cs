@@ -36,6 +36,9 @@ namespace XLocalizer.Xml
         {
             return _cache.GetOrAdd($"_xml_{typeof(TResource).FullName}", _ =>
             {
+                if (!Directory.Exists(_options.ResourcesPath))
+                    Directory.CreateDirectory(_options.ResourcesPath);
+
                 string typeName = ResourceTypeHelper.CreateResourceName(typeof(TResource), _options.ResourcesPath);
 
                 return $"{_options.ResourcesPath}{Path.DirectorySeparatorChar}{typeName}.{{0}}.xml";
