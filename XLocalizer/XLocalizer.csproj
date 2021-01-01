@@ -14,15 +14,19 @@
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageTags>asp.net,core,razor,mvc,localization,globalization,client side,validation,translation,autokeyadding</PackageTags>
 		<PackageReleaseNotes>
-			- Improved ExpressMemoryCache : Each resource type will have its own memory key identifies, so 
-			See all docs: https://docs.ziyad.info/en/XLocalizer/v1.0/index.md
+      Improvements
+      - Create localization folder if not exists (XmlResourceProvider)
+      Fixes:
+      - Fixed #9 - Failed to find out ResourcesPath when hosted in linux
+      - Fixed #13 - Similar keys that are stored in different resources caching the same value
+      See all docs: https://docs.ziyad.info/en/XLocalizer/v1.0/index.md
 
-			Release notes: https://github.com/LazZiya/XLocalizer/releases
-		</PackageReleaseNotes>
+      Release notes: https://github.com/LazZiya/XLocalizer/releases
+    </PackageReleaseNotes>
 		<VersionPrefix>1.0.1</VersionPrefix>
-		<VersionSuffix>a4</VersionSuffix>
-		<AssemblyVersion>1.0.0.0</AssemblyVersion>
-		<FileVersion>1.0.0.0</FileVersion>
+		<VersionSuffix></VersionSuffix>
+		<AssemblyVersion>1.0.1.0</AssemblyVersion>
+		<FileVersion>1.0.1.0</FileVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIconUrl>https://github.com/LazZiya/XLocalizer/raw/master/XLocalizer/files/icon.png</PackageIconUrl>
