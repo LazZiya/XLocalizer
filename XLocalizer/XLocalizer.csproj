@@ -14,18 +14,19 @@
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageTags>asp.net,core,razor,mvc,localization,globalization,client side,validation,translation,autokeyadding</PackageTags>
 		<PackageReleaseNotes>
-			- New: `TranslateFromCulture` property to specify the source culture to translate from, if not specified default culture will be used.
-			- New: All default validation attributes errors, model binding errors and identity errors are customizable/localizable via `XLocalizerOptions` or Json See https://docs.ziyad.info/en/XLocalizer/v1.0/setup-json.md.
-			Deprected:
-			- Express validation attributes are deprected. Use default attributes instead. A new approach has been introduced that allows to customize/localize all framework default validation attributes without the need to use Ex valdiaton attributes.
-			See all docs: https://docs.ziyad.info/en/XLocalizer/v1.0/index.md
-			
-			Release notes: https://github.com/LazZiya/XLocalizer/releases
-		</PackageReleaseNotes>
-		<VersionPrefix>1.0.0</VersionPrefix>
+      Improvements
+      - Create localization folder if not exists (XmlResourceProvider)
+      Fixes:
+      - Fixed #9 - Failed to find out ResourcesPath when hosted in linux
+      - Fixed #13 - Similar keys that are stored in different resources caching the same value
+      See all docs: https://docs.ziyad.info/en/XLocalizer/v1.0/index.md
+
+      Release notes: https://github.com/LazZiya/XLocalizer/releases
+    </PackageReleaseNotes>
+		<VersionPrefix>1.0.1</VersionPrefix>
 		<VersionSuffix></VersionSuffix>
-		<AssemblyVersion>1.0.0.0</AssemblyVersion>
-		<FileVersion>1.0.0.0</FileVersion>
+		<AssemblyVersion>1.0.1.0</AssemblyVersion>
+		<FileVersion>1.0.1.0</FileVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIconUrl>https://github.com/LazZiya/XLocalizer/raw/master/XLocalizer/files/icon.png</PackageIconUrl>
@@ -39,7 +40,7 @@
 	<PropertyGroup>
 		<UseReference>Nugets</UseReference>
 	</PropertyGroup>
-	
+
 	<ItemGroup Condition="'$(UseReference)' == 'Projects'">
 	</ItemGroup>
 
@@ -73,23 +74,23 @@
 	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
 		<FrameworkReference Include="Microsoft.AspNetCore.App" Version="3.1.0" Exclude="Build,Analyzers" />
 	</ItemGroup>
-	
+
 	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
 		<FrameworkReference Include="Microsoft.AspNetCore.App" Version="5.0.0" Exclude="Build,Analyzers" />
 	</ItemGroup>
-	
+
 	<ItemGroup>
-	  <None Remove="Resx\ResxTemplate.xml" />
+		<None Remove="Resx\ResxTemplate.xml" />
 	</ItemGroup>
-	
+
 	<ItemGroup>
-	  <EmbeddedResource Include="Templates\ResxTemplate.xml">
-	    <Generator></Generator>
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </EmbeddedResource>
-	  <EmbeddedResource Include="Templates\XmlTemplate.xml">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </EmbeddedResource>
+		<EmbeddedResource Include="Templates\ResxTemplate.xml">
+			<Generator></Generator>
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="Templates\XmlTemplate.xml">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -103,7 +104,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Properties\" />
+		<Folder Include="Properties\" />
 	</ItemGroup>
 
 	<Target Name="AfterPack" AfterTargets="Pack">

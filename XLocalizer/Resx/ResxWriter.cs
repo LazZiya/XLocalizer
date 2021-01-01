@@ -130,7 +130,11 @@ namespace XLocalizer.Resx
                 }
                 catch (Exception e)
                 {
-                    throw e;
+                    _logger.LogError("Error while adding element to resource file.");
+                    _logger.LogError(e.Message);
+                    tsk.SetException(e);
+                    tsk.SetResult(false);
+                    return await tsk.Task;
                 }
             }
 

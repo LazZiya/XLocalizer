@@ -29,25 +29,33 @@
             Provides an IMemoryCache service to save localized values in a memory cache
             </summary>
         </member>
+        <member name="F:XLocalizer.Common.ExpressMemoryCache._keyFormat">
+            <summary>
+            _XL_ : XLocalizer
+            {0}: resource full name
+            {1}: culture name
+            {2}: key name
+            </summary>
+        </member>
         <member name="M:XLocalizer.Common.ExpressMemoryCache.#ctor(Microsoft.Extensions.Caching.Memory.IMemoryCache,Microsoft.Extensions.Options.IOptions{Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions},Microsoft.Extensions.Options.IOptions{XLocalizer.XLocalizerOptions})">
             <summary>
             Create a new instance of ExpressMemoryCache
             </summary>
         </member>
-        <member name="M:XLocalizer.Common.ExpressMemoryCache.Set(System.String,System.String)">
+        <member name="M:XLocalizer.Common.ExpressMemoryCache.Set``1(System.String,System.String)">
             <summary>
             Add new entry to the cache
             </summary>
             <param name="key"></param>
             <param name="value"></param>
         </member>
-        <member name="M:XLocalizer.Common.ExpressMemoryCache.Remove(System.String)">
+        <member name="M:XLocalizer.Common.ExpressMemoryCache.Remove``1(System.String)">
             <summary>
             Remove entry from cache
             </summary>
             <param name="key"></param>
         </member>
-        <member name="M:XLocalizer.Common.ExpressMemoryCache.TryGetValue(System.String,System.String@)">
+        <member name="M:XLocalizer.Common.ExpressMemoryCache.TryGetValue``1(System.String,System.String@)">
             <summary>
             Get a cached item from the memory cache
             </summary>
@@ -341,7 +349,11 @@
             The {0} field is not a valid fully-qualified http, https, or ftp URL.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.ValidationAttribute_ValidationError" -->
+        <member name="F:XLocalizer.DataAnnotations.DataAnnotationsErrorMessages.ValidationAttribute_ValidationError">
+            <summary>
+            The field {0} is invalid.
+            </summary>
+        </member>
         <member name="T:XLocalizer.DataAnnotations.DefaultDataAnnotationsErrorMessagesProvider">
             <summary>
             Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>

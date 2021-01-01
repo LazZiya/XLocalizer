@@ -12,7 +12,13 @@ namespace XLocalizer.Common
         private readonly IMemoryCache _cache;
         private readonly XLocalizerOptions _options;
         private readonly MemoryCacheEntryOptions _entryOps;
-        private string _keyFormat = "_Ex_Loc_{0}:{1}";
+        /// <summary>
+        /// _XL_ : XLocalizer
+        /// {0}: resource full name
+        /// {1}: culture name
+        /// {2}: key name
+        /// </summary>
+        private readonly string _keyFormat = "_XL_{0}_{1}:{2}";
 
         /// <summary>
         /// Create a new instance of ExpressMemoryCache
@@ -29,11 +35,11 @@ namespace XLocalizer.Common
         /// </summary>
         /// <param name="key"></param>
         /// <param name="value"></param>
-        public void Set(string key, string value)
+        public void Set<T>(string key, string value) where T : class
         {
             if (_options.UseExpressMemoryCache)
             {
-                var k = CreateFormattedKey(key);
+                var k = CreateFormattedKey<T>(key);
 
                 _cache.Set<string>(k, value, _entryOps);
             }
@@ -43,11 +49,11 @@ namespace XLocalizer.Common
         /// Remove entry from cache
         /// </summary>
         /// <param name="key"></param>
-        public void Remove(string key)
+        public void Remove<T>(string key) where T : class
         {
             if (_options.UseExpressMemoryCache)
             {
-                var k = CreateFormattedKey(key);
+                var k = CreateFormattedKey<T>(key);
 
                 _cache.Remove(k);
             }
@@ -59,11 +65,11 @@ namespace XLocalizer.Common
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public bool TryGetValue(string key, out string value)
+        public bool TryGetValue<T>(string key, out string value) where T : class
         {
             if (_options.UseExpressMemoryCache)
             {
-                var k = CreateFormattedKey(key);
+                var k = CreateFormattedKey<T>(key);
 
                 return _cache.TryGetValue(k, out value);
             }
@@ -72,9 +78,9 @@ namespace XLocalizer.Common
             return false;
         }
 
-        private string CreateFormattedKey(string key)
+        private string CreateFormattedKey<T>(string key) where T : class
         {
-            return string.Format(_keyFormat, CultureInfo.CurrentCulture.Name, key);
+            return string.Format(_keyFormat, typeof(T).FullName, CultureInfo.CurrentCulture.Name, key);
         }
     }
 }

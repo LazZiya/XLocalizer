@@ -90,7 +90,7 @@ namespace XLocalizer
             var availableInTranslate = false;
 
             // Option 1: Look in the cache
-            bool availableInCache = _cache.TryGetValue(name, out string value);
+            bool availableInCache = _cache.TryGetValue<TResource>(name, out string value);
 
             if (!availableInCache)
             {
@@ -121,7 +121,7 @@ namespace XLocalizer
                 if (availableInSource || availableInTranslate)
                 {
                     // Save to cache
-                    _cache.Set(name, value);
+                    _cache.Set<TResource>(name, value);
 
                     // Set availability to true
                     availableInCache = true;
