@@ -87,50 +87,50 @@ namespace XLocalizer
 
         private LocalizedString GetLocalizedString(string name, params object[] arguments)
         {
-            var availableInTranslate = false;
+            // Option 0: If current culture is same as translation culture just return the key back
+            if (_transCulture.Equals(CultureInfo.CurrentCulture.Name, StringComparison.OrdinalIgnoreCase))
+            {
+                return new LocalizedString(name, string.Format(name, arguments), true, string.Empty);
+            }
 
             // Option 1: Look in the cache
             bool availableInCache = _cache.TryGetValue<TResource>(name, out string value);
-
-            if (!availableInCache)
+            if (availableInCache)
             {
-                var culture = CultureInfo.CurrentCulture.Name;
+                return new LocalizedString(name, string.Format(value, arguments), false, string.Empty);
+            }
 
-                // Option 2: Look in resource
-                bool availableInSource = _provider.TryGetValue<TResource>(name, out value);
+            // Option 2: Look in source file
+            bool availableInSource = _provider.TryGetValue<TResource>(name, out value);
+            if (availableInSource)
+            {
+                // Add to cache
+                _cache.Set<TResource>(name, value);
 
-                if (!availableInSource && _options.AutoTranslate)
+                return new LocalizedString(name, string.Format(value, arguments), false, string.Empty);
+            }
+
+            // Option 3: Try online translation service
+            var availableInTranslate = false;
+            if (_options.AutoTranslate)
+            {
+                availableInTranslate = _translator.TryTranslate(_transCulture, CultureInfo.CurrentCulture.Name, name, out value);
+                if (availableInTranslate)
                 {
-
-                    if (_transCulture != culture)
-                        // Option 3: Online translate
-                        availableInTranslate = _translator.TryTranslate(_transCulture, culture, name, out value);
-                }
-
-                // add a resource if it is not available in source and auto add is enabled
-                if (!availableInSource && _options.AutoAddKeys && _transCulture != culture)
-                {
-                    // Add a resource only if auto translate is off or if available in translation
-                    if (!_options.AutoTranslate || availableInTranslate)
-                    {
-                        bool savedToResource = _provider.TrySetValue<TResource>(name, value ?? name, "Created by XLocalizer");
-                        _logger.LogInformation($"Save resource to file, status: '{savedToResource}', key: '{name}', value: '{value ?? name}'");
-                    }
-                }
-
-                if (availableInSource || availableInTranslate)
-                {
-                    // Save to cache
+                    // Add to cache
                     _cache.Set<TResource>(name, value);
-
-                    // Set availability to true
-                    availableInCache = true;
                 }
             }
 
-            var val = string.Format(value ?? name, arguments);
+            // Save to source file when AutoAdd is anebled and
+            // translation success or AutoTranslate is off
+            if (_options.AutoAddKeys && (availableInTranslate || !_options.AutoTranslate))
+            {
+                bool savedToResource = _provider.TrySetValue<TResource>(name, value ?? name, "Created by XLocalizer");
+                _logger.LogInformation($"Save resource to file, status: '{savedToResource}', key: '{name}', value: '{value ?? name}'");
+            }
 
-            return new LocalizedString(name, val, resourceNotFound: !availableInCache, searchedLocation: typeof(TResource).FullName);
+            return new LocalizedString(name, string.Format(value ?? name, arguments), !availableInTranslate, typeof(TResource).FullName);
         }
     }
 }
