@@ -15,10 +15,8 @@
 		<PackageTags>asp.net,core,razor,mvc,localization,globalization,client side,validation,translation,autokeyadding</PackageTags>
 		<PackageReleaseNotes>
       Improvements
-      - Create localization folder if not exists (XmlResourceProvider)
-      Fixes:
-      - Fixed #9 - Failed to find out ResourcesPath when hosted in linux
-      - Fixed #13 - Similar keys that are stored in different resources caching the same value
+      - Performance imrovements 
+      - Bypass localizing if current culture is same as TranslateFromCulture
       See all docs: https://docs.ziyad.info/en/XLocalizer/v1.0/index.md
 
       Release notes: https://github.com/LazZiya/XLocalizer/releases
