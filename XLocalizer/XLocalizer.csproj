@@ -24,7 +24,7 @@
       Release notes: https://github.com/LazZiya/XLocalizer/releases
     </PackageReleaseNotes>
 		<VersionPrefix>1.0.2</VersionPrefix>
-		<VersionSuffix>A1</VersionSuffix>
+		<VersionSuffix></VersionSuffix>
 		<AssemblyVersion>1.0.2.0</AssemblyVersion>
 		<FileVersion>1.0.2.0</FileVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
