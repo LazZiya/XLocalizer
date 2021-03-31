@@ -21,64 +21,16 @@ Install-Package XLocalizer
 
 Add localization settings in `startup.cs`:
 ````cs
-using XLocalizer;
-using XLocalizer.Xml;
-using XLocalizer.Routing;
-using XLocalizer.Translate;
-using XLocalizer.Translate.GoogleTranslate;
 
-public void ConfigureServices(IServiceCollection services)
-{
-    // Register a translation service
-    services.AddHttpClient<ITranslator, GoogleTranslateService>();
-    
-    // Define supported cultures
-    var cultures = new CultureInfo[]
+// Add XLocalizer
+services.AddRazorPages()
+    .AddXLocalizer<LocSource, GoogleTranslateService>(ops =>
     {
-        new CultureInfo("en"),
-        new CultureInfo("tr"),
-        new CultureInfo("ar")
-    };
-    
-    // Configure request localization options
-    services.Configure<RequestLocalizationOptions>(ops =>
-    {
-        ops.SupportedCultures = cultures;
-        ops.SupportedUICultures = cultures;
-        ops.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
-        ops.RequestCultureProviders.Insert(0, new RouteSegmentRequestCultureProvider(cultures));
+        ops.ResourcesPath = "LocalizationResources";
+        ops.AutoTranslate = true;
+        ops.AutoAddKeys = true;
+        ops.TranslateFromCulture = "en";
     });
-    
-    // Register the built-in Xml resource provider
-    services.AddSingleton<IXResourceProvider, XmlResourceProvider>();   
-
-    // Add XLocalizer
-    services.AddRazorPages()
-            .AddRazorPagesOptions(ops => { ops.Conventions?.Insert(0, new RouteTemplateModelConventionRazorPages()); })
-            .AddXLocalizer<LocSource, GoogleTranslateService>((x) =>
-            {
-                x.ResourcesPath = "LocalizationResources";
-                x.AutoTranslate = true;
-                x.AutoAddKeys = true;
-                x.TranslateFromCulture = "en";
-            });
-}
-````
-
-Then configure the app to use `RequestLocalization` middleware :
-````cs
-public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-{
-    // Other codes...
-    
-    // Add localization middleware to the app
-    app.UseRequestLocalization();
-
-    app.UseEndpoints(endpoints =>
-    {
-        endpoints.MapRazorPages();
-    });
-}
 ````
 
 ### For more details goto [DOCS.Ziyad.info](https://docs.ziyad.info)
