@@ -1,5 +1,4 @@
-﻿using System;
-using XLocalizer.ErrorMessages;
+﻿using XLocalizer.ErrorMessages;
 
 namespace XLocalizer
 {
@@ -12,12 +11,6 @@ namespace XLocalizer
         /// The path to the resources folder e.g. "LocalizationResources"
         /// </summary>
         public string ResourcesPath { get; set; } = "LocalizationResources";
-
-        /// <summary>
-        /// Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
-        /// </summary>
-        [Obsolete("Express validation attributes are deprected. Use default attributes instead. See https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md")]
-        public bool UseExpressValidationAttributes { get; set; } = false;
 
         /// <summary>
         /// If the key string is not found in the DB, it will be inserted autoamtically to the DB.

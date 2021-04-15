@@ -14,17 +14,17 @@
 		<PackageIcon>icon.png</PackageIcon>
 		<PackageTags>asp.net,core,razor,mvc,localization,globalization,client side,validation,translation,autokeyadding</PackageTags>
 		<PackageReleaseNotes>
-      Improvements
-      - Performance imrovements 
-      - Bypass localizing if current culture is same as TranslateFromCulture
-      See all docs: https://docs.ziyad.info/en/XLocalizer/v1.0/index.md
+			Improvements
+			- Removed deprected property UseExpressValidationAttributes. See https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md
+			- Bypass localizing if current culture is same as TranslateFromCulture
+			See all docs: https://docs.ziyad.info/en/XLocalizer/v1.0/index.md
 
-      Release notes: https://github.com/LazZiya/XLocalizer/releases
-    </PackageReleaseNotes>
-		<VersionPrefix>1.0.2</VersionPrefix>
-		<VersionSuffix></VersionSuffix>
-		<AssemblyVersion>1.0.2.0</AssemblyVersion>
-		<FileVersion>1.0.2.0</FileVersion>
+			Release notes: https://github.com/LazZiya/XLocalizer/releases
+		</PackageReleaseNotes>
+		<VersionPrefix>1.0.3</VersionPrefix>
+		<VersionSuffix>test-0</VersionSuffix>
+		<AssemblyVersion>1.0.3.0</AssemblyVersion>
+		<FileVersion>1.0.3.0</FileVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIconUrl>https://github.com/LazZiya/XLocalizer/raw/master/XLocalizer/files/icon.png</PackageIconUrl>
