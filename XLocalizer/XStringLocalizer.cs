@@ -87,8 +87,12 @@ namespace XLocalizer
 
         private LocalizedString GetLocalizedString(string name, params object[] arguments)
         {
-            // Option 0: If current culture is same as translation culture just return the key back
-            if (_transCulture.Equals(CultureInfo.CurrentCulture.Name, StringComparison.OrdinalIgnoreCase))
+            var _targetCulture = CultureInfo.CurrentCulture.Name;
+            var _targetEqualSource = _transCulture.Equals(_targetCulture, StringComparison.OrdinalIgnoreCase);
+
+            // Option 0: Skip localization if:
+            // LocalizeDefaultCulture == false and currentCulture == _transCulture
+            if (!_options.LocalizeDefaultCulture && _targetEqualSource)
             {
                 return new LocalizedString(name, string.Format(name, arguments), true, string.Empty);
             }
@@ -111,10 +115,12 @@ namespace XLocalizer
             }
 
             // Option 3: Try online translation service
+            //           and don't do online translation if target == source culture,
+            //           because online tranlsation services requires two different cultures.
             var availableInTranslate = false;
-            if (_options.AutoTranslate)
+            if (_options.AutoTranslate && !_targetEqualSource)
             {
-                availableInTranslate = _translator.TryTranslate(_transCulture, CultureInfo.CurrentCulture.Name, name, out value);
+                availableInTranslate = _translator.TryTranslate(_transCulture, _targetCulture, name, out value);
                 if (availableInTranslate)
                 {
                     // Add to cache
@@ -122,9 +128,10 @@ namespace XLocalizer
                 }
             }
 
-            // Save to source file when AutoAdd is anebled and
-            // translation success or AutoTranslate is off
-            if (_options.AutoAddKeys && (availableInTranslate || !_options.AutoTranslate))
+            // Save to source file when AutoAdd is anebled and:
+            // A:translation success or, B: AutoTranslate is off or, C: Target and source cultures are same
+            // option C: useful when we use code keys to localize defatul culture as well
+            if (_options.AutoAddKeys && (availableInTranslate || !_options.AutoTranslate || _targetEqualSource))
             {
                 bool savedToResource = _provider.TrySetValue<TResource>(name, value ?? name, "Created by XLocalizer");
                 _logger.LogInformation($"Save resource to file, status: '{savedToResource}', key: '{name}', value: '{value ?? name}'");

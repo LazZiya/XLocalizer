@@ -1748,11 +1748,6 @@
             The path to the resources folder e.g. "LocalizationResources"
             </summary>
         </member>
-        <member name="P:XLocalizer.XLocalizerOptions.UseExpressValidationAttributes">
-            <summary>
-            Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
-            </summary>
-        </member>
         <member name="P:XLocalizer.XLocalizerOptions.AutoAddKeys">
             <summary>
             If the key string is not found in the DB, it will be inserted autoamtically to the DB.
@@ -1776,6 +1771,12 @@
         <member name="P:XLocalizer.XLocalizerOptions.TranslateFromCulture">
             <summary>
             The culture name to translate from, if not set default request culture will be used.
+            </summary>
+        </member>
+        <member name="P:XLocalizer.XLocalizerOptions.LocalizeDefaultCulture">
+            <summary>
+            When set to true the default culture (or source translation culture) will be localized (use case; when using CODE keys instead of texts.).
+            Default value is false (default culture not localized).
             </summary>
         </member>
         <member name="P:XLocalizer.XLocalizerOptions.ValidationErrors">

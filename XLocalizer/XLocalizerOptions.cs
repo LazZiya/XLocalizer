@@ -1,5 +1,4 @@
-﻿using System;
-using XLocalizer.ErrorMessages;
+﻿using XLocalizer.ErrorMessages;
 
 namespace XLocalizer
 {
@@ -12,12 +11,6 @@ namespace XLocalizer
         /// The path to the resources folder e.g. "LocalizationResources"
         /// </summary>
         public string ResourcesPath { get; set; } = "LocalizationResources";
-
-        /// <summary>
-        /// Express validation attributes are deprected. Use default attributes instead. See <a href="https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md">Localizing Data Annotations</a>
-        /// </summary>
-        [Obsolete("Express validation attributes are deprected. Use default attributes instead. See https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md")]
-        public bool UseExpressValidationAttributes { get; set; } = false;
 
         /// <summary>
         /// If the key string is not found in the DB, it will be inserted autoamtically to the DB.
@@ -43,6 +36,12 @@ namespace XLocalizer
         /// The culture name to translate from, if not set default request culture will be used.
         /// </summary>
         public string TranslateFromCulture { get; set; }
+
+        /// <summary>
+        /// When set to true the default culture (or source translation culture) will be localized (use case; when using CODE keys instead of texts.).
+        /// Default value is false (default culture not localized).
+        /// </summary>
+        public bool LocalizeDefaultCulture { get; set; } = false;
 
         /// <summary>
         /// Customize all valdiation error messages.
