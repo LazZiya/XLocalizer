@@ -38,6 +38,12 @@ namespace XLocalizer
         public string TranslateFromCulture { get; set; }
 
         /// <summary>
+        /// When set to true the default culture (or source translation culture) will be localized (use case; when using CODE keys instead of texts.).
+        /// Default value is false (default culture not localized).
+        /// </summary>
+        public bool LocalizeDefaultCulture { get; set; } = false;
+
+        /// <summary>
         /// Customize all valdiation error messages.
         /// </summary>
         public ValidationErrors ValidationErrors { get; set; } = new ValidationErrors();

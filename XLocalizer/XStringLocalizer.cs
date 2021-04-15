@@ -87,8 +87,11 @@ namespace XLocalizer
 
         private LocalizedString GetLocalizedString(string name, params object[] arguments)
         {
-            // Option 0: If current culture is same as translation culture just return the key back
-            if (_transCulture.Equals(CultureInfo.CurrentCulture.Name, StringComparison.OrdinalIgnoreCase))
+            var currentCulture = CultureInfo.CurrentCulture.Name;
+
+            // Option 0: Skip localization if:
+            // LocalizeDefaultCulture == false and currentCulture == _transCulture
+            if (!_options.LocalizeDefaultCulture && _transCulture.Equals(currentCulture, StringComparison.OrdinalIgnoreCase))
             {
                 return new LocalizedString(name, string.Format(name, arguments), true, string.Empty);
             }
@@ -114,7 +117,7 @@ namespace XLocalizer
             var availableInTranslate = false;
             if (_options.AutoTranslate)
             {
-                availableInTranslate = _translator.TryTranslate(_transCulture, CultureInfo.CurrentCulture.Name, name, out value);
+                availableInTranslate = _translator.TryTranslate(_transCulture, currentCulture, name, out value);
                 if (availableInTranslate)
                 {
                     // Add to cache

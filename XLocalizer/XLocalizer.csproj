@@ -16,7 +16,7 @@
 		<PackageReleaseNotes>
 			Improvements
 			- Removed deprected property UseExpressValidationAttributes. See https://docs.ziyad.info/en/XLocalizer/v1.0/localizing-validation-attributes-errors.md
-			- Bypass localizing if current culture is same as TranslateFromCulture
+			- New option LocalizeDefatulCultre: Use to enable/disable localizing default culture
 			See all docs: https://docs.ziyad.info/en/XLocalizer/v1.0/index.md
 
 			Release notes: https://github.com/LazZiya/XLocalizer/releases
