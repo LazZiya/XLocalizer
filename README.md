@@ -1,17 +1,16 @@
 ## XLocalizer for Asp.Net Core 
 Say bye-bye to manually creating localization resources...! 
 
-**- Online Translation :** Auto translation of missed localized values.
+- Online Translation: Auto translation of missed localized values.
+- Auto Key Adding: Auto adding missing keys to the resources files.
+- Multiple Resource Type Support: Built-in localization support based on _.RESX_, _.XML_, _DB_. Extendable localization support based on any custom file/db type.
+- Export to Resx: Resources from any source type can be exported to _.RESX_ files via built-in exporters.
+- Do it Fast: Custom cache support for speeding up the process of getting localized values from sources.
+- Standard interfaces: Easy to use due to using the standard localization interfaces: `IStringLocalizer`, `IHtmlLocalizer`, `IStringLocalizerFactory` and `IHtmlLocalizerFactory`.
 
-**- Auto Key Adding :** Auto adding missing keys to the resources files.
+## How it works:
 
-**- Multiple Resource Type Support :** Built-in localization support based on _.RESX_, _.XML_, _DB_. Extendable localization support based on any custom file/db type.
-
-**- Export to Resx :** Resources from any source type can be exported to _.RESX_ files via built-in exporters.
-
-**- Do it Fast :** Custom cache support for speeding up the process of getting localized values from sources.
-
-**- Standard interfaces :** Easy to use due to using the standard localization interfaces: `IStringLocalizer`, `IHtmlLocalizer`, `IStringLocalizerFactory` and `IHtmlLocalizerFactory`.
+![XLocalizer Simplified Workflow](https://github.com/LazZiya/Docs/raw/master/XLocalizer/v1.0/images/XLocalizer-Flowchart.jpg)
 
 ### Setup
 Install latest preview from nuget :
