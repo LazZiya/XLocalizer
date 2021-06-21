@@ -10,7 +10,7 @@ Say bye-bye to manually creating localization resources...!
 
 ## How it works:
 
-![XLocalizer Simplified Workflow](https://github.com/LazZiya/Docs/raw/master/XLocalizer/v1.0/images/XLocalizer-Flowchart.jpg)
+![XLocalizer Simplified Workflow](https://github.com/LazZiya/Docs/raw/master/XLocalizer/v1.0/images/xlocalizer-flowchart-sample.jpg)
 
 ### Setup
 Install latest preview from nuget :
