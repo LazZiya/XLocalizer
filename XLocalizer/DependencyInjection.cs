@@ -1,7 +1,5 @@
 ﻿using XLocalizer.Common;
-using XLocalizer.DataAnnotations;
 using XLocalizer.Identity;
-using XLocalizer.ModelBinding;
 using XLocalizer.Resx;
 using XLocalizer.Translate;
 using Microsoft.AspNetCore.Mvc.Localization;

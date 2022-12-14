@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿/*
+
+using Microsoft.Extensions.DependencyInjection;
+
 
 namespace XLocalizer.DataAnnotations
 {
@@ -30,3 +33,5 @@ namespace XLocalizer.DataAnnotations
         }
     }
 }
+
+*/
