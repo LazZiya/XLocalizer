@@ -45,4 +45,8 @@ services.AddRazorPages()
 ### License
 MIT
 
+### Sponsors
+- [Julian Dormon](https://github.com/julianadormon)
+- become a [sponsor](https://github.com/sponsors/LazZiya)
+
 [1]:https://github.com/LazZiya/XLocalizer.Translate
