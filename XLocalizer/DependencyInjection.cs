@@ -1,7 +1,6 @@
 ﻿using XLocalizer.Common;
 using XLocalizer.DataAnnotations;
 using XLocalizer.Identity;
-using XLocalizer.ModelBinding;
 using XLocalizer.Resx;
 using XLocalizer.Translate;
 using Microsoft.AspNetCore.Mvc.Localization;
@@ -10,8 +9,6 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Localization;
 using System;
 using XLocalizer.Xml;
-using Microsoft.Extensions.Configuration;
-using XLocalizer.Routing;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Mvc;
 using XLocalizer.MetadataProviders;

@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFrameworks>netcoreapp2.0;netcoreapp2.1;netcoreapp2.2;netcoreapp3.0;netcoreapp3.1;net5.0</TargetFrameworks>
+		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
 		<PackageId>XLocalizer</PackageId>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<ApplicationIcon>files\icon.ico</ApplicationIcon>
@@ -21,10 +21,10 @@
 
 			Release notes: https://github.com/LazZiya/XLocalizer/releases
 		</PackageReleaseNotes>
-		<VersionPrefix>1.0.3</VersionPrefix>
+		<VersionPrefix>1.1.0-beta-1</VersionPrefix>
 		<VersionSuffix></VersionSuffix>
-		<AssemblyVersion>1.0.3.0</AssemblyVersion>
-		<FileVersion>1.0.3.0</FileVersion>
+		<AssemblyVersion>1.1.0.0</AssemblyVersion>
+		<FileVersion>1.1.0.0</FileVersion>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIconUrl>https://github.com/LazZiya/XLocalizer/raw/master/XLocalizer/files/icon.png</PackageIconUrl>
@@ -46,35 +46,16 @@
 		<PackageReference Include="XLocalizer.Translate" Version="1.0.0" Exclude="Build,Analyzers" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" Version="2.0.0" Exclude="Build,Analyzers" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Localization" Version="2.0.0" Exclude="Build,Analyzers" />
-		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.0.4" Exclude="Build,Analyzers" />
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+		<FrameworkReference Include="Microsoft.AspNetCore.App" Version="6.0.35" Exclude="Build,Analyzers" />
 	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.1'">
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" Version="2.1.0" Exclude="Build,Analyzers" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Localization" Version="2.1.0" Exclude="Build,Analyzers" />
-		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.1.0" Exclude="Build,Analyzers" />
+	
+	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
+		<FrameworkReference Include="Microsoft.AspNetCore.App" Version="7.0.20" Exclude="Build,Analyzers" />
 	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.2'">
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" Version="2.2.0" Exclude="Build,Analyzers" />
-		<PackageReference Include="Microsoft.AspNetCore.Mvc.Localization" Version="2.2.0" Exclude="Build,Analyzers" />
-		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" Exclude="Build,Analyzers" />
-		<PackageReference Include="Microsoft.AspNetCore.Routing" Version="2.2.0" Exclude="Build,Analyzers" />
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
-		<FrameworkReference Include="Microsoft.AspNetCore.App" Version="3.0.0" Exclude="Build,Analyzers" />
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
-		<FrameworkReference Include="Microsoft.AspNetCore.App" Version="3.1.0" Exclude="Build,Analyzers" />
-	</ItemGroup>
-
-	<ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
-		<FrameworkReference Include="Microsoft.AspNetCore.App" Version="5.0.0" Exclude="Build,Analyzers" />
+	
+	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+		<FrameworkReference Include="Microsoft.AspNetCore.App" Version="8.0.10" Exclude="Build,Analyzers" />
 	</ItemGroup>
 
 	<ItemGroup>
