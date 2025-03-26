@@ -97,7 +97,7 @@ namespace XLocalizer
             // Add custom providers for overriding default modelbinding and data annotations errors
             builder.Services.AddSingleton<IConfigureOptions<MvcOptions>, ConfigureMvcOptions>();
 
-            // Add data annotations locailzation
+            // Add data annotations localization
             builder.AddDataAnnotationsLocalization(ops =>
             {
                 // This will look for localization resource with type of T (shared resource)
