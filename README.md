@@ -32,7 +32,7 @@ services.AddRazorPages()
     });
 ````
 
-### For more details goto [DOCS.Ziyad.info](https://docs.ziya.info.tr)
+### For more details goto [DOCS.Ziya.info.tr](https://docs.ziya.info.tr)
 
 ### Step by step tutorial 
  * [XLocalizer for Asp Net Core](http://ziya.info.tr/en/articles/1040-XLocalizer_for_Asp_Net_Core)
